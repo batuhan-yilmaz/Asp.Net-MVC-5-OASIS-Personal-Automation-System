@@ -1,0 +1,200 @@
+﻿@model  OASIS.Models.Entity.users
+@{
+    ViewBag.Title = "Index";
+
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OASIS Yönetim</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/Content/Admin/dist/img/favicon.png" rel="icon">
+    <link href="~/Content/Admin/dist/img/oasis-touch-icon.png" rel="oasis-touch-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/Admin/plugins/fontawesome-free/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/Content/Admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/Admin/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="/oasiscontrolcenter/"><b>OASIS</b> |Yönetim</a>
+        </div>
+        @if (ViewBag.Status == null || !ViewBag.Status)
+        {
+            <!-- /.login-logo -->
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <a href="~/">
+                        <p class="login-box-msg">Anasayfaya dönmek için dokun.</p>
+                    </a>
+
+                    @using (Html.BeginForm("Alogin", "Login", new { ReturnUrl = Request.QueryString["ReturnUrl"], FormMethod.Post }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="input-group mb-3">
+
+                            @Html.TextBoxFor(m => m.usrname, new { @class = "form-control", autofocus = "autofocus", placeholder = "Lütfen Kullanıcı Adınızı Giriniz.", id = "usrname" })
+
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.usrname)
+                        @Html.ValidationMessageFor(m => m.userid)
+                        <div class="input-group mb-3">
+                            @Html.PasswordFor(m => m.password, new { @class = "form-control", @onkeyup = "success()", id = "pass", autofocus = "autofocus", @type = "password", placeholder = "Lütfen Parolanızı Giriniz." })
+
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.password)
+
+                        <div class="row">
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" id="sendButton" disabled class="fa fa-sign-in btn btn-primary"> Giriş</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        @Html.HiddenFor(m => m.active, new { @class = "form-control", @Value = "fas fa-check text-primary" })
+                        @Html.HiddenFor(m => m.userid, new { @Value = "", id = "userid" })
+                    }
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger mt-4">
+                            @ViewBag.Error
+
+                        </div>
+                    }
+
+                    @if (ViewBag.Error2 != null)
+                    {
+                        <div class="alert alert-warning mt-4">
+                            @ViewBag.Error2
+
+                        </div>
+                    }
+                    <p class="mt-3 mb-1">
+                        @Html.ActionLink("Parolamı Unuttum", "ForgotPassword", new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                    </p>
+                </div>
+
+
+
+                <!-- /.login-card-body -->
+
+            </div>
+        }
+        else
+        {
+            <div>@ViewBag.Message</div>
+            <div>
+                <br />
+                <img src="@ViewBag.BarcodeImageUrl" />
+            </div>
+            <br />
+            <div>
+                Hesap Adı: @ViewBag.User
+            </div>
+            <div>
+                Kurulum Anahtarı: @ViewBag.SetupCode
+            </div>
+            <br />
+            <div>
+                @using (Html.BeginForm("TwoFactorAuthenticate", "Login", FormMethod.Post))
+                {
+                    <input type="text" name="CodeDigit" class="form-control-sm" />
+                    <button type="submit" class="fa fa-check btn btn-primary"> Doğrula</button>
+                }
+            </div>
+        }
+        <!-- /.login-box -->
+        <!-- jQuery -->
+        <script src="~/Content/Admin/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="~/Content/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="~/Content/Admin/dist/js/adminlte.min.js"></script>
+
+    </div>
+</body>
+</html>
+
+
+<script>
+
+    function success() {
+        if (document.getElementById("userid").value === "") {
+            document.getElementById('sendButton').disabled = true;
+        } else {
+            document.getElementById('sendButton').disabled = false;
+        }
+    }
+</script>
+
+
+<script>
+    var usernamelist = [];
+    var useridlist = [];
+    var activelist = [];
+    // BU AJAX'TA OASIS USERSDA Kİ BİLGİLERİ ÇEKİCEK...
+    var url = '/Login/ResetPw';
+    $.getJSON(url, function (data) {
+        for (var item in data.Result) {
+            var deger = '<tr>' + data.Result[item].userid + ',' + data.Result[item].usrname + ',' + data.Result[item].active + '</tr>';
+            $('table').append(deger);
+            var username1 = data.Result[item].usrname;
+            var userid1 = data.Result[item].userid;
+            var active1 = data.Result[item].active;
+            usernamelist.push(username1);
+            useridlist.push(userid1);
+            activelist.push(active1);
+        };
+    });
+    $('#usrname, #pass').bind("keyup change mouseup mousedown keydown", function () {
+        var username = document.getElementById("usrname").value;
+        for (i = 0; i < usernamelist.length; i++) {
+            if (username == usernamelist[i]) {
+                userid = useridlist[i];
+                userid = $('#userid').val(userid);
+                break;
+            }
+            else {
+                continue;
+            }
+        }
+    });
+    $('html').keyup(function (e) { if (e.keyCode == 8 || e.keyCode == 46) document.getElementById("userid").value = null ; success()})
+</script>

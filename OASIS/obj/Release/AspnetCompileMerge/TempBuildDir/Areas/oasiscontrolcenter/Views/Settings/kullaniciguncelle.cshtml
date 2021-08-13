@@ -1,0 +1,124 @@
+﻿@model OASIS.Models.Entity.users
+@{
+    ViewBag.Title = "Kullanıcı Güncelle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "kullanicilar";
+    ViewBag.menuactive = "Ayarlar";
+}
+
+@if (TempData["telvarg"] != null)
+{
+
+    <script>
+        Swal.fire('Güncelleme Başarısız', 'Telefon Numarası Daha Önce Alınmış.', 'error');
+
+    </script>
+}
+
+@if (TempData["tcvarg"] != null)
+{
+
+    <script>
+        Swal.fire('Güncelleme Başarısız', 'Tc Numarası Başka Bir Kullanıcıya Ait.', 'warning');
+
+
+    </script>
+}
+
+@if (TempData["emailvarg"] != null)
+{
+
+    <script>
+
+        Swal.fire('Güncelleme Başarısız', 'E-Posta Adresi Daha Önce Alınmış.', 'error');
+
+
+    </script>
+}
+
+@if (TempData["kullaniciHata2"] != null)
+{
+
+    <script>
+        Swal.fire('Güncelleme Başarısız', 'Kullanıcı Adı veya Tc veya E-Posta Başkası Tarafından Kullanılıyor.', 'error');
+
+
+    </script>
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <!-- /.col -->
+        <div class="card">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Kullanıcı Güncelle</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+
+                    @using (Html.BeginForm("kGuncelle", "Settings", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <p>Cinsiyet</p>
+                            @Html.HiddenFor(m => m.gender, new { @class = "form-control", @Value = "Erkek", id = "genderdbs", @required = "required" })
+                            <select id="genderdb" class="form-control">
+                                <option value="1">Erkek</option>
+                                <option value="2">Kadın</option>
+                            </select>
+                            @Html.HiddenFor(m => m.userid, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <p>İsim</p>
+                            @Html.TextBoxFor(m => m.name, new { @class = "form-control", oninput = "text(this.id);", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <p>Soyisim</p>
+                            @Html.TextBoxFor(m => m.surname, new { @class = "form-control", oninput = "text(this.id);", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <p>Tc</p>
+                            @Html.TextBoxFor(m => m.tc, new { @class = "form-control", oninput = "TcNumber(this.id);", maxlength = "11", @required = "required", placeholder = "Lütfen 11 Haneli TC Kimlik Numaranızı Giriniz." })
+                        </div>
+                        <div class="form-group">
+                            <p>Telefon</p>
+                            @Html.TextBoxFor(m => m.tel, new { @class = "form-control", id = "phoneNumber", oninput = "PhoneNumber(this.id);", maxlength = "17", @required = "required", placeholder = "Lütfen Başında 0 Olmadan 11 Haneli Telefon Numaranızı Giriniz." })
+                        </div>
+                        <div class="form-group">
+                            <p>Kullanıcı Adı</p>
+                            @Html.TextBoxFor(m => m.usrname, new { @class = "form-control", oninput = "usrname(this.id);", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <p>Parola</p>
+                            @Html.PasswordFor(m => m.password, new { @class = "form-control", @required = "required" })
+                            @Html.HiddenFor(m => m.securitykey, new { @Value = "", @class = "form-control", @required = "required", id = "hsecuritykey" })
+                        </div>
+                        <div class="form-group">
+                            <p>E-Mail</p>
+                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", id = "email", type = "email", @required = "required", placeholder = "Lütfen Kullanıcıya Ait Mail Adresini Doğru Girin." })
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="fa fa-floppy-o btn btn-success"> Kaydet</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+</section>
+        </div>
+
+
+                <script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+                <script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+                <script type="text/javascript">
+
+                    $(document).ready(function () {
+                        dropdowncont();
+                    });
+                </script>
+
+                <script>
+                    document.getElementById("hsecuritykey").value = generatePassword();
+
+                </script>

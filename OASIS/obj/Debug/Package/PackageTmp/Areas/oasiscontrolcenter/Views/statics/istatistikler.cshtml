@@ -1,0 +1,228 @@
+﻿@using OASIS.Models.Entity
+@model List<check>
+
+
+@{
+    ViewBag.Title = "Denetim İstatistikleri";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "istatistikler";
+    ViewBag.menuactive = "İstatistikler";
+}
+
+
+
+<!-- RADIO BUTTON -->
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="card-body">
+                <div class="row no-print">
+                    <div class="col-12">
+                        <button onclick="javascript: window.print()" class="btn-print btn btn-warning"><i class="fas fa-print"></i>  Yazdır</button>
+                    </div>
+                </div>
+                <h2> <br /> Denetim İstatistik Verileri</h2>
+                <div id="canvas1" class="desc">
+                    <div class="about-content" style="width:80%; float:left">
+                        <canvas id="chart-area"></canvas>
+                    </div>
+                    <div class="about-content" style="width:80%; float:left">
+                        <canvas id="chart-bar"></canvas>
+                    </div>
+                    <div class="about-content" style="width:80%; float:left">
+                        <canvas id="chart-polarArea"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script language="javascript">
+    var x = 0,
+        a = 0,
+        b = 0,
+        c = 0,
+        d = 0,
+        e = 0,
+        f = 0,
+        g = 0,
+        h = 0,
+        i = 0,
+        k = 0,
+        l = 0,
+        m = 0,
+        n = 0,
+        r = 0,
+        y = 0,
+        url = '/statics/istatistik';
+    $.getJSON(url, function (data) {
+        for (var item in data.Result) {
+            x += data.Result[item].check15;
+            a += data.Result[item].check2;
+            b += data.Result[item].check3;
+            c += data.Result[item].check4;
+            d += data.Result[item].check5;
+            e += data.Result[item].check6;
+            f += data.Result[item].check7;
+            g += data.Result[item].check8;
+            h += data.Result[item].check9;
+            i += data.Result[item].check10;
+            k += data.Result[item].check11;
+            l += data.Result[item].check12;
+            m += data.Result[item].check13;
+            n += data.Result[item].check14;
+            r += data.Result[item].check1;
+            y++;
+        }
+        loadcharts();
+
+    });
+    function loadcharts() {
+        var config = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        r / y * 10,
+                        a / y * 10,
+                        b / y * 10,
+                        c / y * 10,
+                        d / y * 10,
+
+
+
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.blue,
+                        window.chartColors.purple,
+
+                    ],
+                    label: 'All Time'
+                }],
+                labels: [
+                    'Hijyen',
+                    'Güleryüz',
+                    'Hizmet',
+                    'Kalite',
+                    'Geri Bildirimler'
+
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var bconfig = {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [
+                        e / y * 10,
+                        f / y * 10,
+                        g / y * 10,
+                        h / y * 10,
+                        i / y * 10,
+                        k / y * 10,
+                        l / y * 10,
+                        m / y * 10,
+                        n / y * 10,
+                        x / y * 10
+
+                    ],
+                    backgroundColor: [
+
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.blue,
+                        window.chartColors.purple,
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.blue,
+                        window.chartColors.purple,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    'Düzen ve Tertip',
+                    'Destek',
+                    'İletişim',
+                    'Uyum',
+                    'Oryantasyon Süreci',
+                    'Disiplin',
+                    'Kurallara Uygunluk',
+                    'Yardımlaşma',
+                    'Kendini Geliştirme',
+                    'Performans'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var pconfig = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+
+                        k / y * 10,
+                        l / y * 10,
+                        m / y * 10,
+                        n / y * 10,
+                        x / y * 10
+
+                    ],
+                    backgroundColor: [
+
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.blue,
+                        window.chartColors.purple,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+
+                    'Disiplin',
+                    'Kurallara Uygunluk',
+                    'Yardımlaşma',
+                    'Kendini Geliştirme',
+                    'Performans'
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+
+        };
+        window.onload = setTimeout(function () {
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+            var bctx = document.getElementById('chart-bar').getContext('2d');
+            window.myBar = new Chart(bctx, bconfig);
+            var pctx = document.getElementById('chart-polarArea').getContext('2d');
+            window.myBar = new Chart(pctx, pconfig);
+        }, 2000);
+
+    }
+
+
+
+</script>

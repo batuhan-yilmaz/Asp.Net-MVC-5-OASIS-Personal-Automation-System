@@ -1,0 +1,623 @@
+﻿@model OASIS.Models.Entity.messagebox
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OASIS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/oasis-touch-icon.png" rel="oasis-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="~/Content/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Libraries CSS Files -->
+
+    <link href="~/Content/home/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/home/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/home/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/Content/home/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/home/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="~/Content/Admin/plugins/custom/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/home/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+
+        <div id="topbar">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="logo float-left">
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <h1 class="text-light"><a href="#intro" class="scrollto"><span>OASIS</span></a></h1>
+                <!-- <a href="#header" class="scrollto"><img src="~/img/logo.png" alt="" class="img-fluid"></a> -->
+            </div>
+
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul>
+                    <li class="active"><a href="#intro">ANASAYFA</a></li>
+                    <li><a href="#about">BİZ KİMİZ?</a></li>
+                    <li><a href="#services">Hizmetlerimiz</a></li>
+                    <li><a href="#footer">BİZİMLE İLETİŞİME GEÇİN!</a></li>
+                    <li><a href="/Default/report/">REFERANS NUMARASIYLA BİLDİR!</a></li>
+                </ul>
+            </nav><!-- .main-nav -->
+
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+      Intro Section
+    ============================-->
+    <section id="intro" class="clearfix">
+        <div class="container d-flex h-100">
+            <div class="row justify-content-center align-self-center">
+                <div class="col-md-6 intro-info order-md-first order-last">
+                    <h2>Firmanız için<br>Güçlü<span> Çözümler</span></h2>
+                    <div>
+                        <a href="#about" class="btn-get-started scrollto">Biz kimiz?</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 intro-img order-md-last order-first">
+                    <img src="~/img/intro-img.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </section><!-- #intro -->
+
+    <main id="main">
+
+        <!--==========================
+          About Us Section
+        ============================-->
+        <section id="about">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5 col-md-6">
+                        <div class="about-img">
+                            <img src="~/img/about-img.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about-content">
+                            <h2>Biz Kimiz?</h2>
+                            <h3>Sizlere güçlü çözümler sunmak için buradayız!</h3>
+                            <p>OASIS Ekibi olarak firmanızı ve çalışanlarınızı profesyonel olarak denetlemek ve gözlemlemek için sizlere kişisel ve kurumsal çözümler sunuyoruz.</p>
+                            <p>Sektörünüzde lider firmalar arasında rekabet edebilmek için teknolojinin durmadan kendini yenilemesine ayak uydurarak sizlere kişisel veya kurumsal çözümler alanında hizmet vermekteyiz.</p>
+                            <ul>
+                                <li><i class="ion-android-checkmark-circle"></i> Sisteminize anında erişim imkanı!</li>
+                                <li><i class="ion-android-checkmark-circle"></i> Her Cihaz ile kusursuz uyum!</li>
+                                <li><i class="ion-android-checkmark-circle"></i> Yüksek güvenlik ile bilgilerinizi güvence altına alın!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- #about -->
+        <!--==========================
+          Services Section
+        ============================-->
+        <section id="services" class="section-bg">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>HİZMETLERİMİZ</h3>
+                    <p>İŞTE FİRMANIZ İÇİN BİRBİRİNDEN GÜÇLÜ KİŞİSEL VE KURUMSAL ÇÖZÜMLER!</p>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                            <h4 class="title"><a href="">Anlık İstatistikler</a></h4>
+                            <p class="description">Anlık istetistik grafikleri ile sistemdeki gelişmeleri profesyonelce gözlemleyin.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
+                            <h4 class="title"><a href="">Gelişmiş Duyuru Sistemi</a></h4>
+                            <p class="description">Zaman akışı sayesinde duyurularınızı sistem içerisinde aynı anda herkes görebilecek.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
+                            <h4 class="title"><a href="">Kişiselleştirilmiş Raporlar</a></h4>
+                            <p class="description">Dijital olarak Hazır Rapor formları ve kişisel olarak ekleyebileceğiniz formlar (".pdf", ".xlsx", ".csv", ".docx") ile sisteminizdeki evrak karmaşasından kurtulun!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+                            <h4 class="title"><a href="">Hızlı Geri Bildirim Sistemi</a></h4>
+                            <p class="description">Referans numarası takip yöntemi ile sistemde kayıtlı işlemlere hızlıca erişin.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #e1eeff;"><i class="ion-ios-world-outline" style="color: #2282ff;"></i></div>
+                            <h4 class="title"><a href="">Referans Takip Sistemi</a></h4>
+                            <p class="description">Yapılan işlemlerinizi tekbir referans numarası ile takip ederek müşteri ve kullanıcılarınızı sizlerle işbirliği yapmasını kolaylaştırın.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #ecebff;"><i class="ion-ios-clock-outline" style="color: #8660fe;"></i></div>
+                            <h4 class="title"><a href="">Zamandan Tasarruf için Dijital Çözümler</a></h4>
+                            <p class="description">Dijital çağa ayak uydurarak sistem kontrolünü parmaklarınızın ucunda hissedin kağıt, zaman  ve işgücünden tasarruf edin. Doğaya, ve gelişime katkıda bulunun.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- #services -->
+        <!--==========================
+          Why Us Section
+        ============================-->
+        <section id="why-us" class="wow fadeIn">
+            <div class="container-fluid">
+
+                <header class="section-header">
+                    <h3>Neden Bizi Tercih Etmelisiniz?</h3>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="why-us-img">
+                            <img src="~/img/why-us.jpg" alt="" class="img-fluid">
+                            <p>
+                                Bizi tercih etmeniz için önemli olduğuna inandığımız sebepleri yandaki başlıklar altında toparlamaya çalıştık.
+                                Sizleri de müşterilerimiz arasında görmekten onur duyarız.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="why-us-content">                          
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-diamond" style="color: #f058dc;"></i>
+                                <h4>Kalitemizle Farklıyız</h4>
+                                <p>Yaptığımız işe hakimiz, titiz çalışıyor ve tüm sektörlerdeki müşterilerimiz için yüksek kalitede hizmetler üretiyoruz.</p>
+                            </div>
+
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-object-group" style="color: #ffb774;"></i>
+                                <h4>Çözüm Odaklıyız</h4>
+                                <p>Öncelikli hedefimiz yüksek verimlilik. Tüm çalışma sistemimizi bu hedefe ulaşma doğrultusunda şekillendiriyoruz ve efektif çözümler sunuyoruz.</p>
+                            </div>
+
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-dashboard" style="color: #589af1;"></i>
+                                <h4>Yüksek Güvenlik Anlayışımız</h4>
+                                <p>Veri güvenliğine büyük önem veriyor, müşterilerimizin kesintisiz ve güvenli hizmet almaları için gereken tüm tedbirleri alıyoruz.</p>
+                            </div>
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-money" style="color: #589af1;"></i>
+                                <h4>Düşük Maliyetliyiz</h4>
+                                <p>Yaptığımız tüm çalışmalarda, maliyetleri müşterilerimizin faydası yönünde optimize ediyor ve uygun fiyatlı çözümler üretiyoruz.</p>
+                            </div>
+                            <div class="features wow bounceInUp clearfix">
+                                <i class="fa fa-desktop" style="color: #589af1;"></i>
+                                <h4>Tek noktadan hizmet</h4>
+                                <p>Müşterilerimizin ihtiyacı olan tüm hizmetleri tek noktadan sağlayarak uyum problemlerini ortadan kaldırıyoruz.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <section id="call-to-action" class="wow fadeInUp">
+                <div class="container">
+                    <div class="row counters">
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">35</span>
+                            <p>Sistem Kurulumu</p>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">21</span>
+                            <p>Proje</p>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">564</span>
+                            <p>Saat Destek</p>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">18</span>
+                            <p>Kişilik Ekip</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!--==========================
+          Pricing Section
+        ============================-->
+        <section id="pricing" class="wow fadeInUp section-bg">
+
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>SİZİN İÇİN OLUŞTURDUĞUMUZ ÇÖZÜMLER</h3>
+                </header>
+
+                <div class="row flex-items-xs-middle flex-items-xs-center">
+
+                    <!-- Basic Plan  -->
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="currency">₺</span>259<span class="period">/aylık</span></h3>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                   Aylık Lisans
+                                </h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Akış Sistemi</li>
+                                    <li class="list-group-item">Özelleştirilmiş Rapor Sistemi</li>
+                                    <li class="list-group-item">İstatistik Sistemi</li>
+                                    <li class="list-group-item">Puantaj Sistemi</li>
+                                    <li class="list-group-item">Referans Takip Sistemi</li>
+                                    <li class="list-group-item">Duyuru Sistemi</li>
+                                    <li class="list-group-item">Personel Takip Sistemi</li>
+                                    <li class="list-group-item">Yönetim Takip Sistemi</li>
+                                    <li class="list-group-item">İletişim Otomasyonu</li>
+                                    <li class="list-group-item">Geri Bildirim Otomasyonu</li>
+                                    <li class="list-group-item">Özelleştirilmiş Algoritmalar</li>
+                                    <li class="list-group-item">Şifrelenmiş Microsoft-Google Lisanslı Güvenlik Yamaları</li>
+                                </ul>
+                                <a href="#" class="btn">Seç</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regular Plan  -->
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="currency">₺</span>2799<span class="period">/yıllık</span></h3>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                    Yıllık Lisans
+                                </h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Akış Sistemi</li>
+                                    <li class="list-group-item">Özelleştirilmiş Rapor Sistemi</li>
+                                    <li class="list-group-item">İstatistik Sistemi</li>
+                                    <li class="list-group-item">Puantaj Sistemi</li>
+                                    <li class="list-group-item">Referans Takip Sistemi</li>
+                                    <li class="list-group-item">Duyuru Sistemi</li>
+                                    <li class="list-group-item">Personel Takip Sistemi</li>
+                                    <li class="list-group-item">Yönetim Takip Sistemi</li>
+                                    <li class="list-group-item">İletişim Otomasyonu</li>
+                                    <li class="list-group-item">Geri Bildirim Otomasyonu</li>
+                                    <li class="list-group-item">Özelleştirilmiş Algoritmalar</li>
+                                    <li class="list-group-item">Şifrelenmiş Microsoft-Google Lisanslı Güvenlik Yamaları</li>
+                                </ul>
+                                <a href="#" class="btn">Seç</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Plan  -->
+                    <div class="col-xs-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="currency">₺</span>14.299<span class="period">/sınırsız</span></h3>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                    Sınırsız Lisans
+                                </h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Akış Sistemi</li>
+                                    <li class="list-group-item">Özelleştirilmiş Rapor Sistemi</li>
+                                    <li class="list-group-item">İstatistik Sistemi</li>
+                                    <li class="list-group-item">Puantaj Sistemi</li>
+                                    <li class="list-group-item">Referans Takip Sistemi</li>
+                                    <li class="list-group-item">Duyuru Sistemi</li>
+                                    <li class="list-group-item">Personel Takip Sistemi</li>
+                                    <li class="list-group-item">Yönetim Takip Sistemi</li>
+                                    <li class="list-group-item">İletişim Otomasyonu</li>
+                                    <li class="list-group-item">Geri Bildirim Otomasyonu</li>
+                                    <li class="list-group-item">Özelleştirilmiş Algoritmalar</li>
+                                    <li class="list-group-item">Şifrelenmiş Microsoft-Google Lisanslı Güvenlik Yamaları</li>
+                                </ul>
+                                <a href="#" class="btn">Seç</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section><!-- #pricing -->
+        <!--==========================
+          Frequently Asked Questions Section
+        ============================-->
+        <section id="faq">
+            <div class="container">
+                <header class="section-header">
+                    <h3>SIKÇA SORULAN SORULAR</h3>
+                </header>
+
+                <ul id="faq-list" class="wow fadeInUp">
+                    <li>
+                        <a data-toggle="collapse" class="collapsed" href="#faq1">OASIS GÜVENLİMİ? <i class="ion-android-remove"></i></a>
+                        <div id="faq1" class="collapse" data-parent="#faq-list">
+                            <p>
+                                Verilerinizin güvenliği önceliğimiz.Gelişmiş şifreleme algoritmalarımızla sizlere maksimum güvenlikli ve sınırlı erişimli güvenlik çözümleri sunarak sizin ve çalışanlarınızın 3.kişiler tarafından bilgilerin ele geçirilmesini engellemek için varız.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq2" class="collapsed">KİMLER KULLANABİLİR? <i class="ion-android-remove"></i></a>
+                        <div id="faq2" class="collapse" data-parent="#faq-list">
+                            <p>
+                                 OASIS "mobil, tablet, masaüstü" uyumlu arayüzü ve gelişmiş seçenekleri ile herkese uygun bir sistemdir.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq3" class="collapsed">KULLANIM SENERYOSU NEDİR? <i class="ion-android-remove"></i></a>
+                        <div id="faq3" class="collapse" data-parent="#faq-list">
+                            <p>
+                                 Sizin veya firmanızın tüm gereksinimlerini karşılamak ve tekbir kanaldan herşeyi kontrol edebilmek için tasarlanmış bir sistemidir.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq4" class="collapsed">TEKNİK DESTEK HİZMETİ NASIL İŞLİYOR? <i class="ion-android-remove"></i></a>
+                        <div id="faq4" class="collapse" data-parent="#faq-list">
+                            <p>
+                                 Yıllık bakımlarımız ve talep üzerine teknik desteğimiz ile sizlere en optimal kullanım senaryosunu sunmaktayız.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq5" class="collapsed">KULLANIM KOŞULLARI NELERDİR? <i class="ion-android-remove"></i></a>
+                        <div id="faq5" class="collapse" data-parent="#faq-list">
+                            <p>
+                                OASIS Ömür Boyu Lisans Satın alınma veya yıllık Lisans kiralama politikası ile hizmete sunulmaktadır.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </section><!-- #faq -->
+
+    </main>
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer" class="section-bg">
+        <div class="footer-top">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+
+                                <div class="footer-info">
+                                    <h3>OASIS</h3>
+                                    <p>
+                                        OASIS Ekibi olarak firmanızı ve çalışanlarınızı profesyonel olarak denetlemek ve gözlemlemek için sizlere kişisel ve kurumsal çözümler sunuyoruz.
+                                    </p>
+                                </div>
+
+                                <div class="footer-newsletter">
+                                    <h4>BÜLTEN</h4>
+                                    <p>
+                                        Sektörünüzde lider firmalar arasında rekabet edebilmek için teknolojinin durmadan kendini yenilemesine ayak uydurarak sizlere kişisel veya kurumsal çözümler alanında hizmet vermekteyiz.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="footer-links">
+                                    <h4>HIZLI BAĞLANTILAR</h4>
+                                    <ul>
+                                        <li><a href="#intro">ANASAYFA</a></li>
+                                        <li><a href="#about">BİZ KİMİZ?</a></li>
+                                        <li><a href="#services">HİZMETLERİMİZ</a></li>
+                                        <li><a href="#footer">BİZİMLE İLETİŞİME GEÇİN!</a></li>
+                                        <li><a href="/oasiscontrolcenter/">SİSTEME GİRİŞ YAP!</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="footer-links">
+                                    <h4>İLETİŞİM BİLGİLERİMİZ</h4>
+                                    <p>
+                                        FSM Bulvarı NO:38<br>
+                                        Nilüfer/BURSA 16159 <br>
+                                        <strong>Telefon:</strong> +90(5XX) XXX-XXXX<br>
+                                        <strong>Email:</strong> oasiscontrolcenter@gmail.com<br>
+                                    </p>
+                                </div>
+
+                                <div class="social-links">
+                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="form">
+                            @using (Html.BeginForm("MessageBoxEkle", "Default", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+                            {
+                                <h4>BİZİMLE İLETİŞİME GEÇİN!</h4>
+                                <form action="" method="post" role="form" class="contactForm">
+                                    <div class="form-group">
+                                        <b>Referans Numarası</b>
+                                        @Html.TextBoxFor(m => m.referancenumber, new {oninput = "Number(this.id);", maxlength = "8", @id = "name", @class = "form-control", placeholder = "Varsa 8 Haneli Referans Numaranızı Giriniz." })
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Tarih</b>
+                                        @Html.EditorFor(m => m.date, new { htmlAttributes = new { @class = "form-control", id = "tarih1", placeholder = "Lütfen Tarih Giriniz.", @required = "required" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <b>İsim Soyisim</b>
+                                        @Html.TextBoxFor(m => m.namesurname, new {oninput = "text(this.id);", @class = "form-control", @required = "required", placeholder = "Lütfen isim ve soyisminizi giriniz" })
+                                    </div>
+                                    <div class="form-group">
+                                        <b>E-mail</b>
+                                        @Html.TextBoxFor(m => m.youremail, new { @class = "form-control", @required = "required", id = "email", type = "email", placeholder = "Sizinle İletişime Geçebilmemiz için E-Mail Adresinizi Giriniz" })
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Konu Başlığı</b>
+                                        @Html.TextBoxFor(m => m.subject, new {oninput = "customtext(this.id);", @class = "form-control", @required = "required", placeholder = "Lütfen Konu Başlığını Giriniz" })
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Mesaj</b>
+                                        @Html.TextAreaFor(m => m.message, new {oninput = "customtext(this.id);", @class = "form-control", @row = "5", @required = "required", placeholder = "Lütfen Mesajınızı Giriniz" })
+                                        @Html.HiddenFor(m => m.color, new { @class = "form-control", @Value = "fas fa-star text-warning" })
+                                    </div>
+
+                                    <div id="sendmessage">Mesajınız gönderildi. Teşekkür ederiz!</div>
+                                    <div id="errormessage"></div>
+                                    <div class="text-center"><button type="submit" title="Send Message">MESAJINIZI GÖNDERİN!</button></div>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>OASIS</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+
+                Designed by <a href="https://oasisinovation.com">OASIS INOVATION</a>
+            </div>
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
+    <!-- JavaScript Libraries -->
+
+    <script src="~/Content/home/jquery/jquery.min.js"></script>
+    <script src="~/Content/home/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Content/home/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/home/easing/easing.min.js"></script>
+    <script src="~/Content/home/mobile-nav/mobile-nav.js"></script>
+    <script src="~/Content/home/wow/wow.min.js"></script>
+    <script src="~/Content/home/waypoints/waypoints.min.js"></script>
+    <script src="~/Content/home/counterup/counterup.min.js"></script>
+    <script src="~/Content/home/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/home/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/home/lightbox/js/lightbox.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="~/Content/home/js/contactform.js"></script>
+    <script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+    <script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+    <!-- Template Main Javascript File -->
+    <script src="~/Content/home/js/main.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            oasisdatepicker();
+        });
+    </script>
+
+</body>
+</html>
+
+<link href="~/Content/Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+<script src="~/Content/Admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+@if (TempData["yorumGuncelle"] != null)
+{
+
+    <script>
+        Swal.fire('Başarılı', 'Bildiriminiz Başarıyla Gönderilmiştir Bizimle İletişime Geçtiğiniz İçin Teşekkür Ederiz. En Kısa Sürede Sizlere Dönüş Sağlayacağız.', 'success');
+
+    </script>
+}
+
+
+@if (TempData["messageGuncelle"] != null)
+{
+
+    <script>
+        Swal.fire('Başarılı', 'Mesajınız Başarıyla Gönderilmiştir Bizimle İletişime Geçtiğiniz İçin Teşekkür Ederiz. En Kısa Sürede Sizlere Dönüş Sağlayacağız.', 'success');
+
+    </script>
+}

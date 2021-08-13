@@ -1,0 +1,666 @@
+﻿@model OASIS.Models.Entity.home
+
+@{
+    ViewBag.Title = "Akış Güncelle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="content-wrapper">
+        <div class="card-header">
+            <h3 class="card-title">Akış Güncelle</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            @using (Html.BeginForm("hguncelle", "Home", FormMethod.Post))
+            {
+                <table id="example1" class="table table-bordered table-striped">
+                    <tr>
+                        <td>
+                            <p>Firma</p>
+                            @Html.DropDownListFor(m => m.company.companyid, (List<SelectListItem>)ViewBag.CompanyList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                        <td>
+                            <p>Bölge</p>
+                            @Html.DropDownListFor(m => m.region.regionid, (List<SelectListItem>)ViewBag.RegionList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Birim</p>
+                            @Html.DropDownListFor(m => m.unit.unitid, (List<SelectListItem>)ViewBag.UnitList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                        <td>
+                            <p>Departman</p>
+                            @Html.DropDownListFor(m => m.departman.departmanid, (List<SelectListItem>)ViewBag.DepartmanList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Durum</p>
+                            @Html.DropDownListFor(m => m.process.processid, (List<SelectListItem>)ViewBag.ProcessList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                        <td>
+                            Durum Rengi: |
+                            <font style="color:red;">Çok Yüksek Öncelikli</font> | <font style="color:#007bff;">Yüksek Öncelikli</font> | <font style="color:#28a745;">Normal Öncelikli</font> | <font style="color:#f39c12;">Düşük Öncelikli</font>
+                            @Html.HiddenFor(m => m.color, new { @class = "form-control", @Value = "red", id = "colordbs", @required = "required" })
+                            <select id="colordb" class="form-control" onchange="EnableDisableTextBox(this)">
+                                <option value="red">Çok Yüksek Öncelikli</option>
+                                <option value="#007bff">Yüksek Öncelikli</option>
+                                <option value="#28a745">Normal Öncelikli</option>
+                                <option value="#f39c12">Düşük Öncelikli</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Akış Başlangıcı</p>
+                            @Html.EditorFor(m => m.eventsstart, new { htmlAttributes = new { @class = "form-control", id = "tarih1", placeholder = "Lütfen Başlangıç Tarihi Giriniz.", @required = "required" } })
+
+                        </td>
+                        <td>
+                            <p>Akış Bitişi</p>
+                            @Html.EditorFor(m => m.eventsend, new { htmlAttributes = new { @class = "form-control", id = "tarih2", placeholder = "Lütfen Başlangıç Tarihi Giriniz.", @required = "required" } })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Başlık </p>
+                            @Html.TextBoxFor(m => m.subject, new { @class = "form-control", oninput="customtext(this.id);", @required = "required" })
+
+                        </td>
+                        <td>
+                            <p>İçerik</p>
+                            @Html.TextBoxFor(m => m.descriptions, new { @class = "form-control", oninput="customtext(this.id);", @required = "required" })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Önceki Ek1 Fotoğrafı</p>
+                            @if (Model.content1 != null)
+                            {
+                                <img src="~/Content/Admin/data/home/himg/@Model.content1" width="100" height="100" />
+                                <br />
+                            }
+                            <hr />
+                            <div class="btn btn-primary">
+                                @Html.TextBoxFor(m => m.content1, new { type = "file", id = "imageBrowes", onchange = "ValidateSingleInput(this);", @required = "required" })
+                            </div>
+                            <hr />
+                            <b><font color="orangered"><span id="errorfile"></span></font></b>
+                            <b><font color="orangered"><span id="errortype"></span></font></b>
+                            <div id="imgPreview" class="thumbnail" style="display:none;">
+                                <img class="img-responsive" id="targetImg" style="width:100px; height:100px;" />
+                                <div class="caption">
+                                    <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                                    <span id="description"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p>Önceki Ek2 Fotoğrafı</p>
+                            @if (Model.content2 != null)
+                            {
+                                <img src="~/Content/Admin/data/home/himg/@Model.content2" width="100" height="100" />
+                                <br />
+                            }
+                            <hr />
+                            <div class="btn btn-primary">
+                                @Html.TextBoxFor(m => m.content2, new { type = "file", id = "imageBrowes2", onchange = "ValidateSingleInput2(this);", @required = "required" })
+                            </div>
+                            <hr />
+                            <b><font color="orangered"><span id="errorfile2"></span></font></b>
+                            <b><font color="orangered"><span id="errortype2"></span></font></b>
+                            <div id="imgPreview2" class="thumbnail" style="display:none;">
+                                <img class="img-responsive" id="targetImg2" style="width:100px; height:100px;" />
+                                <div class="caption">
+                                    <a href="#" onclick="ClearPreview2()"><i class="glyphicon glyphicon-trash"></i></a>
+                                    <span id="description2"></span>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Önceki Ek3 Fotoğrafı</p>
+                            @if (Model.content3 != null)
+                            {
+                                <img src="~/Content/Admin/data/home/himg/@Model.content3" width="100" height="100" />
+                                <br />
+                            }
+                            <hr />
+                            <div class="btn btn-primary">
+                                @Html.TextBoxFor(m => m.content3, new { type = "file", id = "imageBrowes3", onchange = "ValidateSingleInput3(this);", @required = "required" })
+                            </div>
+                            <hr />
+                            <b><font color="orangered"><span id="errorfile3"></span></font></b>
+                            <b><font color="orangered"><span id="errortype3"></span></font></b>
+                            <div id="imgPreview3" class="thumbnail" style="display:none;">
+                                <img class="img-responsive" id="targetImg3" style="width:100px; height:100px;" />
+                                <div class="caption">
+                                    <a href="#" onclick="ClearPreview3()"><i class="glyphicon glyphicon-trash"></i></a>
+                                    <span id="description3"></span>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td>
+                            <p>Önceki Ek4 Fotoğrafı</p>
+                            @if (Model.content4 != null)
+                            {
+                                <img src="~/Content/Admin/data/home/himg/@Model.content4" width="100" height="100" />
+                                <br />
+                            }
+                            <hr />
+                            <div class="btn btn-primary">
+                                @Html.TextBoxFor(m => m.content4, new { type = "file", id = "imageBrowes4", onchange = "ValidateSingleInput4(this);", @required = "required" })
+                            </div>
+                            <hr />
+                            <b><font color="orangered"><span id="errorfile4"></span></font></b>
+                            <b><font color="orangered"><span id="errortype4"></span></font></b>
+                            <div id="imgPreview4" class="thumbnail" style="display:none;">
+                                <img class="img-responsive" id="targetImg4" style="width:100px; height:100px;" />
+                                <div class="caption">
+                                    <a href="#" onclick="ClearPreview4()"><i class="glyphicon glyphicon-trash"></i></a>
+                                    <span id="description4"></span>
+                                </div>
+                            </div>
+                            @Html.HiddenFor(m => m.homeid)
+                            @Html.HiddenFor(m => m.content1)
+                            @Html.HiddenFor(m => m.content2)
+                            @Html.HiddenFor(m => m.content3)
+                            @Html.HiddenFor(m => m.content4)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" onclick="Uploadimage(); Uploadimage2(); Uploadimage3(); Uploadimage4()" class="fa fa-floppy-o btn btn-success" /> Kaydet</td>
+                    </tr>
+                </table>
+
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+<!-- /.card -->
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        oasisdatepicker();
+
+    });
+</script>
+
+
+<script>
+    var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype").text('');
+                $("#errorfile").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes").val('');
+                $("#description").text('');
+                $("#imgPreview").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+                $("#errortype").text('');
+                $("#errorfile").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview = function () {
+        $("#imageBrowes").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+
+
+
+    }
+
+    var Uploadimage = function () {
+
+        var file = $("#imageBrowes").get(0).files;
+
+        var data = new FormData;
+        data.append("content1file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/hImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview();
+            }
+
+        })
+    }
+    function ValidateSingleInput(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile").text('');
+                    $("#imageBrowes").val('');
+                    $("#description").text('');
+                    $("#imgPreview").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+</script>
+
+<script>
+    var _validFileExtensions2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    $(document).ready(function () {
+
+        $("#imageBrowes2").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype2").text('');
+                $("#errorfile2").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes2").val('');
+                $("#description2").text('');
+                $("#imgPreview2").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage2(File[0]);
+                }
+                $("#errortype2").text('');
+                $("#errorfile2").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage2 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg2").attr('src', _file.target.result);
+                $("#description2").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview2").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview2 = function () {
+        $("#imageBrowes2").val('');
+        $("#description2").text('');
+        $("#imgPreview2").hide();
+
+
+
+    }
+
+    var Uploadimage2 = function () {
+
+        var file = $("#imageBrowes2").get(0).files;
+
+        var data = new FormData;
+        data.append("content2file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/h2ImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview2();
+            }
+
+        })
+    }
+    function ValidateSingleInput2(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype2").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile2").text('');
+                    $("#imageBrowes2").val('');
+                    $("#description2").text('');
+                    $("#imgPreview2").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+<script>
+    var _validFileExtensions3 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    $(document).ready(function () {
+
+        $("#imageBrowes3").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype3").text('');
+                $("#errorfile3").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes3").val('');
+                $("#description3").text('');
+                $("#imgPreview3").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage3(File[0]);
+                }
+                $("#errortype3").text('');
+                $("#errorfile3").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage3 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg3").attr('src', _file.target.result);
+                $("#description3").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview3").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview3 = function () {
+        $("#imageBrowes3").val('');
+        $("#description3").text('');
+        $("#imgPreview3").hide();
+
+
+
+    }
+
+    var Uploadimage3 = function () {
+
+        var file = $("#imageBrowes3").get(0).files;
+
+        var data = new FormData;
+        data.append("content3file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/h3ImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview3();
+            }
+
+        })
+    }
+    function ValidateSingleInput3(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype3").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile3").text('');
+                    $("#imageBrowes3").val('');
+                    $("#description3").text('');
+                    $("#imgPreview3").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+<script>
+    var _validFileExtensions4 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    $(document).ready(function () {
+
+        $("#imageBrowes4").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype4").text('');
+                $("#errorfile4").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes4").val('');
+                $("#description4").text('');
+                $("#imgPreview4").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage4(File[0]);
+                }
+                $("#errortype4").text('');
+                $("#errorfile4").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage4 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg4").attr('src', _file.target.result);
+                $("#description4").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview4").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview4 = function () {
+        $("#imageBrowes4").val('');
+        $("#description4").text('');
+        $("#imgPreview4").hide();
+
+
+
+    }
+
+    var Uploadimage4 = function () {
+
+        var file = $("#imageBrowes4").get(0).files;
+
+        var data = new FormData;
+        data.append("content4file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/h4ImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview4();
+            }
+
+        })
+    }
+    function ValidateSingleInput4(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype4").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile4").text('');
+                    $("#imageBrowes4").val('');
+                    $("#description4").text('');
+                    $("#imgPreview4").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>

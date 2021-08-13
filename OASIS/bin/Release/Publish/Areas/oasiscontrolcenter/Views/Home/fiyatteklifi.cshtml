@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Fiyat Teklifi";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "fiyatteklifi";
+    ViewBag.menuactive = "Hazır Formlar";
+}
+
+<div class="content-wrapper">
+    <div class="card-body">
+        <div class="row no-print">
+            <div class="col-12">
+                <button onclick="javascript:window.print()" class="btn-print btn btn-warning"><i class="fas fa-print"></i>  Yazdır</button>
+            </div>
+        </div>
+        <h2>Fiyat Teklifi</h2>
+        <table id="example1" class="table table-bordered table-striped">
+            <tr>
+                <td>
+
+                    <p><b>Adınız</b></p>
+                    <input class="form-control" />
+                </td>
+                <td>
+                    <p><b>Soy Adınız</b></p>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><b>Tc</b></p>
+                    <input class="form-control" />
+                </td>
+                <td>
+                    <p><b>Telefon</b></p>
+                    <input class="form-control" value="+90" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><b>E-Posta</b></p>
+                    <input class="form-control" />
+                </td>
+                <td>
+                    <p><b>Adres</b></p>
+                    <input class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><b>Bugunun Tarihi:</b></p>
+                    <input class="form-control generatetext" id="itarih1" />
+                </td>
+                <td>
+                    <p><b>Müşteri Veya Firma Adı</b></p>
+                    <input class="form-control" />
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <p><b>Ürün Türü</b></p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox">
+                            <label> Isıtma Sistemleri </label>
+                        </span>
+                    </p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox">
+                            <label> Izgara ve Pişirme Sistemleri </label>
+                        </span>
+                    </p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox">
+                            <label> Soğutma Sistemleri </label>
+                        </span>
+                    </p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox-other form-checkbox">
+                            <label> Diğer </label> &nbsp;<input type="text" class="form-control-other-input ">
+                        </span>
+                    </p>
+                </td>
+                <td>
+                    <p><b>Ürün</b></p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox">
+                            <label> OASIS Yoğuşmalı ısıtıcı kombi </label>
+                        </span>
+                    </p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox">
+                            <label> OASIS Katlanabilir taşınabilir gazlı ızgara </label>
+                        </span>
+                    </p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox">
+                            <label> OASIS Derin dondurucu 400lt </label>
+                        </span>
+                    </p>
+                    <p>
+                        <span class="form-checkbox-item" style="clear:left">
+                            <input type="checkbox" class="form-checkbox-other form-checkbox">
+                            <label> Diğer </label> &nbsp;<input type="text" class="form-control-other-input ">
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><b>Ek Bilgi</b></p>
+                    <div class="form-input">
+                        <textarea class="form-control" cols="80" rows="6"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-input">
+                        <p><b>İstenilen Adet </b></p>
+                        <input class="form-control" />
+                        <p><b>Fiyat Teklifi</b></p>
+                        <textarea class="form-control" cols="80" rows="1"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><b>İmza:</b></p>
+                    <canvas class="jSignature" width="220" height="150"></canvas>
+                </td>
+                <td>
+                    <div id="output" class="text-center"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+<script src="~/Content/Admin/plugins/custom/qrcode.min.js"></script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        izintakvimi();
+    });
+
+</script>
+
+

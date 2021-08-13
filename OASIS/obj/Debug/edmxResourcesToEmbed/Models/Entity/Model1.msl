@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_a6811d_siscontModelStoreContainer" CdmEntityContainer="oasisEntities">
+    <EntitySetMapping Name="authorized">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.authorized">
+        <MappingFragment StoreEntitySet="authorized">
+          <ScalarProperty Name="authorizedid" ColumnName="authorizedid" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+          <ScalarProperty Name="unitget" ColumnName="unitget" />
+          <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+          <ScalarProperty Name="profilephoto" ColumnName="profilephoto" />
+          <ScalarProperty Name="digitalcv" ColumnName="digitalcv" />
+          <ScalarProperty Name="authorized1" ColumnName="authorized" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="civilstatusget" ColumnName="civilstatusget" />
+          <ScalarProperty Name="children" ColumnName="children" />
+          <ScalarProperty Name="workingstart" ColumnName="workingstart" />
+          <ScalarProperty Name="workingstop" ColumnName="workingstop" />
+          <ScalarProperty Name="performance" ColumnName="performance" />
+          <ScalarProperty Name="pirim" ColumnName="pirim" />
+          <ScalarProperty Name="pay" ColumnName="pay" />
+          <ScalarProperty Name="mesai" ColumnName="mesai" />
+          <ScalarProperty Name="mesaidays" ColumnName="mesaidays" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="check">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.check">
+        <MappingFragment StoreEntitySet="check">
+          <ScalarProperty Name="checkid" ColumnName="checkid" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+          <ScalarProperty Name="unitget" ColumnName="unitget" />
+          <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+          <ScalarProperty Name="authorizedget" ColumnName="authorizedget" />
+          <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+          <ScalarProperty Name="check1" ColumnName="check1" />
+          <ScalarProperty Name="check2" ColumnName="check2" />
+          <ScalarProperty Name="check3" ColumnName="check3" />
+          <ScalarProperty Name="check4" ColumnName="check4" />
+          <ScalarProperty Name="check5" ColumnName="check5" />
+          <ScalarProperty Name="check6" ColumnName="check6" />
+          <ScalarProperty Name="check7" ColumnName="check7" />
+          <ScalarProperty Name="check8" ColumnName="check8" />
+          <ScalarProperty Name="check9" ColumnName="check9" />
+          <ScalarProperty Name="check10" ColumnName="check10" />
+          <ScalarProperty Name="check11" ColumnName="check11" />
+          <ScalarProperty Name="check12" ColumnName="check12" />
+          <ScalarProperty Name="check13" ColumnName="check13" />
+          <ScalarProperty Name="check14" ColumnName="check14" />
+          <ScalarProperty Name="check15" ColumnName="check15" />
+          <ScalarProperty Name="content1" ColumnName="content1" />
+          <ScalarProperty Name="content2" ColumnName="content2" />
+          <ScalarProperty Name="content3" ColumnName="content3" />
+          <ScalarProperty Name="content4" ColumnName="content4" />
+          <ScalarProperty Name="suggestion" ColumnName="suggestion" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comment">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.comment">
+        <MappingFragment StoreEntitySet="comment">
+          <ScalarProperty Name="checkcommentid" ColumnName="checkcommentid" />
+          <ScalarProperty Name="referancenumber" ColumnName="referancenumber" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+          <ScalarProperty Name="unitget" ColumnName="unitget" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.company">
+        <MappingFragment StoreEntitySet="company">
+          <ScalarProperty Name="companyid" ColumnName="companyid" />
+          <ScalarProperty Name="company1" ColumnName="company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departman">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.departman">
+        <MappingFragment StoreEntitySet="departman">
+          <ScalarProperty Name="departmanid" ColumnName="departmanid" />
+          <ScalarProperty Name="departman1" ColumnName="departman" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="events">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.events">
+        <MappingFragment StoreEntitySet="events">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Start" ColumnName="Start" />
+          <ScalarProperty Name="End" ColumnName="End" />
+          <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+          <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="home">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.home">
+        <MappingFragment StoreEntitySet="home">
+          <ScalarProperty Name="homeid" ColumnName="homeid" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="descriptions" ColumnName="descriptions" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+          <ScalarProperty Name="unitget" ColumnName="unitget" />
+          <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+          <ScalarProperty Name="eventsstart" ColumnName="eventsstart" />
+          <ScalarProperty Name="eventsend" ColumnName="eventsend" />
+          <ScalarProperty Name="processget" ColumnName="processget" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="content1" ColumnName="content1" />
+          <ScalarProperty Name="content2" ColumnName="content2" />
+          <ScalarProperty Name="content3" ColumnName="content3" />
+          <ScalarProperty Name="content4" ColumnName="content4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoice">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.invoice">
+        <MappingFragment StoreEntitySet="invoice">
+          <ScalarProperty Name="invoiceid" ColumnName="invoiceid" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+          <ScalarProperty Name="unitget" ColumnName="unitget" />
+          <ScalarProperty Name="authorizedget" ColumnName="authorizedget" />
+          <ScalarProperty Name="personelget" ColumnName="personelget" />
+          <ScalarProperty Name="referancenumber" ColumnName="referancenumber" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="product" ColumnName="product" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="pay" ColumnName="pay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messagebox">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.messagebox">
+        <MappingFragment StoreEntitySet="messagebox">
+          <ScalarProperty Name="messageid" ColumnName="messageid" />
+          <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+          <ScalarProperty Name="youremail" ColumnName="youremail" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="referancenumber" ColumnName="referancenumber" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notice">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.notice">
+        <MappingFragment StoreEntitySet="notice">
+          <ScalarProperty Name="noticeid" ColumnName="noticeid" />
+          <ScalarProperty Name="notice1" ColumnName="notice" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+          <ScalarProperty Name="unitget" ColumnName="unitget" />
+          <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+          <ScalarProperty Name="noticestart" ColumnName="noticestart" />
+          <ScalarProperty Name="noticeend" ColumnName="noticeend" />
+          <ScalarProperty Name="processget" ColumnName="processget" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personel">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.personel">
+        <MappingFragment StoreEntitySet="personel">
+          <ScalarProperty Name="personelid" ColumnName="personelid" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+          <ScalarProperty Name="unitget" ColumnName="unitget" />
+          <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+          <ScalarProperty Name="authorizedget" ColumnName="authorizedget" />
+          <ScalarProperty Name="profilephoto" ColumnName="profilephoto" />
+          <ScalarProperty Name="digitalcv" ColumnName="digitalcv" />
+          <ScalarProperty Name="personel1" ColumnName="personel" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="civilstatusget" ColumnName="civilstatusget" />
+          <ScalarProperty Name="children" ColumnName="children" />
+          <ScalarProperty Name="workingstart" ColumnName="workingstart" />
+          <ScalarProperty Name="workingstop" ColumnName="workingstop" />
+          <ScalarProperty Name="performance" ColumnName="performance" />
+          <ScalarProperty Name="pirim" ColumnName="pirim" />
+          <ScalarProperty Name="pay" ColumnName="pay" />
+          <ScalarProperty Name="mesai" ColumnName="mesai" />
+          <ScalarProperty Name="mesaidays" ColumnName="mesaidays" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="process">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.process">
+        <MappingFragment StoreEntitySet="process">
+          <ScalarProperty Name="processid" ColumnName="processid" />
+          <ScalarProperty Name="process1" ColumnName="process" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="region">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.region">
+        <MappingFragment StoreEntitySet="region">
+          <ScalarProperty Name="regionid" ColumnName="regionid" />
+          <ScalarProperty Name="region1" ColumnName="region" />
+          <ScalarProperty Name="companyget" ColumnName="companyget" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ucretbordro">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.ucretbordro">
+        <MappingFragment StoreEntitySet="ucretbordro">
+          <ScalarProperty Name="ucretbordroid" ColumnName="ucretbordroid" />
+          <ScalarProperty Name="sgksabiti" ColumnName="sgksabiti" />
+          <ScalarProperty Name="sgkisveren" ColumnName="sgkisveren" />
+          <ScalarProperty Name="isverenissizsigfon" ColumnName="isverenissizsigfon" />
+          <ScalarProperty Name="isverenmaliyet" ColumnName="isverenmaliyet" />
+          <ScalarProperty Name="nrkazanc" ColumnName="nrkazanc" />
+          <ScalarProperty Name="iszsigiscipayi" ColumnName="iszsigiscipayi" />
+          <ScalarProperty Name="sgkiscipayi" ColumnName="sgkiscipayi" />
+          <ScalarProperty Name="gvmahtari" ColumnName="gvmahtari" />
+          <ScalarProperty Name="gelirvergisi" ColumnName="gelirvergisi" />
+          <ScalarProperty Name="agi" ColumnName="agi" />
+          <ScalarProperty Name="kendiagiyuzdesi" ColumnName="kendiagiyuzdesi" />
+          <ScalarProperty Name="esagiyuzdesi" ColumnName="esagiyuzdesi" />
+          <ScalarProperty Name="birveikicocukagiyuzdesi" ColumnName="birveikicocukagiyuzdesi" />
+          <ScalarProperty Name="uccocukyuzdesi" ColumnName="uccocukyuzdesi" />
+          <ScalarProperty Name="dortveuzericocukyuzdesi" ColumnName="dortveuzericocukyuzdesi" />
+          <ScalarProperty Name="damgavergi" ColumnName="damgavergi" />
+          <ScalarProperty Name="netkazanc" ColumnName="netkazanc" />
+          <ScalarProperty Name="gunlukkazanc" ColumnName="gunlukkazanc" />
+          <ScalarProperty Name="pirimyuzdesi" ColumnName="pirimyuzdesi" />
+          <ScalarProperty Name="mesaiucreti" ColumnName="mesaiucreti" />
+          <ScalarProperty Name="yoneticifark" ColumnName="yoneticifark" />
+          <ScalarProperty Name="yoneticipirimyuzdesi" ColumnName="yoneticipirimyuzdesi" />
+          <ScalarProperty Name="yoneticimesaiucreti" ColumnName="yoneticimesaiucreti" />
+          <ScalarProperty Name="pirimlimit" ColumnName="pirimlimit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="unit">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.unit">
+        <MappingFragment StoreEntitySet="unit">
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="unit1" ColumnName="unit" />
+          <ScalarProperty Name="regionget" ColumnName="regionget" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="profilephoto" ColumnName="profilephoto" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="usrname" ColumnName="usrname" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="securitykey" ColumnName="securitykey" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="yuklenenbelgeler">
+      <EntityTypeMapping TypeName="db_a6811d_siscontModel.yuklenenbelgeler">
+        <MappingFragment StoreEntitySet="yuklenenbelgeler">
+          <ScalarProperty Name="belgeid" ColumnName="belgeid" />
+          <ScalarProperty Name="belge" ColumnName="belge" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

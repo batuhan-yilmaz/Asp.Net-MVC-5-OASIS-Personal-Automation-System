@@ -1,0 +1,163 @@
+﻿@model List<OASIS.Models.Entity.invoice>
+
+@{
+    ViewBag.Title = "Faturalar";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.menuactive = "invoice";
+}
+
+@if (TempData["invoicelGuncelle"] != null)
+{
+
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+    </script>
+}
+
+<!-- Content Wrapper. Contains page content -->
+
+<div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+
+
+    <!-- Main content -->
+    <section class="content d-flex">
+        <div class="row">
+            <!-- /.card -->
+
+            <div class="card">
+                <div class="card-header">
+                    @Html.ActionLink(" Yeni Fatura Oluştur ", "invoiceolustur", null, new { @class = "fa fa-plus btn btn-primary" })
+
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Güncelle</th>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <th>Sil</th>
+                                }
+                                <th>Fatura Detay</th>
+                                <th>Referans Numarası</th>
+                                <th>Firma</th>
+                                <th>Bölge</th>
+                                <th>Birim</th>
+                                <th>Yönetici</th>
+                                <th>Personel</th>
+                                <th>Tarih</th>
+                                <th>İsim Soyisim</th>
+                                <th>Tc</th>
+                                <th>Telefon</th>
+                                <th>E-Posta</th>
+                                <th>Adres</th>
+                                <th>Ürün</th>
+                                <th>Açıklama</th>
+                                <th><b>Vergi 18%</b></th>
+                                <th><b>Ara Toplam</b></th>
+                                <th><b>Total</b></th>
+                                <th><b>Ödeme Türü</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @foreach (var invoice in Model)
+                            {
+                            <tr>
+                                <td>
+                                    <button type="button" class="fa fa-pencil-square-o btn btn-outline-primary" data-toggle="modal" data-target="#guncelle_@invoice.invoiceid">Güncelle</button>
+                                    <div class="modal fade" id="guncelle_@invoice.invoiceid">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Faturayı Güncelle</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Faturayı Güncellemek İstiyormusunuz?</p>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                    @Html.ActionLink("Güncelle", "invoiceguncelle", new { invoice.invoiceid }, new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
+                                </td>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <button type="button" class="fa fa-trash btn btn-outline-danger" data-toggle="modal" data-target="#sil_@invoice.invoiceid">Sil</button>
+                                        <div class="modal fade" id="sil_@invoice.invoiceid">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Faturayı Sil</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Faturayı Silmek İstiyormusunuz?</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                        @Html.ActionLink("Sil", "invoicesil", new { invoice.invoiceid }, new { @class = "fa fa-trash btn btn-outline-danger" })
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
+                                    </td>
+                                }
+                                <td> @Html.ActionLink(" Detay ", "invoiceget", new { invoice.invoiceid }, new { @class = "fa fa-search-plus btn btn-outline-success" })</td>
+                                <td><b><class style="color:#007bff">@invoice.referancenumber</class></b></td>
+                                <td>@invoice.company.company1</td>
+                                <td>@invoice.region.region1</td>
+                                <td>@invoice.unit.unit1</td>
+                                <td>@invoice.authorized.authorized1</td>
+                                <td>@invoice.personel.personel1</td>
+                                <td> @Html.DisplayFor(m => invoice.date)</td>
+                                <td><b>@invoice.namesurname</b></td>
+                                <td>@invoice.tc</td>
+                                <td>@invoice.tel</td>
+                                <td>@invoice.email</td>
+                                <td>@invoice.adres</td>
+                                <td>@invoice.product</td>
+                                <td>@invoice.description</td>
+                                <td>@invoice.tax</td>
+                                <td>@invoice.subtotal</td>
+                                <td>@invoice.total</td>
+                                <td><img src="~/Content/Admin/dist/img/credit/@invoice.pay" width="75" height="50" alt="Visa"></td>
+                            </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+</div>
+
+
+

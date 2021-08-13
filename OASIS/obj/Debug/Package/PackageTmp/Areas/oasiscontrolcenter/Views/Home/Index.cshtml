@@ -1,0 +1,425 @@
+﻿@model OASIS.Models.Entity.users
+
+
+@{
+    ViewBag.Title = "OASIS";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["homeGuncelle"] != null)
+{
+
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+    </script>
+}
+
+@if (TempData["kullaniciguncelle"] != null)
+{
+
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+    </script>
+}
+@if (TempData["kullaniciGuncelleHata"] != null)
+{
+
+    <script>
+        Swal.fire('Güncelleme Başarısız', 'İşlem gerçekleştirilemedi', 'error');
+    </script>
+}
+
+
+@if (TempData["login"] != null)
+{
+
+    <script>
+
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 6000
+        });
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Merhaba @HttpContext.Current.User.Identity.Name Oturumu açma işleminiz başarıyla gerçekleşti.OASIS Yönetim Sistemine Hoşgeldiniz.'
+            })
+
+    </script>
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div>
+                        <!-- Profile Image -->
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    <a href="#" data-toggle="modal" data-target="#kfguncelle"><img src="~/Content/Admin/data/user/uimg/default.jpg" class="profile-user-img img-fluid img-circle" alt="User profile picture" id="foto1"></a>
+                                    <div class="modal fade" id="kfguncelle">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Fotoğrafını Fotoğrafını Değiştir</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @using (Html.BeginForm("profilfotoguncelle", "Home", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+                                                    {
+                                                        <p>Profil Fotoğrafı</p>
+                                                        <div class="btn btn-primary">
+                                                            @Html.TextBoxFor(m => m.profilephoto, new { type = "file", id = "imageBrowes", onchange = "ValidateSingleInput(this);", @required = "required" })
+                                                        </div>
+                                                        <hr />
+                                                        <b><font color="orangered"><span id="errorfile"></span></font></b>
+                                                        <b><font color="orangered"><span id="errortype"></span></font></b>
+                                                        <div id="imgPreview" class="thumbnail" style="display:none;">
+                                                            <img class="img-responsive" id="targetImg" style="width:100px; height:100px;" />
+                                                            <div class="caption">
+                                                                <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                                                                <span id="description"></span>
+                                                            </div>
+
+
+                                                        </div>
+                                                        @Html.HiddenFor(m => m.userid, new { @class = "form-control", id = "userid1" })
+                                                        <button type="submit" onclick="Uploadimage()" class="fa fa-floppy-o btn btn-success"> Kaydet </button>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                </div>
+
+                                <h3 class="profile-username text-center" id="dbusername">@HttpContext.Current.User.Identity.Name</h3>
+
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item">
+                                        <i class="fa fa-id-card"></i> <b>Ad:</b><font style="color:#007bff;"><b><a class="float-right" id="name1"></a></b></font>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fa fa-id-card"></i> <b>Soyad:</b> <font style="color:#007bff;"><b><a class="float-right" id="surname1"></a></b></font>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fa fa-id-card"></i> <b>Tc:</b> <font style="color:#007bff;"><b><a class="float-right" id="tc1"></a></b></font>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fa fa-envelope"></i> <b>Email:</b> <font style="color:#007bff;"><b><a class="float-right" id="email1"></a></b></font>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fa fa-phone"></i> <b>Telefon:</b> <font style="color:#007bff;"><b><a class="float-right" id="tel"></a></b></font>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fa fa-venus-mars"></i> <b>Cinsiyet:</b> <font style="color:#007bff;"><b><a class="float-right" id="gender1"></a></b></font>
+                                    </li>
+                                </ul>
+
+                                <!-- /USER GÜNCELLEME BAŞLAR POP UP! -->
+                                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#Güncelle" onclick="scode()"><b>Güncelle</b></button>
+                                <div class="modal fade" id="Güncelle">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title"><font style="color:#007bff;">Kullanıcı Bilgilerini Güncelle</font></h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @using (Html.BeginForm("profilguncelle", "Home", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+                                                {
+
+                                                    <div class="form-group">
+                                                        <p>İsim</p>
+                                                        @Html.TextBoxFor(m => m.name, new { oninput = "text(this.id);", @Value = "", @class = "form-control", @required = "required", id = "isimdegis" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <p>Soyisim</p>
+                                                        @Html.TextBoxFor(m => m.surname, new { oninput = "text(this.id);", @Value = "", @class = "form-control", @required = "required", id = "soyisimdegis" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <p>Tc</p>
+                                                        @Html.TextBoxFor(m => m.tc, new { @class = "form-control", id = "tcdegis", oninput = "TcNumber(this.id);", maxlength = "11", @required = "required", placeholder = "Lütfen 11 Haneli TC Kimlik Numaranızı Giriniz." })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <p>Telefon</p>
+                                                        @Html.TextBoxFor(m => m.tel, new { @class = "form-control", id = "phoneNumber", oninput = "PhoneNumber(this.id);", maxlength = "17", @required = "required", placeholder = "Lütfen Başında 0 Olmadan 11 Haneli Telefon Numaranızı Giriniz." })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <p>Parola</p><!-- /.PAROLAYI ELLEME!  VALUE BOŞ KALSIN!-->
+                                                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @required = "required" })
+                                                        @Html.HiddenFor(m => m.securitykey, new { @Value = "", @class = "form-control", @required = "required", id = "hsecuritykey" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <p>E-Mail</p>
+                                                        @Html.TextBoxFor(m => m.email, new { @Value = "", @class = "form-control", @required = "required", id = "maildegis", type = "email" })
+                                                        @Html.HiddenFor(m => m.userid, new { @class = "form-control", id = "userid12" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" onclick="Uploadimage()" class="fa fa-floppy-o btn btn-success"> Kaydet</button>
+                                                    </div>
+                                                        }
+                                                </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Vazgeç</button>
+                                                    </div>
+                                                </div>
+                                            <!-- /.modal-content -->
+                                            </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /USER GÜNCELLEME BİTTİ POP UP! -->
+
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div><!-- profile get-->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab"><i class="fa fa-bullhorn"> Akış</i></a></li>
+                                &nbsp;
+                                <li class="nav-item">@Html.ActionLink(" Yorumlar ", "yorumlar", null, new { @class = "fa fa-comment btn btn-success" })</li>
+                                @if (User.IsInRole("Admin") || User.IsInRole("Yonetici"))
+                                {
+                                    <li class="nav-item">
+                                        &nbsp;
+                                        @Html.ActionLink(" Yeni Akış Oluştur ", "homeekle", null, new { @class = "fa fa-plus btn btn-warning" })
+
+
+                                    </li>
+                                }
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            @Html.Action("homeget", "Home")
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+</div>
+
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        dropdowncont();
+    });
+</script>
+
+
+<script>
+    var _validFileExtensions2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes").change(function () {
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype").text('');
+                $("#errorfile").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes").val('');
+                $("#description").text('');
+                $("#imgPreview").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+                $("#errortype").text('');
+                $("#errorfile").text('');
+
+            }
+        })
+
+    })
+
+
+    var ReadImage = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview = function () {
+        $("#imageBrowes").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+
+    }
+
+    var Uploadimage = function () {
+
+        var file = $("#imageBrowes").get(0).files;
+
+        var data = new FormData;
+        data.append("profilephotoFile", file[0]);
+
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/uImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview();
+
+
+
+            }
+
+        })
+
+
+        //
+    }
+    function ValidateSingleInput(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile").text('');
+                    $("#imageBrowes").val('');
+                    $("#description").text('');
+                    $("#imgPreview").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+
+<script>
+    var maillist = [];
+    var usrnamelist = [];
+    var genderlist = [];
+    var fotolist = [];
+    var namelist = [];
+    var usridlist = [];
+    var surnamelist = [];
+    var tclist = [];
+    var telnolist = [];
+    var rolelist = [];
+    var username = document.getElementById("dbusername").innerText;
+    var url = '/Login/ForgotPw';
+    $.getJSON(url, function (data) {
+        for (var item in data.Result) {
+            var deger = '<tr>' + data.Result[item].name + ',' + data.Result[item].surname + ',' + data.Result[item].userid + ',' + data.Result[item].usrname + ',' + data.Result[item].tc + ',' + data.Result[item].tel + ',' + data.Result[item].email + ',' + data.Result[item].role + ',' + data.Result[item].profilephoto + ',' + data.Result[item].gender + '</tr>';
+            $('table').append(deger);
+            var name = data.Result[item].name;
+            var usrid = data.Result[item].userid;
+            var surname = data.Result[item].surname;
+            var tc = data.Result[item].tc;
+            var telno = data.Result[item].tel;
+            var role = data.Result[item].role;
+            var mail1 = data.Result[item].email;
+            var gender = data.Result[item].gender;
+            var foto = data.Result[item].profilephoto;
+            var usrname = data.Result[item].usrname;
+            maillist.push(mail1);
+            usrnamelist.push(usrname);
+            genderlist.push(gender);
+            fotolist.push(foto);
+            namelist.push(name);
+            surnamelist.push(surname);
+            usridlist.push(usrid);
+            tclist.push(tc);
+            telnolist.push(telno);
+            rolelist.push(role);
+            kullanıcıbilgileri();
+        };
+    });
+    function kullanıcıbilgileri() {
+        for (i = 0; i < usrnamelist.length; i++) {
+            if (username == usrnamelist[i]) {
+                var img = document.getElementById("foto1");
+                img.src = ("/Content/Admin/data/user/uimg/" + fotolist[i]);
+                $("#foto1").attr("src", ("/Content/Admin/data/user/uimg/" + fotolist[i]));
+                document.getElementById("name1").innerHTML = namelist[i];
+                document.getElementById("surname1").innerHTML = surnamelist[i];
+                document.getElementById("email1").innerHTML = maillist[i];
+                document.getElementById("tc1").innerHTML = tclist[i];
+                document.getElementById("tel").innerHTML = telnolist[i];
+                document.getElementById("gender1").innerHTML = genderlist[i];
+                //bu alandan altı value değerleri!
+                document.getElementById("userid1").value = usridlist[i];
+                document.getElementById("userid12").value = usridlist[i];
+                document.getElementById("isimdegis").value = namelist[i];
+                document.getElementById("soyisimdegis").value = surnamelist[i];
+                document.getElementById("tcdegis").value = tclist[i];
+                document.getElementById("maildegis").value = maillist[i];
+                document.getElementById("phoneNumber").value = telnolist[i];
+            }
+            else {
+                continue;
+            }
+        }
+    }
+
+</script>

@@ -1,0 +1,252 @@
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\OASIS.dll.config
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\OASIS.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\OASIS.pdb
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\csc.exe
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\csc.exe.config
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\csc.rsp
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\csi.exe
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\csi.rsp
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\System.AppContext.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\vbc.exe
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\vbc.exe.config
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\vbc.rsp
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\VBCSCompiler.exe
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\Antlr3.Runtime.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\ClosedXML.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\DocumentFormat.OpenXml.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\EntityFramework.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\ExcelNumberFormat.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\Google.Authenticator.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\itextsharp.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Helpers.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Mvc.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Razor.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Webpages.Deployment.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Webpages.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Webpages.Razor.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\Antlr3.Runtime.pdb
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\ClosedXML.pdb
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\ClosedXML.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\DocumentFormat.OpenXml.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\EntityFramework.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\ExcelNumberFormat.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\itextsharp.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Razor.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Webpages.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Webpages.Deployment.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Webpages.Razor.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Helpers.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\System.Web.Mvc.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\obj\Release\OASIS.csprojAssemblyReference.cache
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\obj\Release\OASIS.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\obj\Release\OASIS.csproj.CopyComplete
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\obj\Release\OASIS.dll
+C:\Users\OSX\Desktop\OASIS V3\OASIS\OASIS\obj\Release\OASIS.pdb
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\OASIS.dll.config
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\OASIS.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\OASIS.pdb
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\csc.exe
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\csc.exe.config
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\csc.rsp
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\csi.exe
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\csi.rsp
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\System.AppContext.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\vbc.exe
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\vbc.exe.config
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\vbc.rsp
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\VBCSCompiler.exe
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\Antlr3.Runtime.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\ClosedXML.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\DocumentFormat.OpenXml.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\EntityFramework.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\EntityFramework.SqlServer.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\ExcelNumberFormat.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\Google.Authenticator.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\itextsharp.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\MySql.Data.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\MySql.Data.Entity.EF6.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Data.SqlClient.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Helpers.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Mvc.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Razor.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Webpages.Deployment.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Webpages.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Webpages.Razor.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\Antlr3.Runtime.pdb
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\ClosedXML.pdb
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\ClosedXML.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\DocumentFormat.OpenXml.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\EntityFramework.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\EntityFramework.SqlServer.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\ExcelNumberFormat.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\itextsharp.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Data.SqlClient.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Razor.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Webpages.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Webpages.Deployment.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Webpages.Razor.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Helpers.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\System.Web.Mvc.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\obj\Release\OASIS.csprojAssemblyReference.cache
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\obj\Release\OASIS.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\obj\Release\OASIS.csproj.CopyComplete
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\obj\Release\OASIS.dll
+C:\Users\OSX\Desktop\Yeni klasör\OASIS\obj\Release\OASIS.pdb
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\OASIS.dll.config
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\OASIS.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\OASIS.pdb
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\csc.exe
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\csc.exe.config
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\csc.rsp
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\csi.exe
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\csi.rsp
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\System.AppContext.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\vbc.exe
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\vbc.exe.config
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\vbc.rsp
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\VBCSCompiler.exe
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\Antlr3.Runtime.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\EntityFramework.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\EntityFramework.SqlServer.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\Google.Authenticator.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\MySql.Data.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\MySql.Data.Entity.EF6.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Data.SqlClient.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Helpers.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Mvc.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Razor.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Webpages.Deployment.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Webpages.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Webpages.Razor.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\Antlr3.Runtime.pdb
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\EntityFramework.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\EntityFramework.SqlServer.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Data.SqlClient.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Razor.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Webpages.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Webpages.Deployment.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Webpages.Razor.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Helpers.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\System.Web.Mvc.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\OSX\Desktop\OASIS\OASIS\obj\Release\OASIS.csprojAssemblyReference.cache
+C:\Users\OSX\Desktop\OASIS\OASIS\obj\Release\OASIS.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\OASIS\OASIS\obj\Release\OASIS.csproj.CopyComplete
+C:\Users\OSX\Desktop\OASIS\OASIS\obj\Release\OASIS.dll
+C:\Users\OSX\Desktop\OASIS\OASIS\obj\Release\OASIS.pdb
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\OASIS.dll.config
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\OASIS.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\OASIS.pdb
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\csc.exe
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\csc.exe.config
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\csc.rsp
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\csi.exe
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\csi.rsp
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\System.AppContext.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\System.Collections.Immutable.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\System.IO.FileSystem.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\System.Reflection.Metadata.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\vbc.exe
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\vbc.exe.config
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\vbc.rsp
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\VBCSCompiler.exe
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\roslyn\VBCSCompiler.exe.config
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\Antlr3.Runtime.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\EntityFramework.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\EntityFramework.SqlServer.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\Google.Authenticator.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\Microsoft.Web.Infrastructure.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\MySql.Data.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\MySql.Data.Entity.EF6.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Data.SqlClient.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Helpers.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Mvc.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Razor.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Webpages.Deployment.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Webpages.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Webpages.Razor.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\Antlr3.Runtime.pdb
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\EntityFramework.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\EntityFramework.SqlServer.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Data.SqlClient.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Razor.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Webpages.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Webpages.Deployment.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Webpages.Razor.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Helpers.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\System.Web.Mvc.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\obj\Release\OASIS.csproj.AssemblyReference.cache
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\obj\Release\OASIS.csproj.CoreCompileInputs.cache
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\obj\Release\OASIS.csproj.CopyComplete
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\obj\Release\OASIS.dll
+F:\Visual Studio 2019 Enterprise\PROJELER\AKTİF PROJELER\OASIS pdks\FINAL OASIS\OASIS\obj\Release\OASIS.pdb

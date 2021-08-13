@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="054de487494b48a7b504da7725862448" Name="Diagram1">
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.authorized" Width="1.5" PointX="7.5" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.check" Width="1.5" PointX="12.75" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.comment" Width="1.5" PointX="10.5" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.company" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.departman" Width="1.5" PointX="8.25" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.events" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.home" Width="1.5" PointX="10.5" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.invoice" Width="1.5" PointX="15.75" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.messagebox" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.notice" Width="1.5" PointX="7.5" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.personel" Width="1.5" PointX="12.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.process" Width="1.5" PointX="8.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.region" Width="1.5" PointX="3" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.ucretbordro" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.unit" Width="1.5" PointX="5.25" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.users" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a6811d_siscontModel.yuklenenbelgeler" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_authorized_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_authorized_departman" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_authorized_region" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_authorized_unit" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_check_authorized" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_invoice_authorized" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_personel_authorized" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_check_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_check_departman" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_check_region" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_check_unit" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_comment_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_comment_region" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_comment_unit" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_event_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_invoice_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_notice_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_personel_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_region_company" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_event_departman" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_notice_departman" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_personel_departman" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_event_process" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_event_region" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_event_unit" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_invoice_personel" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_invoice_region" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_invoice_unit" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_notice_process" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_notice_region" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_notice_unit" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_personel_region" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_personel_unit" ManuallyRouted="false" />
+        <AssociationConnector Association="db_a6811d_siscontModel.FK_unit_region" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

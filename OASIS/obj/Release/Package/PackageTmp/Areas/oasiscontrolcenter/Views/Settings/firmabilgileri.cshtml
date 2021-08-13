@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Firma Bilgileri";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "Firmabilgileri";
+    ViewBag.menuactive = "Ayarlar";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Firma, Bölge, Birim, Departman İşlemleri</h1>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="row">
+                <!-- /.card -->
+
+                <div class="card">
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="firmalar" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        @Html.Action("companypartial", "Settings")
+                                    </td>
+                                    <td>
+                                        @Html.Action("regionpartial", "Settings")
+                                    </td>
+                                    <td>
+                                        @Html.Action("unitpartial", "Settings")
+                                    </td>
+                                    <td>
+                                        @Html.Action("departmanpartial", "Settings")
+                                    </td>
+                                </tr>
+                           </thead>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

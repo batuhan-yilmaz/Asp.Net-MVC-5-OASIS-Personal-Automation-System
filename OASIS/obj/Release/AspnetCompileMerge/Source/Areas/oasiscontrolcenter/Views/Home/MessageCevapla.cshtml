@@ -1,0 +1,134 @@
+﻿@model OASIS.Models.Entity.messagebox
+
+@{
+    ViewBag.Title = "MessageCevapla";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="messagebox" class="btn btn-primary btn-block mb-3">Mesajlara Geri Dön</a>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">MessageBox</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="nav nav-pills flex-column">
+                                    <li class="nav-item active">
+                                        <p class="nav-link" style="color:#007bff"><i class="fas fa-star text-warning"></i> Okunmamış Mesajlar <span class="badge bg-warning" id="messagewarning"></span></p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p class="nav-link" style="color:#007bff"><i class="fas fa-check text-primary"></i> Okunmuş Mesajlar <span class="badge bg-primary" id="messagechecked"></span></p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p class="nav-link" style="color:#007bff"><i class="fas fa-info-circle text-danger"></i> İncelemede Olanlar <span class="badge bg-danger" id="messagedanger"></span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-md-9">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Mesajı Cevapla</h3>
+                            </div>
+                            @using (Html.BeginForm("MessageCvp", "Home", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+                            {
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.youremail, new { @readonly = "false", @class = "form-control", id = "email", type = "email", @required = "required", placeholder = "Alıcı:" })
+                                    </div>
+                                    <div class="form-group">
+                                        <p>Konu:</p>
+                                        @Html.TextBoxFor(m => m.subject, new { @readonly = "false", oninput = "customtext(this.id);", @class = "form-control", @required = "required", placeholder = "Konu:" })
+                                    </div>
+                                    <div class="form-group">
+                                        <p>Mesaj:</p>
+                                        @Html.TextAreaFor(m => m.Body, new { oninput = "customtext(this.id);", @rows = 5, @cols = 40, @class = "form-control", @required = "required", placeholder = "Mesaj:" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.HiddenFor(m => m.Email, new { @Value = "oasiscontrolcenter@gmail.com", @class = "form-control", id = "email", @required = "required", placeholder = "Gönderem E-Mail:" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.HiddenFor(m => m.Password, new { @Value = "oasiscontrol77", @class = "form-control", @required = "required", placeholder = "Gönderen Password:" })
+                                        @Html.HiddenFor(m => m.messageid)
+                                    </div>
+                                    <div class="float-left">
+                                        <div class="btn btn-default btn-file">
+                                            <i class="fas fa-paperclip"></i> Dosya Ekle
+                                            <input type="file" name="Attachments" multiple="multiple" />
+
+                                        </div>
+                                        <p class="help-block">Max. 32MB</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="float-right">
+                                        <button type="submit" value="Send" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+<script type="text/javascript">
+
+    var messagetypes = [];
+    var mchecked = "fas fa-check text-primary";
+    var mwarning = "fas fa-star text-warning";
+    var mdanger = "fas fa-info-circle text-danger";
+    var url = '/Home/mbox';
+    $.getJSON(url, function (data) {
+        var boxstar = 0;
+        var boxdanger = 0;
+        var boxchecked = 0;
+        for (var item in data.Result) {
+            var degerz = '' + data.Result[item].color + '';
+            $('tablez').append(degerz);
+            var messagetype = (data.Result[item].color);
+            messagetypes.push(messagetype);
+        };
+        mtypecontrol();
+        var boxstar = document.getElementById("messagewarning").textContent = ("" + boxstar.toString());;
+        var boxdanger = document.getElementById("messagedanger").textContent = ("" + boxdanger.toString());;
+        var boxchecked = document.getElementById("messagechecked").textContent = ("" + boxchecked.toString());;
+        function mtypecontrol() {
+            for (i = 0; i < messagetypes.length; i++) {
+                if (messagetypes[i] == mchecked) {
+                    boxchecked++;
+                }
+                else if (messagetypes[i] == mwarning) {
+                    boxstar++;
+                }
+                else if (messagetypes[i] == mdanger) {
+                    boxdanger++;
+                }
+                else {
+                    //do nothing.
+                }
+            }
+        }
+    });
+</script>

@@ -1,0 +1,829 @@
+﻿@model OASIS.Models.Entity.check
+
+@{
+    ViewBag.Title = "Denetim Güncelle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="card-body">
+        <h2>Denetim Güncelle</h2>
+        @using (Html.BeginForm("denguncelle", "Denetim", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+        {
+            <table id="example1" class="table table-bordered table-striped">
+                <tr>
+                    <td>
+                        <p>Firma</p>
+                        @Html.DropDownListFor(m => m.company.companyid, (List<SelectListItem>)ViewBag.CompanyList, new { @class = "form-control", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Bölge</p>
+                        @Html.DropDownListFor(m => m.region.regionid, (List<SelectListItem>)ViewBag.RegionList, new { @class = "form-control", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Birim</p>
+                        @Html.DropDownListFor(m => m.unit.unitid, (List<SelectListItem>)ViewBag.UnitList, new { @class = "form-control", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Departman</p>
+                        @Html.DropDownListFor(m => m.departman.departmanid, (List<SelectListItem>)ViewBag.DepartmanList, new { @class = "form-control", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Yönetici</p>
+                        @Html.DropDownListFor(m => m.authorized.authorizedid, (List<SelectListItem>)ViewBag.AuthorizedList, new { @class = "form-control", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Denetim Tarihi</p>
+                        @Html.EditorFor(m => m.checkdate, new { htmlAttributes = new { @class = "form-control", id = "tarih1", placeholder = "Lütfen Denetim Tarihi Giriniz.", @required = "required" } })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Hijyen</p>
+                        @Html.TextBoxFor(m => m.check1, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Performans</p>
+                        @Html.TextBoxFor(m => m.check15, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Güleryüz</p>
+                        @Html.TextBoxFor(m => m.check2, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Hizmet</p>
+                        @Html.TextBoxFor(m => m.check3, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Kalite</p>
+                        @Html.TextBoxFor(m => m.check4, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Geri Bildirimler</p>
+                        @Html.TextBoxFor(m => m.check5, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Düzen ve Tertip</p>
+                        @Html.TextBoxFor(m => m.check6, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Destek</p>
+                        @Html.TextBoxFor(m => m.check7, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>İletişim</p>
+                        @Html.TextBoxFor(m => m.check8, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Uyum</p>
+                        @Html.TextBoxFor(m => m.check9, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Oryantasyon Süreci</p>
+                        @Html.TextBoxFor(m => m.check10, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Disiplin</p>
+                        @Html.TextBoxFor(m => m.check11, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Kurallara Uygunluk</p>
+                        @Html.TextBoxFor(m => m.check12, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Yardımlaşma</p>
+                        @Html.TextBoxFor(m => m.check13, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Kendini Geliştirme</p>
+                        @Html.TextBoxFor(m => m.check14, new { @class = "form-control", @type = "number", @min = "1", @max = "10", placeholder = "Lütfen 1-10 arası Puan Veriniz.", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Görüş</p>
+                        @Html.TextAreaFor(m => m.suggestion, new { @class = "form-control", oninput = "customtext(this.id);", placeholder = "Lütfen Denetim Hakkında Görüşlerinizi Belirtiniz.", @required = "required" })
+                        @Html.HiddenFor(m => m.location, new { @class = "form-control", placeholder = "Lütfen Denetim Hakkında Görüşlerinizi Belirtiniz.", @required = "required", id = "location", @readonly = "false", value = "" })
+                        @Html.HiddenFor(m => m.checkid, new { @class = "form-control", @readonly = "false" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @if (Model.content1 != null)
+                        {
+                            <img src="~/Content/Admin/data/check/cimg/@Model.content1" width="100" height="100" />
+                            <br />
+                        }
+                        <hr />
+                        <p>Görsel Ek 1</p>
+                        <div class="btn btn-primary">
+                            @Html.TextBoxFor(m => m.content1, new { type = "file", id = "imageBrowes", onchange = "ValidateSingleInput(this);", @required = "required" })
+                        </div>
+                        <hr />
+                        <b><font color="orangered"><span id="errorfile"></span></font></b>
+                        <b><font color="orangered"><span id="errortype"></span></font></b>
+                        <div id="imgPreview" class="thumbnail" style="display:none;">
+                            <img class="img-responsive" id="targetImg" style="width:100px; height:100px;" />
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        @if (Model.content2 != null)
+                        {
+                            <img src="~/Content/Admin/data/check/cimg/@Model.content2" width="100" height="100" />
+                            <br />
+                        }
+                        <hr />
+                        <p>Görsel Ek 2</p>
+                        <div class="btn btn-primary">
+                            @Html.TextBoxFor(m => m.content2, new { type = "file", id = "imageBrowes2", onchange = "ValidateSingleInput2(this);", @required = "required" })
+                        </div>
+                        <hr />
+                        <b><font color="orangered"><span id="errorfile2"></span></font></b>
+                        <b><font color="orangered"><span id="errortype2"></span></font></b>
+                        <div id="imgPreview2" class="thumbnail" style="display:none;">
+                            <img class="img-responsive" id="targetImg2" style="width:100px; height:100px;" />
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview2()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description2"></span>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @if (Model.content3 != null)
+                        {
+                            <img src="~/Content/Admin/data/check/cimg/@Model.content3" width="100" height="100" />
+                            <br />
+                        }
+                        <hr />
+                        <p>Görsel Ek 3</p>
+                        <div class="btn btn-primary">
+                            @Html.TextBoxFor(m => m.content3, new { type = "file", id = "imageBrowes3", onchange = "ValidateSingleInput3(this);", @required = "required" })
+                        </div>
+                        <hr />
+                        <b><font color="orangered"><span id="errorfile3"></span></font></b>
+                        <b><font color="orangered"><span id="errortype3"></span></font></b>
+                        <div id="imgPreview3" class="thumbnail" style="display:none;">
+                            <img class="img-responsive" id="targetImg3" style="width:100px; height:100px;" />
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview3()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description3"></span>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+                        @if (Model.content4 != null)
+                        {
+                            <img src="~/Content/Admin/data/check/cimg/@Model.content4" width="100" height="100" />
+                            <br />
+                        }
+                        <hr />
+                        <p>Görsel Ek 4</p>
+                        <div class="btn btn-primary">
+                            @Html.TextBoxFor(m => m.content4, new { type = "file", id = "imageBrowes4", onchange = "ValidateSingleInput4(this);", @required = "required" })
+                        </div>
+                        <hr />
+                        <b><font color="orangered"><span id="errorfile4"></span></font></b>
+                        <b><font color="orangered"><span id="errortype4"></span></font></b>
+                        <div id="imgPreview4" class="thumbnail" style="display:none;">
+                            <img class="img-responsive" id="targetImg4" style="width:100px; height:100px;" />
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview4()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description4"></span>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit" onclick="Uploadimage(); Uploadimage2(); Uploadimage3(); Uploadimage4()" class="fa fa-floppy-o btn btn-success" id="denetkaydet" disabled="disabled" /> Kaydet</td>
+                    <td>
+                        <div class="guideContainerWrapperNode guideContainerNode container"
+                             role="main"
+                             data-path="/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer"
+                             data-guide-test-data="null"
+                             data-tmproot="4a7d4ae4-7f91-4fc2-9bed-a9c8ceb8eefb">
+                            <div class="guideRootPanel guideRootPanel " id="guideContainer-rootPanel__" data-path="/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel" data-guide-view-bind="guideContainer-rootPanel__">
+                                <div id="guideContainer-rootPanel-fragmentPanel___guide-item" class="col-md-12">
+                                    <div class="guidePanelNode currentAddress" id="guideContainer-rootPanel-fragmentPanel__" data-path="/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel" data-guide-view-bind="guideContainer-rootPanel-fragmentPanel__">
+                                        <BU ALAN ÇEKBOX>
+                                            <div id="guideContainer-rootPanel-fragmentPanel-guidecheckbox___guide-item" class="col-md-12">
+                                                <div class="guideFieldNode  guideCheckBoxGroup geoLocation geolocation defaultFieldLayout" id="guideContainer-rootPanel-fragmentPanel-guidecheckbox__" data-guide-view-bind="guideContainer-rootPanel-fragmentPanel-guidecheckbox__" style="">
+                                                    <div class="guideFieldWidget left XfaCheckBox" data-id="1">
+                                                        <input type="checkbox" id="checkboxcont" name="geoLocation" value="" />
+                                                        <input disabled="disabled" placeholder="Lütfen kutucuğu işaretleyiniz." size="25" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="guideContainer-rootPanel-fragmentPanel-guidetextbox___guide-item" class="col-md-12">
+                                                <div class="guideFieldNode  guideTextBox streetAddress defaultFieldLayout" id="guideContainer-rootPanel-fragmentPanel-guidetextbox__" data-guide-view-bind="guideContainer-rootPanel-fragmentPanel-guidetextbox__" style="">
+                                                    <div class="guideFieldWidget textField  " style="">
+                                                        <input type="hidden" autocomplete="off" id="locationgeocode" placeholder="" size="75" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <input type="checkbox" id="checkboxv2" name="getgeoLocation" value="" disabled="disabled" />
+                                    <input disabled="disabled" placeholder="Lütfen önce ilk kutucuğu işaretleyiniz." size="33" />
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        }
+
+    </div>
+</div>
+
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/geoloca/en.js"></script>
+<script src="~/Content/Admin/plugins/custom/geoloca/guideRuntime.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $("#tarih1").datepicker({
+        dateFormat: "yy-mm-dd",
+        changeYear: true,
+        showButtonPanel: true,
+        showWeek: true,
+        changeMonth: true,
+        minDate: new Date(2020, 0, 1),
+        maxDate: new Date(2030, 0, 1),
+        closeText: "Kapat", // Display text for close link
+        prevText: "Geri", // Display text for previous month link
+        nextText: "İleri", // Display text for next month link
+        currentText: "Bugün", // Display text for current month link
+        monthNames: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+            "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"], // Names of months for drop-down and formatting
+        monthNamesShort: ["Ock", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Agu", "Eyl", "Ekm", "Kas", "Ara"], // For formatting
+        dayNames: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"], // For formatting
+        dayNamesShort: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"], // For formatting
+        dayNamesMin: ["Pz", "Pt", "Sa", "Çr", "Pr", "Cm", "Ct"], // Column headings for days starting at Sunday
+        weekHeader: "Hf", // Column header for week of the year
+        firstDay: 1,
+        showOn: "both",
+        buttonText: "<i class='fa fa-calendar'></i>"
+    });
+
+    function Number(id) {
+        var element = document.getElementById(id);
+        var regex = /[^0-9]/gi;
+        element.value = element.value.replace(regex, "");
+    }
+    $('input').on('keyup', function () {
+        var val = parseInt($(this).val()),
+            max = 10;
+        min = 1;
+
+        val = isNaN(val) ? 1 : Math.max(Math.min(val, max), 1);
+        $(this).val(val);
+    });
+</script>
+<script>
+    document.getElementById("checkboxv2").disabled = true;
+    var checkerv2 = document.getElementById('checkboxv2');
+    var checker = document.getElementById('checkboxcont');
+    var sendbtn = document.getElementById('denetkaydet');
+    checker.onchange = function locationgeo() {
+        if (this.checked) {
+            checkerv2.disabled = false;
+        } else {
+            checkerv2.disabled = true;
+        }
+    }
+    checkerv2.onchange = function locationgeo() {
+        if (this.checked) {
+            locatetrans();
+        } else {
+        }
+    }
+    function locatetrans() {
+        setTimeout(function () {
+            document.getElementById("location").value = document.getElementById("locationgeocode").value;
+            if (document.getElementById("location").value == 0) {
+                sendbtn.disabled = true;
+                alert("Lütfen konumuza izin veriniz.");
+                location.reload();
+            }
+            else {
+                sendbtn.disabled = false;
+            }
+        }, 1500);
+    }
+</script>
+<script>
+    window.guidelib.runtime.target = window.guidelib.runtime.target || {};
+    window.guidelib.runtime.target.loadExperience = function (force) {
+        if (!force && window.guidelib.guideReplaced === true) {
+            return;
+        }
+        window.guidelib.guideReplaced = true;
+        window.guideBridge.registerConfig("contextPath", "");
+        window.guideBridge.customContextProperty({});
+        window.guidelib.model.fireOnContainerDomElementReady({ "guidejson": "{\"templateId\":\"guideContainer__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer\",\"guideNodeClass\":\"guideContainerNode\",\"clientLibRef\":\"bestbank\",\"guideCss\":\"guideContainer\",\"fd:version\":\"1.1\",\"name\":\"fragment1\",\"sling:resourceType\":\"fd/af/components/guideFragmentContainer\",\"layout\":{\"templateId\":\"guideContainer-layout__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/layout\",\"toolbarPosition\":\"Bottom\",\"sling:resourceType\":\"/libs/fd/af/layouts/defaultGuideLayout\"},\"rootPanel\":{\"templateId\":\"guideContainer-rootPanel__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel\",\"guideNodeClass\":\"rootPanelNode\",\"panelSetType\":\"Navigable\",\"name\":\"guideRootPanel\",\"sling:resourceType\":\"fd/af/components/rootPanel\",\"layout\":{\"templateId\":\"guideContainer-rootPanel-layout__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/layout\",\"toolbarPosition\":\"Bottom\",\"sling:resourceType\":\"fd/af/layouts/gridFluidLayout\",\"nonNavigable\":\"true\"},\"items\":{\"fragmentPanel\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel\",\"guideNodeClass\":\"guidePanel\",\"jcr:title\":\"Current Address\",\"name\":\"currentAddress\",\"jcr:description\":\"Current Address\",\"sling:resourceType\":\"fd/af/components/panel\",\"nonLocalizedTitle\":\"Current Address\",\"items\":{\"guideimage_200709102\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guideimage_200709102__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guideimage_200709102\",\"guideNodeClass\":\"guideImage\",\"jcr:title\":\"Image\",\"css\":\"geoicon\",\"name\":\"image_2007091021446759411311\",\"inlineStyles\":\"Field{border-style:1px solid red}\",\"sling:resourceType\":\"fd/af/components/guideimage\",\"imageRotate\":\"0\",\"nonLocalizedTitle\":\"Image\",\"style\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guideimage_200709102-style__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guideimage_200709102/style\",\"af_guideimage\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guideimage_200709102-style-af_guideimage__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guideimage_200709102/style/af_guideimage\",\"default#default\":[\"width:200px\",\"height:100px\"]}},\"file\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guideimage_200709102-file__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guideimage_200709102/file\",\"jcr:content\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guideimage_200709102-file-jcr:content__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guideimage_200709102/file/jcr:content\",\"jcr:mimeType\":\"image/jpeg\",\":jcr:data\":1596,\"jcr:uuid\":\"88117456-7181-45d9-a3ef-899b259046bf\"}}},\"guidecheckbox\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidecheckbox__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidecheckbox\",\"guideNodeClass\":\"guideCheckBox\",\"jcr:title\":\"Check box\",\"options\":[\"0=Fetch Address Using Geo Location\"],\"css\":\"geolocation\",\"name\":\"geoLocation\",\"hideTitle\":\"true\",\"sling:resourceType\":\"fd/af/components/guidecheckbox\",\"alignment\":\"guideFieldHorizontalAlignment\",\"valueCommitScript\":\"\\ntry {\\n    eval(\\\"navigator.geolocation.getCurrentPosition(showPosition);\\\\n\\\\nfunction showPosition(position) \\\\n{\\\\n var url = \\\\\\\"https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAToVaxmOgBYwoWJceY_-_xfPCxZpusiNM&latlng=\\\\\\\"+position.coords.latitude+\\\\\\\",\\\\\\\"+position.coords.longitude;\\\\n $.getJSON(url,function (data, textStatus) {\\\\n   var route;\\\\n                var streetNumber;\\\\n               \\\\n                for(i=0;i<data.results[0].address_components.length;i++)\\\\n                {\\\\n                    \\\\n                var types = data.results[0].address_components[i];\\\\n                var typeName = types.types[0];\\\\n                if(typeName ==\\\\\\\"postal_code\\\\\\\")\\\\n                    {\\\\n                        zip.value = data.results[0].address_components[i].long_name;\\\\n                    }\\\\n                 if(typeName ==\\\\\\\"administrative_area_level_2\\\\\\\")\\\\n                    {\\\\n       var countyIndex = data.results[0].address_components[i].long_name.indexOf(\\\\\\\"County\\\\\\\");\\\\n                        if(countyIndex > 0)\\\\n                            {\\\\n                                var strLen = data.results[0].address_components[i].long_name.length;\\\\n county.value = data.results[0].address_components[i].long_name.substring(0,countyIndex);\\\\n                            }\\\\n                            else\\\\n                            {\\\\n                                county.value = data.results[0].address_components[i].long_name;\\\\n                            }\\\\n                    }\\\\n                     if(typeName ==\\\\\\\"administrative_area_level_1\\\\\\\")\\\\n                    {\\\\n         state.value = data.results[0].address_components[i].short_name;\\\\n                    }\\\\n               if(typeName ==\\\\\\\"street_number\\\\\\\")\\\\n                    {\\\\n                                  streetNumber = data.results[0].address_components[i].long_name;\\\\n                    }\\\\n                     if(typeName ==\\\\\\\"route\\\\\\\")\\\\n                    {\\\\n           route = data.results[0].formatted_address\\\\n                    }\\\\n                      if(typeName ==\\\\\\\"locality\\\\\\\")\\\\n                    {\\\\n                        }\\\\n                \\\\n}\\\\n           \\tstreetAddress.value =\\\\\\\"\\\\\\\"+route;\\\\n});\\\\n}\\\");\\n    \\n} catch (e) {\\n    window.guideBridge._guide.logger().error(\\\"AF\\\",\\\"Failed to execute rule: \\\" + e);\\n}\\n\",\"nonLocalizedTitle\":\"Check box\"},\"guidetextbox\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidetextbox__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidetextbox\",\"guideNodeClass\":\"guideTextBox\",\"jcr:title\":\"Street Address*\",\"mandatory\":\"true\",\"assistPriority\":\"custom\",\"name\":\"streetAddress\",\"sling:resourceType\":\"fd/af/components/guidetextbox\",\"nonLocalizedTitle\":\"Street Address*\"},\"guidetextbox_1895612036\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidetextbox_1895612036__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidetextbox_1895612036\",\"guideNodeClass\":\"guideTextBox\",\"jcr:title\":\"City*\",\"mandatory\":\"true\",\"assistPriority\":\"custom\",\"name\":\"city\",\"sling:resourceType\":\"fd/af/components/guidetextbox\",\"nonLocalizedTitle\":\"City*\"},\"guidetextbox_1881130862\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidetextbox_1881130862__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidetextbox_1881130862\",\"guideNodeClass\":\"guideTextBox\",\"jcr:title\":\"State*\",\"mandatory\":\"true\",\"assistPriority\":\"custom\",\"name\":\"state\",\"sling:resourceType\":\"fd/af/components/guidetextbox\",\"nonLocalizedTitle\":\"State*\"},\"guidetextbox_896554781\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidetextbox_896554781__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidetextbox_896554781\",\"guideNodeClass\":\"guideTextBox\",\"jcr:title\":\"County*\",\"mandatory\":\"true\",\"assistPriority\":\"custom\",\"name\":\"county\",\"sling:resourceType\":\"fd/af/components/guidetextbox\",\"nonLocalizedTitle\":\"County*\"},\"guidetextbox_1406357490\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidetextbox_1406357490__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidetextbox_1406357490\",\"guideNodeClass\":\"guideTextBox\",\"jcr:title\":\"Zip Code*\",\"mandatory\":\"true\",\"assistPriority\":\"custom\",\"name\":\"zip\",\"sling:resourceType\":\"fd/af/components/guidetextbox\",\"nonLocalizedTitle\":\"Zip Code*\"},\"guidedropdownlist\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidedropdownlist__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidedropdownlist\",\"guideNodeClass\":\"guideDropDownList\",\"jcr:title\":\"How are you occupying this location?\",\"options\":[\"owner=Owner\",\"renter=Renter\",\"withParents=Live With Parents\",\"other=Other\"],\"assistPriority\":\"custom\",\"name\":\"propertyOwner\",\"sling:resourceType\":\"fd/af/components/guidedropdownlist\",\"nonLocalizedTitle\":\"How are you occupying this location?\"},\"guidedropdownlist_1064563564\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-guidedropdownlist_1064563564__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/items/guidedropdownlist_1064563564\",\"guideNodeClass\":\"guideDropDownList\",\"jcr:title\":\"How long have you lived here?\",\"options\":[\"1=Less than 1 year\",\"1and2=Between 1 and 2 years\",\"2and5=Between 2 and 5 Years\",\"moreThan5=More than 5 years\"],\"assistPriority\":\"custom\",\"name\":\"durationAtThisAddress\",\"sling:resourceType\":\"fd/af/components/guidedropdownlist\",\"nonLocalizedTitle\":\"How long have you lived here?\"}},\"layout\":{\"templateId\":\"guideContainer-rootPanel-fragmentPanel-layout__\",\"id\":\"\",\"jcr:path\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer/rootPanel/items/fragmentPanel/layout\",\"toolbarPosition\":\"Bottom\",\"columns\":\"1\",\"sling:resourceType\":\"fd/af/layouts/gridFluidLayout\",\"nonNavigable\":\"true\"}}}},\"repeatBindRef\":[],\"guideGlobalLazyField\":[],\"allLazyChildren\":[],\"assetRefs\":[]}", "guidecontext": "{\"disablePreview\":true,\"scriptingBehaviourVersion\":\"None\",\"makeFileNameUnique\":false,\"schemaType\":\"none\",\"guidePath\":\"/content/forms/af/AEMFormsDemoListing/BestBank/CuurentAddress/jcr:content/guideContainer\",\"guideName\":\"fragment1\"}", "guidemergedjson": "", "xfajson": "", "xfarendercontext": "" }, false);
+        window.guideBridge._readRuntimeLocale("en");
+    };
+    window.guidelib.runtime.target.loadExperience();
+
+</script>
+
+<script>
+    var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype").text('');
+                $("#errorfile").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes").val('');
+                $("#description").text('');
+                $("#imgPreview").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+                $("#errortype").text('');
+                $("#errorfile").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview = function () {
+        $("#imageBrowes").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+
+
+
+    }
+
+    var Uploadimage = function () {
+
+        var file = $("#imageBrowes").get(0).files;
+
+        var data = new FormData;
+        data.append("content1file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Denetim/cImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview();
+            }
+
+        })
+    }
+    function ValidateSingleInput(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile").text('');
+                    $("#imageBrowes").val('');
+                    $("#description").text('');
+                    $("#imgPreview").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+</script>
+
+<script>
+    var _validFileExtensions2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    $(document).ready(function () {
+
+        $("#imageBrowes2").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype2").text('');
+                $("#errorfile2").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes2").val('');
+                $("#description2").text('');
+                $("#imgPreview2").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage2(File[0]);
+                }
+                $("#errortype2").text('');
+                $("#errorfile2").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage2 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg2").attr('src', _file.target.result);
+                $("#description2").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview2").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview2 = function () {
+        $("#imageBrowes2").val('');
+        $("#description2").text('');
+        $("#imgPreview2").hide();
+
+
+
+    }
+
+    var Uploadimage2 = function () {
+
+        var file = $("#imageBrowes2").get(0).files;
+
+        var data = new FormData;
+        data.append("content2file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Denetim/c2ImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview2();
+            }
+
+        })
+    }
+    function ValidateSingleInput2(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype2").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile2").text('');
+                    $("#imageBrowes2").val('');
+                    $("#description2").text('');
+                    $("#imgPreview2").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+<script>
+    var _validFileExtensions3 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    $(document).ready(function () {
+
+        $("#imageBrowes3").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype3").text('');
+                $("#errorfile3").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes3").val('');
+                $("#description3").text('');
+                $("#imgPreview3").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage3(File[0]);
+                }
+                $("#errortype3").text('');
+                $("#errorfile3").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage3 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg3").attr('src', _file.target.result);
+                $("#description3").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview3").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview3 = function () {
+        $("#imageBrowes3").val('');
+        $("#description3").text('');
+        $("#imgPreview3").hide();
+
+
+
+    }
+
+    var Uploadimage3 = function () {
+
+        var file = $("#imageBrowes3").get(0).files;
+
+        var data = new FormData;
+        data.append("content3file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Denetim/c3ImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview3();
+            }
+
+        })
+    }
+    function ValidateSingleInput3(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype3").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile3").text('');
+                    $("#imageBrowes3").val('');
+                    $("#description3").text('');
+                    $("#imgPreview3").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+<script>
+    var _validFileExtensions4 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    $(document).ready(function () {
+
+        $("#imageBrowes4").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype4").text('');
+                $("#errorfile4").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes4").val('');
+                $("#description4").text('');
+                $("#imgPreview4").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage4(File[0]);
+                }
+                $("#errortype4").text('');
+                $("#errorfile4").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage4 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+                $("#targetImg4").attr('src', _file.target.result);
+                $("#description4").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview4").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview4 = function () {
+        $("#imageBrowes4").val('');
+        $("#description4").text('');
+        $("#imgPreview4").hide();
+
+
+
+    }
+
+    var Uploadimage4 = function () {
+
+        var file = $("#imageBrowes4").get(0).files;
+
+        var data = new FormData;
+        data.append("content4file", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Denetim/c4ImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview4();
+            }
+
+        })
+    }
+    function ValidateSingleInput4(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype4").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile4").text('');
+                    $("#imageBrowes4").val('');
+                    $("#description4").text('');
+                    $("#imgPreview4").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>

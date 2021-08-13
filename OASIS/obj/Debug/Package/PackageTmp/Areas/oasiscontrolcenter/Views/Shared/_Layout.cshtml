@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.title</title>
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/Content/Admin/dist/img/favicon.png" rel="icon">
+    <link href="~/Content/Admin/dist/img/oasis-touch-icon.png" rel="oasis-touch-icon">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link href="~/Content/Admin/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- DataTables- PHONE MASK - HOME FOTO GALLERY- SWEET ALERT! SİLME!-->
+
+    <link href="~/Content/Admin/plugins/custom/bs4/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Admin/plugins/ekko-lightbox/ekko-lightbox.css" rel="stylesheet" />
+    <link href="~/Content/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="~/Content/Admin/plugins/custom/bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/plugins/custom/bs4/css/bootstrap.min.css.map" />
+    <link href="~/Content/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" rel="stylesheet">
+    <link href="~/Content/Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Custom  Scripts-->
+    <link href="~/Content/Admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/plugins/custom/jquery-ui.min.css" rel="stylesheet" />
+
+    <!-- Theme style -->
+    <link href="~/Content/Admin/dist/css/adminlte.min.css" rel="stylesheet">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <!-- KULLANILAN SAYFALARDA OLACAK SADECE! Scripts-->
+    <script src="~/Content/Admin/plugins/jquery/jquery-1.12.4.min.js"></script>
+
+    <!-- ELLENMİCEK SCRİPTLER!  PHONE MASK - HOME GALLERY- DATATABLES-SWEERALERT-CHART-INPUTMASK(TAKVİM)  Scripts-->
+
+    <script src="~/Content/Admin/plugins/custom/jquery.inputmask.bundle.js"></script>
+    <script src="~/Content/Admin/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Content/Admin/plugins/custom/utils.js"></script>
+    <script src="~/Content/Admin/plugins/custom/chart.min.js"></script>
+    <script src="~/Content/Admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/Content/Admin/plugins/ekko-lightbox/ekko-lightbox.js"></script>
+    <script src="~/Content/Admin/plugins/custom/intlInputPhone.js"></script>
+
+
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="index" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav">
+
+                <li class="breadcrumb-item active">
+                    <a class="nav-link" href="/oasiscontrolcenter/login/logout" role="button">Oturumu kapat</a>
+                </li>
+            </ul>
+            <!--<ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                <i class="fas fa-th-large"></i>
+            </a>
+        </li>
+    </ul>-->
+        </nav>
+
+    <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+
+            <aside class="main-sidebar sidebar-light-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="/oasiscontrolcenter/home/index" class="brand-link">
+                    <img src="~/Content/Admin/dist/img/oasisLogo.png"
+                         alt="AdminLTE Logo"
+                         class="brand-image img-circle elevation-3"
+                         style="opacity: .8">
+                    <span class="brand-text font-weight-light">OASIS</span>
+                </a>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar user (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="info">
+                            <a class="d-block">Merhaba @HttpContext.Current.User.Identity.Name <br /> OASIS Yönetim Sistemine <br />Hoşgeldiniz.</a>
+                        </div>
+                    </div>
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                    with font-awesome or any other icon font library -->
+
+                            <li class="nav-item">
+                                <a href="/oasiscontrolcenter/home/index" class="nav-link @(ViewBag.title=="OASIS"?"active":"")">
+                                    <i class="nav-icon fas fa-home"></i>
+                                    <p>
+                                        Anasayfa
+                                        <span class="right badge badge-danger">Keşfet</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/oasiscontrolcenter/home/invoice" class="nav-link @(ViewBag.menuactive == "invoice" ? "active" : "")">
+                                    <i class="nav-icon fa fa-file-text-o"></i>
+                                    <p>
+                                        Fatura
+                                        <span class="right badge badge-warning">Oluştur</span>
+                                    </p>
+                                </a>
+                            </li>
+                            @if (User.IsInRole("Admin") || User.IsInRole("Yonetici"))
+                            {
+                                <li class="nav-item has-treeview @(ViewBag.menuactive == "Hazır Formlar" ? "menu-open" : "")">
+                                    <a href="index" class="nav-link @(ViewBag.menuactive == "Hazır Formlar" ? "active" : "")">
+                                        <i class="nav-icon fas fa-file-pdf"></i>
+                                        <p>
+                                            Hazır Formlar
+                                            <i class="fas fa-angle-left right"></i>
+                                            <span class="badge badge-info right">İncele</span>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <li class="nav-item">
+                                                <a href="/oasiscontrolcenter/home/saharaporu" class="nav-link @(ViewBag.link == "saharaporu" ? "active" : "")">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Saha Raporu</p>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <ul class="nav nav-treeview">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <li class="nav-item">
+                                                <a href="/oasiscontrolcenter/home/fiyatteklifi" class="nav-link @(ViewBag.link == "fiyatteklifi" ? "active" : "")">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Fiyat Teklifi</p>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <ul class="nav nav-treeview">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <li class="nav-item">
+                                                <a href="/oasiscontrolcenter/home/yuklenenbelgeler" class="nav-link @(ViewBag.link == "yuklenenbelgeler" ? "active" : "")">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Yüklenen Belgeler</p>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item has-treeview @(ViewBag.menuactive == "İstatistikler" ? "menu-open" : "")">
+                                    <a href="#" class="nav-link @(ViewBag.menuactive == "İstatistikler" ? "active" : "")">
+                                        <i class="nav-icon fas fa-chart-pie"></i>
+                                        <p>
+                                            İstatistikler
+                                            <i class="right fas fa-angle-left"></i>
+                                        
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/statics/istatistikler" class="nav-link @(ViewBag.link == "istatistikler" ? "active" : "")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Denetim İstatistikleri</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/statics/yonetimistatistikleri" class="nav-link @(ViewBag.link == "ystatics" ? "active" : "")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Yönetici İstatistikleri</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/statics/personelistatistikleri" class="nav-link @(ViewBag.link == "pstatics" ? "active" : "")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Personel İstatistikleri</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (User.IsInRole("Admin") || User.IsInRole("Yonetici"))
+                            {
+                                <li class="nav-item has-treeview @(ViewBag.menuactive == "Veri Girişi" ? "menu-open" : "")">
+                                    <a href="#" class="nav-link @(ViewBag.menuactive == "Veri Girişi" ? "active" : "")">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>
+                                            Veri Girişi
+                                            <i class="fas fa-angle-left right"></i>
+                                          
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <li class="nav-item">
+                                                <a href="/oasiscontrolcenter/home/yoneticiekle" class="nav-link @(ViewBag.link == "yoneticiekle" ? "active" : "")">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Yönetici Ekle</p>
+                                                </a>
+                                            </li>
+                                        }
+                                        @if (User.IsInRole("Admin") || User.IsInRole("Yonetici"))
+                                        {
+                                            <li class="nav-item">
+                                                <a href="/oasiscontrolcenter/home/personelekle" class="nav-link @(ViewBag.link == "personelekle" ? "active" : "")">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Personel Ekle</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/oasiscontrolcenter/denetim/denetimekle" class="nav-link @(ViewBag.link == "denetimekle" ? "active" : "")">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Denetim Ekle</p>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            @if (User.IsInRole("Admin") || User.IsInRole("Yonetici"))
+                            {
+                                <li class="nav-item has-treeview @(ViewBag.menuactive=="Tüm Personeller"?"menu-open":"")">
+                                    <a href="#" class="nav-link @(ViewBag.menuactive=="Tüm Personeller"?"active":"")">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>
+                                            Tüm Personeller
+                                            <i class="fas fa-angle-left right"></i>
+                                   
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <li class="nav-item">
+                                                <a href="/oasiscontrolcenter/home/yonetim" class="nav-link @(ViewBag.link == "yonetim" ? "active" : "")">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Yöneticiler</p>
+                                                </a>
+                                            </li>
+                                        }
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/home/personel" class="nav-link @(ViewBag.link=="personel"?"active":"")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Personeller</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            <li class="nav-header">Ekstralar</li>
+                            <li class="nav-item">
+                                <a href="/oasiscontrolcenter/etkinlik/etkinlikler" class="nav-link @(ViewBag.title=="Etkinlikler"?"active":"")">
+                                    <i class="nav-icon far fa-calendar-alt"></i>
+                                    <p>
+                                        Etkinlikler
+                                    </p>
+                                </a>
+                            </li>
+                            @if (User.IsInRole("Admin") || User.IsInRole("Yonetici"))
+                            {
+                                <li class="nav-item">
+                                    <a href="/oasiscontrolcenter/denetim/denetimler" class="nav-link @(ViewBag.title == "Denetimler" ? "active" : "")">
+                                        <i class="nav-icon far fa-check-circle"></i>
+                                        <p>
+                                            Denetimler
+                                        
+                                        </p>
+                                    </a>
+                                </li>
+                            }
+                            <li class="nav-item">
+                                <a href="/oasiscontrolcenter/duyuru/duyurular" class="nav-link @(ViewBag.title=="Duyurular"?"active":"")">
+                                    <i class="nav-icon far fa-envelope"></i>
+                                    <p>
+                                        Duyurular
+                        
+                                    </p>
+                                </a>
+                            </li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item has-treeview @(ViewBag.menuactive == "Ayarlar" ? "menu-open" : "")">
+                                    <a href="#" class="nav-link @(ViewBag.menuactive == "Ayarlar" ? "active" : "")">
+                                        <i class="nav-icon far fa-plus-square"></i>
+                                        <p>
+                                            ADMIN EXTRA
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/settings/kullanicilar" class="nav-link @(ViewBag.link=="kullanicilar"?"active":"")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Kullanıcı İşlemleri</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/settings/bordro" class="nav-link @(ViewBag.link=="Bordro"?"active":"")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Bordro İşlemleri</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/settings/firmabilgileri" class="nav-link @(ViewBag.link=="Firmabilgileri"?"active":"")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Firma İşlemleri</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/oasiscontrolcenter/home/messagebox" class="nav-link @(ViewBag.link=="MessageBox"?"active":"")">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Mesajlar</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+                            }
+
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            @RenderBody()
+            <footer class="main-footer">
+                <div class="float-right d-none d-sm-block">
+                    <b></b>
+                </div>
+                <strong>Copyright &copy; 2020 <a href="https://responsivesoft.com" target="_blank">RESPONSIVE SOFT</a>.</strong> All rights
+                reserved.
+            </footer>
+
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+</div>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="~/Content/Admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Content/Admin/dist/js/demo.js"></script>
+    <!-- DataTables -->
+    <script src="~/Content/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/Admin/plugins/custom/bs4/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/Admin/plugins/custom/bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/Content/Admin/plugins/custom/bs4/js/jszip.min.js"></script>
+    <script src="~/Content/Admin/plugins/custom/bs4/js/vfs_fonts.js"></script>
+    <script src="~/Content/Admin/plugins/custom/bs4/js/buttons.html5.min.js"></script>
+    <script src="~/Content/Admin/plugins/custom/bs4/js/buttons.print.min.js"></script>
+    <script src="~/Content/Admin/plugins/custom/bs4/js/buttons.colVis.min.js"></script>
+    <script src="~/Content/Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- CUSTOM JS EXEL PDF  -->
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                lengthChange: true,
+                paging: true,
+                searching: true,
+                ordering: true,
+                info: false,
+                autoWidth: true,
+                responsive: false,
+                buttons: ['copy', 'excel', 'csv', 'colvis']
+            });
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#firmalar").DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": true,
+                "responsive": true,
+            });
+
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": true,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+                "responsive": true,
+            });
+
+
+            $('#company').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": true,
+                "responsive": true,
+            });
+
+            $('#region').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": true,
+                "responsive": false,
+            });
+            $('#unit').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": true,
+                "responsive": false,
+            });
+            $('#departman').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": false,
+                "ordering": true,
+                "info": false,
+                "autoWidth": true,
+                "responsive": false,
+            });
+        });
+    </script>
+
+</body>
+</html>

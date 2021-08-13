@@ -1,0 +1,165 @@
+﻿@using OASIS.Models.Entity
+@model List<authorized>
+
+@{
+
+
+    ViewBag.Title = "Yöneticiler";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "yonetim";
+    ViewBag.menuactive = "Tüm Personeller";
+}
+
+@if (TempData["yonetimGuncelle"] != null)
+{
+
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+    </script>
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Yönetici Bilgileri</h1>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                                <th>İzin Formu</th>
+                                <th>Fotograf-Cv Guncelle</th>
+                                <th>Firma</th>
+                                <th>Bölge</th>
+                                <th>Birim</th>
+                                <th>Departman</th>
+                                <th>Profil Fotoğrafı</th>
+                                <th>Dijital CV</th>
+                                <th>Yönetici</th>
+                                <th>Tc</th>
+                                <th>Telefon</th>
+                                <th>E-Posta</th>
+                                <th>Adres</th>
+                                <th>Cinsiyet</th>
+                                <th>Medeni Durum</th>
+                                <th>Varsa Çocuk Sayısı</th>
+                                <th>İş Başlangıcı</th>
+                                <th>İş Bitişi</th>
+                                <th>Aylık Performans "Avarage"</th>
+                                <th>Pirim = "Aylık Performans Avarage+ => %</th>
+                                <th>Mesai Sayısı</th>
+                                <th>Total Mesai Ücreti</th>
+                                <th>Ücret</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @foreach (var yonetim in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="fa fa-pencil-square-o btn btn-outline-primary" data-toggle="modal" data-target="#guncelle_@yonetim.authorizedid">Güncelle</button>
+                                        <div class="modal fade" id="guncelle_@yonetim.authorizedid">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Yöneticiyi Güncelle</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Yöneticiyi Güncellemek İstiyormusunuz?</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                        @Html.ActionLink("Güncelle", "yonetimguncelle", new { yonetim.authorizedid }, new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
+                                    </td>
+                                    <td>
+                                        <button type="button" class="fa fa-trash btn btn-outline-danger" data-toggle="modal" data-target="#sil_@yonetim.authorizedid">Sil</button>
+                                        <div class="modal fade" id="sil_@yonetim.authorizedid">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Yöneticiyi Sil</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Yöneticiyi Silmek İstiyormusunuz?</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                        @Html.ActionLink("Sil", "yonetimsil", new { yonetim.authorizedid }, new { @class = "fa fa-trash btn btn-outline-danger" })
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
+                                    </td>
+                                    <td>@Html.ActionLink(" İzin Formu", "yonetimizin", new { yonetim.authorizedid }, new { @class = "fa fa-flag-o btn btn-outline-success" })</td>
+                                    <td>@Html.ActionLink(" Fotograf-Cv Guncelle", "yonetimfotocvguncelle", new { yonetim.authorizedid }, new { @class = "btn btn-outline-info" })</td>
+                                    <td>@yonetim.company.company1</td>
+                                    <td>@yonetim.region.region1</td>
+                                    <td>@yonetim.unit.unit1</td>
+                                    <td>@yonetim.departman.departman1</td>
+                                    <td><img src="~/Content/Admin/data/yonetim/yimg/@yonetim.profilephoto" width="100" height="100" /></td>
+                                    <td><b><a href="~/Content/Admin/data/yonetim/ycv/@yonetim.digitalcv">Cv İndir</a></b></td>
+                                    <td><b>@yonetim.authorized1</b></td>
+                                    <td>@yonetim.tc</td>
+                                    <td>@yonetim.tel</td>
+                                    <td>@yonetim.email</td>
+                                    <td>@yonetim.adres</td>
+                                    <td>@yonetim.gender</td>
+                                    <td>@yonetim.civilstatusget</td>
+                                    <td>@yonetim.children</td>
+                                    <td> @Html.DisplayFor(m => yonetim.workingstart)</td>
+                                    <td> @Html.DisplayFor(m => yonetim.workingstop)</td>
+                                    <td>@yonetim.performance</td>
+                                    <td>@yonetim.pirim</td>
+                                    <td>@yonetim.mesaidays</td>
+                                    <td>@yonetim.mesai</td>
+                                    <td>@yonetim.pay</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

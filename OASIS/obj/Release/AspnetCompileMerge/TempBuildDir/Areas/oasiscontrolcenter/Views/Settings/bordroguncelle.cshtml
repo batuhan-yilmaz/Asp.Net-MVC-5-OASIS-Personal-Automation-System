@@ -1,0 +1,172 @@
+﻿@model OASIS.Models.Entity.ucretbordro
+
+@{
+    ViewBag.Title = "Bordro Güncelle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "Bordro";
+    ViewBag.menuactive = "Ayarlar";
+}
+
+<div class="content-wrapper">
+    <div class="card-body">
+        <h2>Bordro Guncelle</h2>
+        @using (Html.BeginForm("bguncelle", "Settings", FormMethod.Post))
+        {
+            <table id="example1" class="table table-bordered table-striped">
+                <tr>
+                    <td>
+                        <p>SGK Primi % 15,5 (İşveren Payı)</p>
+                        @Html.TextBoxFor(m => m.sgkisveren, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>İşveren İşsizlik Sigorta Fonu</p>
+                        @Html.TextBoxFor(m => m.isverenissizsigfon, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SGK Sabit Katsayısı</p>
+                        @Html.TextBoxFor(m => m.sgksabiti, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>İşverene Toplam Maliyeti</p>
+                        @Html.TextBoxFor(m => m.isverenmaliyet, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Brüt Ücret</p>
+                        @Html.TextBoxFor(m => m.nrkazanc, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <p>SSK Primi İşçi Hissesi</p>
+                        @Html.TextBoxFor(m => m.sgkiscipayi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>İşsizlik Sigortası Primi İşçi Hiss.</p>
+                        @Html.TextBoxFor(m => m.iszsigiscipayi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Gelir Vergisi Matrahı</p>
+                        @Html.TextBoxFor(m => m.gvmahtari, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Gelir Vergisi</p>
+                        @Html.TextBoxFor(m => m.gelirvergisi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Asgari Geçim İndirimi (Bekar)</p>
+                        @Html.TextBoxFor(m => m.agi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Agi % (Kendi)</p>
+                        @Html.TextBoxFor(m => m.kendiagiyuzdesi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Agi % (Eş)</p>
+                        @Html.TextBoxFor(m => m.esagiyuzdesi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Agi % (1. ve 2.Çocuk)</p>
+                        @Html.TextBoxFor(m => m.birveikicocukagiyuzdesi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        <p>Agi % (3.Çocuk)</p>
+                        @Html.TextBoxFor(m => m.uccocukyuzdesi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Agi % (4. ve Üzeri Çocuk)</p>
+                        @Html.TextBoxFor(m => m.dortveuzericocukyuzdesi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Damga Vergisi</p>
+                        @Html.TextBoxFor(m => m.damgavergi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                    <td>
+                        <p>Net Ücret</p>
+                        @Html.TextBoxFor(m => m.netkazanc, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Günlük Ücret</p>
+                        @Html.TextBoxFor(m => m.gunlukkazanc, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Pirim % Oranı</p>
+                        @Html.TextBoxFor(m => m.pirimyuzdesi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Mesai Ücreti</p>
+                        @Html.TextBoxFor(m => m.mesaiucreti, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Yönetici Kıdem Farkı</p>
+                        @Html.TextBoxFor(m => m.yoneticifark, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Yönetici Pirim % Oranı</p>
+                        @Html.TextBoxFor(m => m.yoneticipirimyuzdesi, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Yönetici Mesai Ücreti</p>
+                        @Html.TextBoxFor(m => m.yoneticimesaiucreti, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Pirim Limiti</p>
+                        @Html.TextBoxFor(m => m.pirimlimit, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)", @required = "required" })
+                    </td>
+                    <td>
+                        @Html.HiddenFor(m => m.ucretbordroid, new { @class = "form-control", @onkeydown = "javascript:NumberOnly(this,event)" })
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="fa fa-floppy-o btn btn-success" /> Kaydet</td>
+                </tr>
+            </table>
+        }
+
+    </div>
+</div>
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+

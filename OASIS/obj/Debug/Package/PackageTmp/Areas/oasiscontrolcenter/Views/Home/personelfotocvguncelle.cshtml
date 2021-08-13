@@ -1,0 +1,315 @@
+﻿@model OASIS.Models.Entity.personel
+
+@{
+    ViewBag.Title = "Personel Güncelle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="card-body">
+        <h2>Personel Guncelle</h2>
+        @using (Html.BeginForm("pguncellefv", "Home", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+        {
+            <table id="example1" class="table table-bordered table-striped">
+           
+                <tr>
+                    <td>
+                        <p>Önceki Profil Fotoğrafı</p>
+                        @if (Model.profilephoto != null)
+                        {
+                            <img src="~/Content/Admin/data/personel/pimg/@Model.profilephoto" width="100" height="100" />
+                            <br />
+                        }
+                        <hr />
+                        <div class="btn btn-primary">
+                            @Html.TextBoxFor(m => m.profilephoto, new { type = "file", id = "imageBrowes", onchange = "ValidateSingleInput(this);", @required = "required" })
+                        </div>
+                        <hr />
+                        <b><font color="orangered"><span id="errorfile"></span></font></b>
+                        <b><font color="orangered"><span id="errortype"></span></font></b>
+                        <div id="imgPreview" class="thumbnail" style="display:none;">
+                            <img class="img-responsive" id="targetImg" style="width:100px; height:100px;" />
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description"></span>
+                            </div>
+
+                        </div>
+                    </td>
+                    <td>
+                        <p>Önceki Dijital Cv Dosyası </p>
+                        @if (Model.digitalcv != null)
+                        {
+                            <p>@Model.digitalcv</p>
+                            <br />
+                        }
+                        <hr />
+                        <div class="btn btn-primary">
+                            @Html.TextBoxFor(m => m.digitalcv, new { type = "file", id = "imageBrowes2", onchange = "ValidateSingleInput2(this);", @required = "required" })
+                        </div>
+                        <hr />
+                        <b><font color="orangered"><span id="errorfile2"></span></font></b>
+                        <b><font color="orangered"><span id="errortype2"></span></font></b>
+                        <div id="imgPreview2" class="thumbnail" style="display:none;">
+                            <img class="img-responsive" id="targetImg2" style="width:100px; height:100px;" />
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview2()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description2"></span>
+                            </div>
+
+                        </div>
+                        @Html.HiddenFor(m => m.personelid)
+                        @Html.HiddenFor(m => m.profilephoto)
+                        @Html.HiddenFor(m => m.digitalcv)
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit" onclick="Uploadimage(); Uploadimage2()" class="fa fa-floppy-o btn btn-success" /> Kaydet</td>
+                </tr>
+
+            </table>
+        }
+
+    </div>
+</div>
+
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script>
+    var _validFileExtensions2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes").change(function () {
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype").text('');
+                $("#errorfile").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes").val('');
+                $("#description").text('');
+                $("#imgPreview").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+                $("#errortype").text('');
+                $("#errorfile").text('');
+
+            }
+        })
+
+    })
+
+
+    var ReadImage = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview = function () {
+        $("#imageBrowes").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+
+    }
+
+    var Uploadimage = function () {
+
+        var file = $("#imageBrowes").get(0).files;
+
+        var data = new FormData;
+        data.append("profilephotoFile", file[0]);
+        data.append("ProductName", "SamsungA8");
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/pImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview();
+
+
+
+            }
+
+        })
+
+
+        //
+    }
+    function ValidateSingleInput(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile").text('');
+                    $("#imageBrowes").val('');
+                    $("#description").text('');
+                    $("#imgPreview").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+
+<script>
+    var _validFileExtensions = [".pdf", ".xlsx", ".csv", ".docx",];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes2").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 4) {
+                $("#errortype2").text('');
+                $("#errorfile2").text('Max dosya boyutu 4 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes2").val('');
+                $("#description2").text('');
+                $("#imgPreview2").hide();
+            }
+
+            else {
+                if (File && File[0]) {
+                    ReadImage2(File[0]);
+                }
+                $("#errortype2").text('');
+                $("#errorfile2").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage2 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 4096) + "KB";
+
+                $("#targetImg2").attr('src', _file.target.result);
+                $("#description2").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview2").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview2 = function () {
+        $("#imageBrowes2").val('');
+        $("#description2").text('');
+        $("#imgPreview2").hide();
+
+
+
+    }
+
+    var Uploadimage2 = function () {
+
+        var file = $("#imageBrowes2").get(0).files;
+
+        var data = new FormData;
+        data.append("digitalcvFile", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/pFileUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview2();
+            }
+
+        })
+    }
+    function ValidateSingleInput2(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+
+                if (!blnValid) {
+                    $("#errortype2").text('Seçilen dosya ".pdf", ".xlsx", ".csv", ".docx" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile2").text('');
+                    $("#imageBrowes2").val('');
+                    $("#description2").text('');
+                    $("#imgPreview2").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+</script>

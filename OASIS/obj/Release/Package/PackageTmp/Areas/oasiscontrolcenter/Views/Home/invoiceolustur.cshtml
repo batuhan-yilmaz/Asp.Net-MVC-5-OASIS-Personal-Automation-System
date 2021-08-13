@@ -1,0 +1,122 @@
+﻿@model OASIS.Models.Entity.invoice
+@{
+    ViewBag.Title = "invoiceolustur";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.menuactive = "invoice";
+}
+
+<h2>Fatura Oluştur</h2>
+@using (Html.BeginForm("invoiceolustur", "Home", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+{
+    <div class="content-wrapper">
+        <section class="content">
+            <!-- /.col -->
+            <div class="card">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title"><a href="invoice" class="btn btn-primary">Faturalara Geri Dön</a></h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="form-group">
+                            <p>Firma</p>
+                            @Html.DropDownListFor(m => m.company.companyid, (List<SelectListItem>)ViewBag.CompanyList, new { @class = "form-control", @required = "required" })
+                        </div>
+
+                        <div class="form-group">
+                            <p>Bölge</p>
+                            @Html.DropDownListFor(m => m.region.regionid, (List<SelectListItem>)ViewBag.RegionList, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                        <div class="form-group">
+                            <p>Birim</p>
+                            @Html.DropDownListFor(m => m.unit.unitid, (List<SelectListItem>)ViewBag.UnitList, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <p>İlgili Yönetici</p>
+                            @Html.DropDownListFor(m => m.authorized.authorizedid, (List<SelectListItem>)ViewBag.AuthorizedList, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <p>İlgili Personel</p>
+                            @Html.DropDownListFor(m => m.personel.personelid, (List<SelectListItem>)ViewBag.PersonelList, new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <b>Tarih</b>
+                            @Html.EditorFor(m => m.date, new { htmlAttributes = new { @class = "form-control", id = "tarih1", placeholder = "Lütfen Tarih Giriniz.", @required = "required" } })
+                            @Html.HiddenFor(m => m.referancenumber, new { oninput = "Number(this.id);", maxlength = "8", @id = "referancenumber", @class = "form-control", @Value = "", @readonly = "false" })
+                        </div>
+                        <div class="form-group">
+                            <b>İsim Soyisim</b>
+                            @Html.TextBoxFor(m => m.namesurname, new { @class = "form-control", oninput = "text(this.id);", @required = "required", placeholder = "Lütfen isim ve soyisminizi giriniz" })
+                        </div>
+                        <div class="form-group">
+                            <b>Tc</b>
+                            @Html.TextBoxFor(m => m.tc, new { @class = "form-control", oninput = "TcNumber(this.id);", maxlength = "11", @required = "required", placeholder = "Lütfen 11 Haneli TC Kimlik Numaranızı Giriniz." })
+                        </div>
+                        <div class="form-group">
+                            <b>Telefon</b>
+                            <div class="input-phone" id="phone"></div>
+                            @Html.HiddenFor(m => m.tel, new { @class = "form-control", id = "deger", oninput = "PhoneNumber(this.id);", maxlength = "17", @Value = "+90", @required = "required", placeholder = "Lütfen Başında 0 Olmadan 11 Haneli Telefon Numaranızı Giriniz." })
+                        </div>
+                        <div class="form-group">
+                            <b>Adres</b>
+                            @Html.TextBoxFor(m => m.adres, new { oninput = "customtext(this.id);", @class = "form-control", @required = "required", placeholder = "Lütfen Adres Bilgilerinizi Doğru Giriniz" })
+                        </div>
+                        <div class="form-group">
+                            <b>E-mail</b>
+                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", @required = "required", id = "email", type = "email", placeholder = "Sizinle İletişime Geçebilmemiz için E-Mail Adresinizi Giriniz" })
+                        </div>
+                        <div class="form-group">
+                            <b>Ürün</b>
+                            @Html.TextBoxFor(m => m.product, new { oninput = "customtext(this.id);", @class = "form-control", @required = "required", placeholder = "İlgili Ürün" })
+                        </div>
+                        <div class="form-group">
+                            <b>Açıklama</b>
+                            @Html.TextBoxFor(m => m.description, new { oninput = "customtext(this.id);", @class = "form-control", @required = "required", placeholder = "İlgili Açıklama" })
+                        </div>
+                        <div class="form-group">
+                            <b>Ödeme Şekli</b>
+                            @Html.HiddenFor(m => m.pay, new { @class = "form-control", @Value = "Nakit.png", id = "colordbs", @required = "required" })
+                            <select id="colordb" class="form-control">
+                                <option value="Nakit.png">Nakit</option>
+                                <option value="Kart.png">Kart</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <b>Ara Toplam</b>
+                            @Html.TextBoxFor(m => m.subtotal, new { id = "aratoplam", oninput = "Number(this.id);", @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <b>Vergi %18</b>
+                            @Html.TextBoxFor(m => m.tax, new { oninput = "Number(this.id);", id = "invoicevergi", @Value = "0", @readonly = "false", @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <b>Total</b>
+                            @Html.TextBoxFor(m => m.total, new { oninput = "Number(this.id);", @class = "form-control", id = "invoicetotal", @Value = "0", @readonly = "false", @required = "required" })
+                        </div>
+                    </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-outline-success"><i class="fa fa-check"></i> Oluştur</button>
+                    </div>
+                </div>
+                <!-- /.card-footer -->
+
+                </div>
+</section>
+
+</div>
+}
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        oasisdatepicker();
+        invoicehesap();
+    });   
+    document.getElementById("referancenumber").value = referancenumber();
+
+</script>

@@ -1,0 +1,245 @@
+﻿@model OASIS.Models.Entity.comment
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OASIS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/oasis-touch-icon.png" rel="oasis-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="~/Content/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Libraries CSS Files -->
+
+    <link href="~/Content/home/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/home/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/home/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/Content/home/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/home/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="~/Content/Admin/plugins/custom/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/home/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+
+        <div id="topbar">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="logo float-left">
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <h1 class="text-light"><a href="#intro" class="scrollto"><span>OASIS</span></a></h1>
+                <!-- <a href="#header" class="scrollto"><img src="~/img/logo.png" alt="" class="img-fluid"></a> -->
+            </div>
+
+
+
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+      Intro Section
+    ============================-->
+    <section id="intro" class="clearfix">
+        <div class="container d-flex h-100">
+            <div class="row justify-content-center align-self-center">
+                <div class="col-md-6 intro-info order-md-first order-last">
+                    <h2>REFERANS NUMARASI İLE<br>BİZE<span> BİLDİR!</span></h2>
+                    <div>
+                        <a href="/Default/index/" class="btn-get-started scrollto">ANASAYFAYA DÖN</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 intro-img order-md-last order-first">
+                    <img src="~/img/intro-img.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </section><!-- #intro -->
+
+    <main id="main">
+
+        <!--==========================
+          About Us Section
+        ============================-->
+        <section id="about">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5 col-md-6">
+                        <div class="about-img">
+                            <img src="~/img/about-img.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about-content">
+
+
+                            <div class="form">
+                                @using (Html.BeginForm("report", "Default", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+                                {
+                                    <h4>REFERANS NUMARASI İLE BİLDİRİM YAPIN!</h4>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <p>Firma</p>
+                                            @Html.DropDownListFor(m => m.company.companyid, (List<SelectListItem>)ViewBag.CompanyList, new { @class = "form-control", @required = "required" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p>Bölge</p>
+                                            @Html.DropDownListFor(m => m.region.regionid, (List<SelectListItem>)ViewBag.RegionList, new { @class = "form-control", @required = "required" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <p>Birim</p>
+                                            @Html.DropDownListFor(m => m.unit.unitid, (List<SelectListItem>)ViewBag.UnitList, new { @class = "form-control", @required = "required" })
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Referans Numarası</b>
+                                            @Html.TextBoxFor(m => m.referancenumber, new {oninput = "Number(this.id);", maxlength = "8", @id = "name", @class = "form-control", placeholder = "Lütfen 8 Haneli Referans Numaranızı Giriniz." })
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Tarih</b>
+                                            @Html.EditorFor(m => m.date, new { htmlAttributes = new { @class = "form-control", id = "tarih1", placeholder = "Lütfen Tarih Giriniz.", @required = "required" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <b>İsim Soyisim</b>
+                                            @Html.TextBoxFor(m => m.namesurname, new {oninput = "text(this.id);", @class = "form-control", @required = "required", placeholder = "Lütfen isim ve soyisminizi giriniz" })
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Tc</b>
+                                            @Html.TextBoxFor(m => m.tc, new { @class = "form-control", oninput = "TcNumber(this.id);", maxlength = "11", @required = "required", placeholder = "Lütfen 11 Haneli TC Kimlik Numaranızı Giriniz." })
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Telefon</b>
+                                            <div class="input-phone" id="phone"></div>
+                                            @Html.HiddenFor(m => m.tel, new { @class = "form-control", id = "deger", oninput = "PhoneNumber(this.id);", maxlength = "17", @Value = "+90", @required = "required", placeholder = "Lütfen Başında 0 Olmadan 11 Haneli Telefon Numaranızı Giriniz." })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <b>E-mail</b>
+                                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", @required = "required", id = "email", type = "email", placeholder = "Sizinle İletişime Geçebilmemiz için E-Mail Adresinizi Giriniz" })
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Konu</b>
+                                            @Html.TextBoxFor(m => m.subject, new {oninput = "customtext(this.id);", @class = "form-control", @required = "required", placeholder = "Konu Başlığı" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <b>İçerik</b>
+                                            @Html.TextAreaFor(m => m.comment1, new {oninput = "customtext(this.id);", @class = "form-control", @row = "5", @required = "required", placeholder = "Lütfen Yorumunuzu Giriniz" })
+                                            @Html.HiddenFor(m => m.color, new { @class = "form-control", @Value = "fas fa-star text-warning", id = "colordbs", @required = "required" })
+
+                                        </div>
+                                        <div class="float-right">
+                                            <button type="submit" class="btn btn-outline-success"><i class="fa fa-envelope"></i> Gönder</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer" class="section-bg">
+
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>OASIS</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+
+                Designed by <a href="https://oasisinovation.com">OASIS INOVATION</a>
+            </div>
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
+    <!-- JavaScript Libraries -->
+
+    <script src="~/Content/home/jquery/jquery.min.js"></script>
+    <script src="~/Content/home/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Content/home/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/home/easing/easing.min.js"></script>
+    <script src="~/Content/home/mobile-nav/mobile-nav.js"></script>
+    <script src="~/Content/home/wow/wow.min.js"></script>
+    <script src="~/Content/home/waypoints/waypoints.min.js"></script>
+    <script src="~/Content/home/counterup/counterup.min.js"></script>
+    <script src="~/Content/home/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/home/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/home/lightbox/js/lightbox.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="~/Content/home/js/contactform.js"></script>
+    <script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+    <script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+    <!-- Template Main Javascript File -->
+    <script src="~/Content/home/js/main.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            oasisdatepicker();
+        });
+    </script>
+
+</body>
+</html>
+
+<link href="~/Content/Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+<script src="~/Content/Admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+@if (TempData["yorumHata"] != null)
+{
+
+    <script>
+        Swal.fire('Başarısız', 'Referans Numaranız Eksik veya Yanlış.', 'error');
+
+    </script>
+}

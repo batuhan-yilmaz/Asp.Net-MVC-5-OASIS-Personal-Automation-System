@@ -1,0 +1,533 @@
+﻿@model OASIS.Models.Entity.personel
+
+@{
+    ViewBag.Title = "Personel Ekle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "personelekle";
+    ViewBag.menuactive = "Veri Girişi";
+}
+
+
+@if (TempData["ptelvar"] != null)
+{
+
+    <script>
+        Swal.fire('Kayıt Başarısız', 'Telefon Numarası Başka Personele Ait.', 'error');
+
+    </script>
+}
+
+@if (TempData["ptcvar"] != null)
+{
+    <link href="~/Content/Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+    <script src="~/Content/Admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        Swal.fire('Kayıt Başarısız', 'Tc Numarası Başka Personele Ait.', 'warning');
+
+
+    </script>
+}
+
+@if (TempData["pemailvar"] != null)
+{
+    <link href="~/Content/Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+    <script src="~/Content/Admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+
+        Swal.fire('Kayıt Başarısız', 'E-Posta Adresi Başka Personele Ait.', 'error');
+
+
+    </script>
+}
+
+@if (TempData["personelHata1"] != null)
+{
+    <link href="~/Content/Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+    <script src="~/Content/Admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        Swal.fire('Kayıt Başarısız', 'Telefon Numarası veya Tc veya E-Posta Adresi Başka Personele Ait.', 'error');
+
+
+
+
+/**/</script>
+}
+
+
+<div class="content-wrapper">
+    <div class="card-body">
+        <h2>Yeni Personel Ekle</h2>
+        @using (Html.BeginForm("personelekle", "Home", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+        {
+    <table id="example1" class="table table-bordered table-striped">
+        <tr>
+            <td>
+                <p>Firma</p>
+                @Html.DropDownListFor(m => m.company.companyid, (List<SelectListItem>)ViewBag.CompanyList, new { @class = "form-control", @required = "required" })
+
+            </td>
+            <td>
+                <p>Bölge</p>
+                @Html.DropDownListFor(m => m.region.regionid, (List<SelectListItem>)ViewBag.RegionList, new { @class = "form-control", @required = "required" })
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Birim</p>
+                @Html.DropDownListFor(m => m.unit.unitid, (List<SelectListItem>)ViewBag.UnitList, new { @class = "form-control", @required = "required" })
+
+            </td>
+            <td>
+                <p>Departman</p>
+                @Html.DropDownListFor(m => m.departman.departmanid, (List<SelectListItem>)ViewBag.DepartmanList, new { @class = "form-control", @required = "required" })
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Yönetici</p>
+                @Html.DropDownListFor(m => m.authorized.authorizedid, (List<SelectListItem>)ViewBag.AuthorizedList, new { @class = "form-control", @required = "required" })
+
+            </td>
+            <td>
+                <p>Personel</p>
+                @Html.TextBoxFor(m => m.personel1, new { oninput = "text(this.id);", @class = "form-control", @required = "required" })
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Profil Resmi Ekle</p>
+                <div class="btn btn-primary">
+                    @Html.TextBoxFor(m => m.profilephoto, new { type = "file", @Value = "default.jpg", id = "imageBrowes", onchange = "ValidateSingleInput(this);", @required = "required" })
+                </div>
+                <hr />
+                <b><font color="orangered"><span id="errorfile"></span></font></b>
+                <b><font color="orangered"><span id="errortype"></span></font></b>
+                <div id="imgPreview" class="thumbnail" style="display:none;">
+                    <img class="img-responsive" id="targetImg" style="width:100px; height:100px;" />
+                    <div class="caption">
+                        <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                        <span id="description"></span>
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <p>Digital Cv Ekle</p>
+                <div class="btn btn-primary">
+                    @Html.TextBoxFor(m => m.digitalcv, new { type = "file", id = "imageBrowes2", onchange = "ValidateSingleInput2(this);", @required = "required" })
+                </div>
+                <hr />
+                <b><font color="orangered"><span id="errorfile2"></span></font></b>
+                <b><font color="orangered"><span id="errortype2"></span></font></b>
+                <div id="imgPreview2" class="thumbnail" style="display:none;">
+                    <img class="img-responsive" id="targetImg2" style="width:100px; height:100px;" />
+                    <div class="caption">
+                        <a href="#" onclick="ClearPreview2()"><i class="glyphicon glyphicon-trash"></i></a>
+                        <span id="description2"></span>
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Tc</p>
+                @Html.TextBoxFor(m => m.tc, new { @class = "form-control", oninput = "TcNumber(this.id);", maxlength = "11", @required = "required", placeholder = "Lütfen 11 Haneli TC Kimlik Numaranızı Giriniz." })
+
+            </td>
+            <td>
+                <p>Telefon </p>
+                <div class="input-phone" id="phone"></div>
+                @Html.HiddenFor(m => m.tel, new { @class = "form-control", id = "deger", oninput = "PhoneNumber(this.id);", maxlength = "17", @Value = "+90", @required = "required", placeholder = "Lütfen Başında 0 Olmadan 11 Haneli Telefon Numaranızı Giriniz." })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>E-Posta</p>
+                @Html.TextBoxFor(m => m.email, new { @class = "form-control", id = "email", type = "email", @required = "required", placeholder = "Lütfen Personele Ait Mail Adresini Doğru Girin." })
+
+            </td>
+            <td>
+                <p>Adres</p>
+                @Html.TextBoxFor(m => m.adres, new { oninput = "customtext(this.id);", @class = "form-control", @required = "required" })
+                @Html.HiddenFor(m => m.civilstatusget, new { @class = "form-control", @Value = "Bekar", @onkeydown = "javascript:NumberOnly(this,event)", id = "medenidurumdbs" })
+                @Html.HiddenFor(m => m.children, new { @class = "form-control", @Value = "Çocuk yok", @onkeydown = "javascript:NumberOnly(this,event)", id = "cocuksayisidbs" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Çalışma Günü Başlangıcı</p>
+                @Html.EditorFor(m => m.workingstart, new { htmlAttributes = new { @class = "form-control", id = "tarih1", placeholder = "Lütfen Başlangıç Tarihi Giriniz.", @required = "required" } })
+
+            </td>
+            <td>
+                <p>Çalışma Günü Bitişi</p>
+                @Html.EditorFor(m => m.workingstop, new { htmlAttributes = new { @class = "form-control", id = "tarih2", placeholder = "Lütfen Bitiş Tarihi Giriniz.", @required = "required" } })
+
+                <input type="hidden" id="calcbutton2" class="btn btn-info" data-toggle="modal" data-target="#calenderextra">
+                <div class="modal fade" id="calenderextra">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Ücret Hesapla</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="checkboxgun" style="width:100%;">
+                                    <div id="selectdays" style="width:30%; float:left;">
+										<h6><font color="red">Standart Haftalık İzin</font></h6>
+										<div><input type="checkbox" checked="checked">Standart Haftalık İzin!</div>
+                                        <h6><font color="red">Ekstra Tatil İş Günleri için Seçiniz!</font></h6>
+                                        <div><input type="checkbox" value="1">Pazartesi</div>
+                                        <div><input type="checkbox" value="2">Salı</div>
+                                        <div><input type="checkbox" value="3">Çarşamba</div>
+                                        <div><input type="checkbox" value="4">Perşembe</div>
+                                        <div><input type="checkbox" value="5">Cuma</div>
+                                        <div><input type="checkbox" value="6">Cumartesi</div>
+                                        <div><input type="checkbox" value="0">Pazar</div>
+                                        <br />
+                                    </div>
+                                    <div id="ozeltarihler" style="width:70%; float:left;">
+                                        <h5>Ulusal Bayram ve Genel Tatil Günleri</h5>
+                                        <div><input type="checkbox" value="1">Yılbaşı</div>
+                                        <div><input type="checkbox" value="2">23 Nisan Ulusal Egemenlik Ve Çocuk Bayramı</div>
+                                        <div><input type="checkbox" value="3">01 Mayıs - Emek ve Dayanışma Günü</div>
+                                        <div><input type="checkbox" value="4">19 Mayıs - Atatürk'ü Anma,Gençlik ve Spor Bayramı</div>
+                                        <div><input type="checkbox" value="5">Ramazan Bayramı Arifesi (Yarım Gün)</div>
+                                        <div><input type="checkbox" value="6">Ramazan Bayramı(3 Gün)</div>
+                                        <div><input type="checkbox" value="7">15 Temmuz - Demokrasi ve Özgürlük Günü</div>
+                                        <div><input type="checkbox" value="8">Kurban Bayramı Arifesi (Yarım Gün)</div>
+                                        <div><input type="checkbox" value="9">Kurban Bayramı (4 Gün)</div>
+                                        <div><input type="checkbox" value="10">30 Ağustos - Zafer Bayramı</div>
+                                        <div><input type="checkbox" value="11">28 Ekim - Cumhuriyet Bayramı (Yarım Gün)</div>
+                                        <div><input type="checkbox" value="12">29 Ekim - Cumhuriyet Bayramı</div>
+                                    </div>
+                                </div>
+                                <div id="civilstatus">
+                                    <p> Medeni Durum</p>
+                                    <select name="type" class="form-control" value="0" onclick="calfdiff()" onmousedown="this.value='';" onchange="esagi(this.value);" id="medenidurumdb" required>
+                                        <option value='0'>Bekar</option>
+                                        <option value='1'>Evli Eşi Çalışıyor</option>
+                                        <option value='2'>Evli Eşi Çalışmıyor</option>
+                                    </select>
+                                    <p>Çocuk Sayisi</p>
+                                    <select name="type" class="form-control" value="0" onclick="calfdiff()" onkeydown="javascript:NumberOnly(this,event)" onmousedown="this.value='';" onchange="cocukagi(this.value);" id="cocuksayisidb" required>
+                                        <option value='0'>Çocuk yok</option>
+                                        <option value='1'>1 Çocuk</option>
+                                        <option value='2'>2 Çocuk</option>
+                                        <option value='3'>3 Çocuk</option>
+                                        <option value='4'>4 Çocuk</option>
+                                        <option value='5'>5 Çocuk</option>
+                                    </select>
+                                </div>
+                                <div id="mesai">
+                                    <p>Mesai Var ise Gün Sayısı</p>
+                                    @Html.TextBoxFor(m => m.mesaidays, new { oninput = "Number(this.id);", @class = "form-control", id = "mesaigunsayisi", @Value = "0", @required = "required" })
+                                    <p>Mesai Ücreti</p>
+                                    @Html.TextBoxFor(m => m.mesai, new { oninput = "Number(this.id);", @class = "form-control", id = "pmesairesult", @Value = "0", @readonly = "false", @onkeydown = "javascript:NumberOnly(this,event)" })
+                                </div>
+                                <div id="pirim">
+                                    <p>Aylık Performans "Avarage"</p>
+                                    @Html.TextBoxFor(m => m.performance, new { oninput = "Number(this.id);", @class = "form-control", id = "avarage", @Value = "0", @required = "required" })
+                                    <p>Pirim = "Aylık Performans Avarage+ => %</p>
+                                    @Html.TextBoxFor(m => m.pirim, new { oninput = "Number(this.id);", @class = "form-control", id = "resultpersonel", @Value = "0", @readonly = "false", @onkeydown = "javascript:NumberOnly(this,event)" })
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" onclick="calfdiff()" class="btn btn-success" data-dismiss="modal">Kaydet</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Cinsiyet</p>
+                @Html.HiddenFor(m => m.gender, new { @class = "form-control", @Value = "Erkek", id = "genderdbs", @required = "required" })
+                <select id="genderdb" class="form-control">
+                    <option value="1">Erkek</option>
+                    <option value="2">Kadın</option>
+                </select>
+            </td>
+            <td>
+                <p>Ücret</p>
+                @Html.TextBoxFor(m => m.pay, new { oninput = "Number(this.id);", @class = "form-control", id = "pmaas", @Value = "0", @readonly = "false", @onkeydown = "javascript:NumberOnly(this,event)" })
+            </td>
+        </tr>
+        <tr>
+            <td><button type="submit" onclick="calfdiff(); Uploadimage(); Uploadimage2()" class="fa fa-floppy-o btn btn-success" /> Kaydet</td>
+        </tr>
+    </table>
+
+        }
+
+    </div>
+
+</div>
+<div class="table"></div>
+<input type="hidden" class="form-control" placeholder="İki Tarih Arasındaki Gün Sayısı" id="calismagunusayisi">
+<input type="hidden" value="Hesapla" class="btn btn-info" onclick="calfdiff()" id="calcbutton2">
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        bordroveriler();
+        pirimcalc();
+        oasisdatepicker();
+        calfdiff();
+        mesai();
+        cocukagi();
+        esagi();
+        parseDate(input);
+        dropdowncont();
+    });
+</script>
+
+<script>
+    var _validFileExtensions2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes").change(function () {
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype").text('');
+                $("#errorfile").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes").val('');
+                $("#description").text('');
+                $("#imgPreview").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+                $("#errortype").text('');
+                $("#errorfile").text('');
+
+            }
+        })
+
+    })
+
+
+    var ReadImage = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview = function () {
+        $("#imageBrowes").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+
+    }
+
+    var Uploadimage = function () {
+
+        var file = $("#imageBrowes").get(0).files;
+
+        var data = new FormData;
+        data.append("profilephotoFile", file[0]);
+        data.append("ProductName", "SamsungA8");
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/pImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview();
+
+
+
+            }
+
+        })
+
+
+        //
+    }
+    function ValidateSingleInput(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile").text('');
+                    $("#imageBrowes").val('');
+                    $("#description").text('');
+                    $("#imgPreview").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+
+<script>
+    var _validFileExtensions = [".pdf", ".xlsx", ".csv", ".docx",];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes2").change(function () {
+
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 4) {
+                $("#errortype2").text('');
+                $("#errorfile2").text('Max dosya boyutu 4 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes2").val('');
+                $("#description2").text('');
+                $("#imgPreview2").hide();
+            }
+
+            else {
+                if (File && File[0]) {
+                    ReadImage2(File[0]);
+                }
+                $("#errortype2").text('');
+                $("#errorfile2").text('');
+
+            }
+
+        })
+
+    })
+
+    var ReadImage2 = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 4096) + "KB";
+
+                $("#targetImg2").attr('src', _file.target.result);
+                $("#description2").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview2").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview2 = function () {
+        $("#imageBrowes2").val('');
+        $("#description2").text('');
+        $("#imgPreview2").hide();
+
+
+
+    }
+
+    var Uploadimage2 = function () {
+
+        var file = $("#imageBrowes2").get(0).files;
+
+        var data = new FormData;
+        data.append("digitalcvFile", file[0]);
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/pFileUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview2();
+            }
+
+        })
+    }
+    function ValidateSingleInput2(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+
+                if (!blnValid) {
+                    $("#errortype2").text('Seçilen dosya ".pdf", ".xlsx", ".csv", ".docx" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile2").text('');
+                    $("#imageBrowes2").val('');
+                    $("#description2").text('');
+                    $("#imgPreview2").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+</script>

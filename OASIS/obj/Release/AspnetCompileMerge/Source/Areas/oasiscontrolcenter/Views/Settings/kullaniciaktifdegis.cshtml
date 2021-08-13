@@ -1,0 +1,91 @@
+﻿@model OASIS.Models.Entity.users
+@{
+    ViewBag.Title = "Kullanıcı Güncelle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "kullanicilar";
+    ViewBag.menuactive = "Ayarlar";
+}
+
+@if (TempData["telvarg"] != null)
+{
+
+    <script>
+        Swal.fire('Güncelleme Başarısız', 'Telefon Numarası Daha Önce Alınmış.', 'error');
+
+    </script>
+}
+
+@if (TempData["tcvarg"] != null)
+{
+
+    <script>
+        Swal.fire('Güncelleme Başarısız', 'Tc Numarası Başka Bir Kullanıcıya Ait.', 'warning');
+
+
+    </script>
+}
+
+@if (TempData["emailvarg"] != null)
+{
+
+    <script>
+
+        Swal.fire('Güncelleme Başarısız', 'E-Posta Adresi Daha Önce Alınmış.', 'error');
+
+
+    </script>
+}
+
+@if (TempData["kullaniciHata2"] != null)
+{
+
+    <script>
+        Swal.fire('Güncelleme Başarısız', 'Kullanıcı Adı veya Tc veya E-Posta Başkası Tarafından Kullanılıyor.', 'error');
+
+
+    </script>
+}
+
+<div class="content-wrapper">
+    <div class="card-body">
+        <h2>Kullanıcı Aktiflik Durumu ve Yetki Güncelle</h2>
+        @using (Html.BeginForm("kGuncelleactive", "Settings", FormMethod.Post))
+        {
+            <table id="example1" class="table table-bordered table-striped">
+                <tr>
+                    <td>
+                        <p>Aktiflik Durumu</p>
+                        @Html.HiddenFor(m => m.active, new { @class = "form-control", @Value = "fas fa-check text-primary", id = "colordbs", @required = "required" })
+                        <select id="colordb" class="form-control">
+                            <option value="fas fa-check text-primary">Aktif!</option>
+                            <option value="fas fa-times text-error">Aktif Değil!</option>
+                        </select>
+                        @Html.HiddenFor(m => m.userid, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        <p>Yetki</p>
+                        @Html.HiddenFor(m => m.role, new { @class = "form-control", @Value = "Admin", id = "roledbs", @required = "required" })
+                        <select id="roledb" class="form-control">
+                            <option value="1">Admin</option>
+                            <option value="2">Yonetici</option>
+                            <option value="3">User</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="fa fa-floppy-o btn btn-success" /> Kaydet</td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        dropdowncont();
+    });
+</script>

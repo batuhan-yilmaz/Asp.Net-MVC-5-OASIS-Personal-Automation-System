@@ -1,0 +1,56 @@
+﻿@model List<OASIS.Models.Entity.departman>
+
+
+@if (TempData["departmanGuncelle"] != null)
+{
+    <link href="~/Content/Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+    <script src="~/Content/Admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+    </script>
+}
+
+<div class="card">
+
+        <div class="card-header">
+            <h3 class="card-title"></h3>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Yeni Departman Ekle", "departmanekle", null, new { @class = "fa fa-plus btn btn-primary" })
+            }
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="departman" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Departman</th>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var departman in Model)
+                    {
+                        <tr>
+                            <td>@departman.departman1</td>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                               <td>
+                                @Html.ActionLink("Güncelle", "departmanguncelle", new { departman.departmanid }, new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                                </td>
+                                <td>                            
+                                @Html.ActionLink("Sil", "departmansil", new { departman.departmanid }, new { @class = "fa fa-trash btn btn-outline-danger" })
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>

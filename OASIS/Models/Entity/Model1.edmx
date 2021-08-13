@@ -1,0 +1,2105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_a6811d_siscontModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="authorized">
+          <Key>
+            <PropertyRef Name="authorizedid" />
+          </Key>
+          <Property Name="authorizedid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+          <Property Name="unitget" Type="int" Nullable="false" />
+          <Property Name="departmanget" Type="int" Nullable="false" />
+          <Property Name="profilephoto" Type="varchar" MaxLength="500" />
+          <Property Name="digitalcv" Type="varchar" MaxLength="500" />
+          <Property Name="authorized" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="tc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="adres" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="civilstatusget" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="children" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="workingstart" Type="date" Nullable="false" />
+          <Property Name="workingstop" Type="date" Nullable="false" />
+          <Property Name="performance" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pirim" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pay" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mesai" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mesaidays" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="check">
+          <Key>
+            <PropertyRef Name="checkid" />
+          </Key>
+          <Property Name="checkid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+          <Property Name="unitget" Type="int" Nullable="false" />
+          <Property Name="departmanget" Type="int" Nullable="false" />
+          <Property Name="authorizedget" Type="int" Nullable="false" />
+          <Property Name="checkdate" Type="date" Nullable="false" />
+          <Property Name="check1" Type="int" Nullable="false" />
+          <Property Name="check2" Type="int" Nullable="false" />
+          <Property Name="check3" Type="int" Nullable="false" />
+          <Property Name="check4" Type="int" Nullable="false" />
+          <Property Name="check5" Type="int" Nullable="false" />
+          <Property Name="check6" Type="int" Nullable="false" />
+          <Property Name="check7" Type="int" Nullable="false" />
+          <Property Name="check8" Type="int" Nullable="false" />
+          <Property Name="check9" Type="int" Nullable="false" />
+          <Property Name="check10" Type="int" Nullable="false" />
+          <Property Name="check11" Type="int" Nullable="false" />
+          <Property Name="check12" Type="int" Nullable="false" />
+          <Property Name="check13" Type="int" Nullable="false" />
+          <Property Name="check14" Type="int" Nullable="false" />
+          <Property Name="check15" Type="int" Nullable="false" />
+          <Property Name="content1" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="content2" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="content3" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="content4" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="suggestion" Type="varchar" MaxLength="1000" />
+          <Property Name="location" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="checkcommentid" />
+          </Key>
+          <Property Name="checkcommentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="referancenumber" Type="varchar" MaxLength="50" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+          <Property Name="unitget" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="namesurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="subject" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="companyid" />
+          </Key>
+          <Property Name="companyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="departman">
+          <Key>
+            <PropertyRef Name="departmanid" />
+          </Key>
+          <Property Name="departmanid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="departman" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Start" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="End" Type="datetime" Precision="0" />
+          <Property Name="ThemeColor" Type="varchar" MaxLength="10" />
+          <Property Name="IsFullDay" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="home">
+          <Key>
+            <PropertyRef Name="homeid" />
+          </Key>
+          <Property Name="homeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="descriptions" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+          <Property Name="unitget" Type="int" Nullable="false" />
+          <Property Name="departmanget" Type="int" Nullable="false" />
+          <Property Name="eventsstart" Type="date" Nullable="false" />
+          <Property Name="eventsend" Type="date" Nullable="false" />
+          <Property Name="processget" Type="int" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="content1" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="content2" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="content3" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="content4" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="invoiceid" />
+          </Key>
+          <Property Name="invoiceid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+          <Property Name="unitget" Type="int" Nullable="false" />
+          <Property Name="authorizedget" Type="int" Nullable="false" />
+          <Property Name="personelget" Type="int" Nullable="false" />
+          <Property Name="referancenumber" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="namesurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adres" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="subtotal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tax" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="total" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pay" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="messagebox">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="messageid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namesurname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="youremail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="subject" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="message" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="referancenumber" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notice">
+          <Key>
+            <PropertyRef Name="noticeid" />
+          </Key>
+          <Property Name="noticeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="notice" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+          <Property Name="unitget" Type="int" Nullable="false" />
+          <Property Name="departmanget" Type="int" Nullable="false" />
+          <Property Name="noticestart" Type="date" Nullable="false" />
+          <Property Name="noticeend" Type="date" Nullable="false" />
+          <Property Name="processget" Type="int" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personel">
+          <Key>
+            <PropertyRef Name="personelid" />
+          </Key>
+          <Property Name="personelid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+          <Property Name="unitget" Type="int" Nullable="false" />
+          <Property Name="departmanget" Type="int" Nullable="false" />
+          <Property Name="authorizedget" Type="int" Nullable="false" />
+          <Property Name="profilephoto" Type="varchar" MaxLength="500" />
+          <Property Name="digitalcv" Type="varchar" MaxLength="500" />
+          <Property Name="personel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="tc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="adres" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="civilstatusget" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="children" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="workingstart" Type="date" Nullable="false" />
+          <Property Name="workingstop" Type="date" Nullable="false" />
+          <Property Name="performance" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pirim" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pay" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mesai" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mesaidays" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="process">
+          <Key>
+            <PropertyRef Name="processid" />
+          </Key>
+          <Property Name="processid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="process" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="regionid" />
+          </Key>
+          <Property Name="regionid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="companyget" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ucretbordro">
+          <Key>
+            <PropertyRef Name="ucretbordroid" />
+          </Key>
+          <Property Name="ucretbordroid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sgksabiti" Type="double" Nullable="false" />
+          <Property Name="sgkisveren" Type="double" Nullable="false" />
+          <Property Name="isverenissizsigfon" Type="double" Nullable="false" />
+          <Property Name="isverenmaliyet" Type="double" Nullable="false" />
+          <Property Name="nrkazanc" Type="double" Nullable="false" />
+          <Property Name="iszsigiscipayi" Type="double" Nullable="false" />
+          <Property Name="sgkiscipayi" Type="double" Nullable="false" />
+          <Property Name="gvmahtari" Type="double" Nullable="false" />
+          <Property Name="gelirvergisi" Type="double" Nullable="false" />
+          <Property Name="agi" Type="double" Nullable="false" />
+          <Property Name="kendiagiyuzdesi" Type="double" Nullable="false" />
+          <Property Name="esagiyuzdesi" Type="double" Nullable="false" />
+          <Property Name="birveikicocukagiyuzdesi" Type="double" Nullable="false" />
+          <Property Name="uccocukyuzdesi" Type="double" Nullable="false" />
+          <Property Name="dortveuzericocukyuzdesi" Type="double" Nullable="false" />
+          <Property Name="damgavergi" Type="double" Nullable="false" />
+          <Property Name="netkazanc" Type="double" Nullable="false" />
+          <Property Name="gunlukkazanc" Type="double" Nullable="false" />
+          <Property Name="pirimyuzdesi" Type="double" Nullable="false" />
+          <Property Name="mesaiucreti" Type="double" Nullable="false" />
+          <Property Name="yoneticifark" Type="double" Nullable="false" />
+          <Property Name="yoneticipirimyuzdesi" Type="double" Nullable="false" />
+          <Property Name="yoneticimesaiucreti" Type="double" Nullable="false" />
+          <Property Name="pirimlimit" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="unitid" />
+          </Key>
+          <Property Name="unitid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="regionget" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="profilephoto" Type="varchar" MaxLength="500" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="usrname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="tc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="securitykey" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="active" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="yuklenenbelgeler">
+          <Key>
+            <PropertyRef Name="belgeid" />
+          </Key>
+          <Property Name="belgeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="belge" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1500" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_authorized_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_authorized_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_authorized_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_authorized_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_authorized">
+          <End Role="authorized" Type="Self.authorized" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="authorized">
+              <PropertyRef Name="authorizedid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="authorizedget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_process">
+          <End Role="process" Type="Self.process" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="processid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="processget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_authorized">
+          <End Role="authorized" Type="Self.authorized" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="authorized">
+              <PropertyRef Name="authorizedid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="authorizedget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_personel">
+          <End Role="personel" Type="Self.personel" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personel">
+              <PropertyRef Name="personelid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="personelget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_process">
+          <End Role="process" Type="Self.process" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="processid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="processget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_authorized">
+          <End Role="authorized" Type="Self.authorized" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="authorized">
+              <PropertyRef Name="authorizedid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="authorizedget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_region_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="region" Type="Self.region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="region">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_unit_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="unit" Type="Self.unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="unit">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_a6811d_siscontModelStoreContainer">
+          <EntitySet Name="authorized" EntityType="Self.authorized" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="check" EntityType="Self.check" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="comment" EntityType="Self.comment" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="company" EntityType="Self.company" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="departman" EntityType="Self.departman" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="events" EntityType="Self.events" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="home" EntityType="Self.home" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="invoice" EntityType="Self.invoice" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="messagebox" EntityType="Self.messagebox" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="notice" EntityType="Self.notice" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="personel" EntityType="Self.personel" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="process" EntityType="Self.process" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="region" EntityType="Self.region" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="ucretbordro" EntityType="Self.ucretbordro" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="unit" EntityType="Self.unit" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <EntitySet Name="yuklenenbelgeler" EntityType="Self.yuklenenbelgeler" Schema="db_a6811d_siscont" store:Type="Tables" />
+          <AssociationSet Name="FK_authorized_company" Association="Self.FK_authorized_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_authorized_departman" Association="Self.FK_authorized_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_authorized_region" Association="Self.FK_authorized_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_authorized_unit" Association="Self.FK_authorized_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_authorized" Association="Self.FK_check_authorized">
+            <End Role="authorized" EntitySet="authorized" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_company" Association="Self.FK_check_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_departman" Association="Self.FK_check_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_region" Association="Self.FK_check_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_unit" Association="Self.FK_check_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_company" Association="Self.FK_comment_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_region" Association="Self.FK_comment_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_unit" Association="Self.FK_comment_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_company" Association="Self.FK_event_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_departman" Association="Self.FK_event_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_process" Association="Self.FK_event_process">
+            <End Role="process" EntitySet="process" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_region" Association="Self.FK_event_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_unit" Association="Self.FK_event_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_authorized" Association="Self.FK_invoice_authorized">
+            <End Role="authorized" EntitySet="authorized" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_company" Association="Self.FK_invoice_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_personel" Association="Self.FK_invoice_personel">
+            <End Role="personel" EntitySet="personel" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_region" Association="Self.FK_invoice_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_unit" Association="Self.FK_invoice_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_company" Association="Self.FK_notice_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_departman" Association="Self.FK_notice_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_process" Association="Self.FK_notice_process">
+            <End Role="process" EntitySet="process" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_region" Association="Self.FK_notice_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_unit" Association="Self.FK_notice_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_authorized" Association="Self.FK_personel_authorized">
+            <End Role="authorized" EntitySet="authorized" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_company" Association="Self.FK_personel_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_departman" Association="Self.FK_personel_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_region" Association="Self.FK_personel_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_unit" Association="Self.FK_personel_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_region_company" Association="Self.FK_region_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="region" EntitySet="region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_unit_region" Association="Self.FK_unit_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="unit" EntitySet="unit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_a6811d_siscontModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="authorized">
+          <Key>
+            <PropertyRef Name="authorizedid" />
+          </Key>
+          <Property Name="authorizedid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <Property Name="unitget" Type="Int32" Nullable="false" />
+          <Property Name="departmanget" Type="Int32" Nullable="false" />
+          <Property Name="profilephoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="digitalcv" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="authorized1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adres" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="civilstatusget" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="children" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="workingstart" Type="DateTime" Nullable="false" />
+          <Property Name="workingstop" Type="DateTime" Nullable="false" />
+          <Property Name="performance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pirim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mesai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mesaidays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="company" Relationship="Self.FK_authorized_company" FromRole="authorized" ToRole="company" />
+          <NavigationProperty Name="departman" Relationship="Self.FK_authorized_departman" FromRole="authorized" ToRole="departman" />
+          <NavigationProperty Name="region" Relationship="Self.FK_authorized_region" FromRole="authorized" ToRole="region" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_authorized_unit" FromRole="authorized" ToRole="unit" />
+          <NavigationProperty Name="check" Relationship="Self.FK_check_authorized" FromRole="authorized" ToRole="check" />
+          <NavigationProperty Name="invoice" Relationship="Self.FK_invoice_authorized" FromRole="authorized" ToRole="invoice" />
+          <NavigationProperty Name="personel" Relationship="Self.FK_personel_authorized" FromRole="authorized" ToRole="personel" />
+        </EntityType>
+        <EntityType Name="check">
+          <Key>
+            <PropertyRef Name="checkid" />
+          </Key>
+          <Property Name="checkid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <Property Name="unitget" Type="Int32" Nullable="false" />
+          <Property Name="departmanget" Type="Int32" Nullable="false" />
+          <Property Name="authorizedget" Type="Int32" Nullable="false" />
+          <Property Name="checkdate" Type="DateTime" Nullable="false" />
+          <Property Name="check1" Type="Int32" Nullable="false" />
+          <Property Name="check2" Type="Int32" Nullable="false" />
+          <Property Name="check3" Type="Int32" Nullable="false" />
+          <Property Name="check4" Type="Int32" Nullable="false" />
+          <Property Name="check5" Type="Int32" Nullable="false" />
+          <Property Name="check6" Type="Int32" Nullable="false" />
+          <Property Name="check7" Type="Int32" Nullable="false" />
+          <Property Name="check8" Type="Int32" Nullable="false" />
+          <Property Name="check9" Type="Int32" Nullable="false" />
+          <Property Name="check10" Type="Int32" Nullable="false" />
+          <Property Name="check11" Type="Int32" Nullable="false" />
+          <Property Name="check12" Type="Int32" Nullable="false" />
+          <Property Name="check13" Type="Int32" Nullable="false" />
+          <Property Name="check14" Type="Int32" Nullable="false" />
+          <Property Name="check15" Type="Int32" Nullable="false" />
+          <Property Name="content1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content4" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="suggestion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="authorized" Relationship="Self.FK_check_authorized" FromRole="check" ToRole="authorized" />
+          <NavigationProperty Name="company" Relationship="Self.FK_check_company" FromRole="check" ToRole="company" />
+          <NavigationProperty Name="departman" Relationship="Self.FK_check_departman" FromRole="check" ToRole="departman" />
+          <NavigationProperty Name="region" Relationship="Self.FK_check_region" FromRole="check" ToRole="region" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_check_unit" FromRole="check" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="checkcommentid" />
+          </Key>
+          <Property Name="checkcommentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="referancenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <Property Name="unitget" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="namesurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="company" Relationship="Self.FK_comment_company" FromRole="comment" ToRole="company" />
+          <NavigationProperty Name="region" Relationship="Self.FK_comment_region" FromRole="comment" ToRole="region" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_comment_unit" FromRole="comment" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="companyid" />
+          </Key>
+          <Property Name="companyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="authorized" Relationship="Self.FK_authorized_company" FromRole="company" ToRole="authorized" />
+          <NavigationProperty Name="check" Relationship="Self.FK_check_company" FromRole="company" ToRole="check" />
+          <NavigationProperty Name="comment" Relationship="Self.FK_comment_company" FromRole="company" ToRole="comment" />
+          <NavigationProperty Name="home" Relationship="Self.FK_event_company" FromRole="company" ToRole="home" />
+          <NavigationProperty Name="invoice" Relationship="Self.FK_invoice_company" FromRole="company" ToRole="invoice" />
+          <NavigationProperty Name="notice" Relationship="Self.FK_notice_company" FromRole="company" ToRole="notice" />
+          <NavigationProperty Name="personel" Relationship="Self.FK_personel_company" FromRole="company" ToRole="personel" />
+          <NavigationProperty Name="region" Relationship="Self.FK_region_company" FromRole="company" ToRole="region" />
+        </EntityType>
+        <EntityType Name="departman">
+          <Key>
+            <PropertyRef Name="departmanid" />
+          </Key>
+          <Property Name="departmanid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="departman1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="authorized" Relationship="Self.FK_authorized_departman" FromRole="departman" ToRole="authorized" />
+          <NavigationProperty Name="check" Relationship="Self.FK_check_departman" FromRole="departman" ToRole="check" />
+          <NavigationProperty Name="home" Relationship="Self.FK_event_departman" FromRole="departman" ToRole="home" />
+          <NavigationProperty Name="notice" Relationship="Self.FK_notice_departman" FromRole="departman" ToRole="notice" />
+          <NavigationProperty Name="personel" Relationship="Self.FK_personel_departman" FromRole="departman" ToRole="personel" />
+        </EntityType>
+        <EntityType Name="events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Start" Type="DateTime" Nullable="false" />
+          <Property Name="End" Type="DateTime" />
+          <Property Name="ThemeColor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="home">
+          <Key>
+            <PropertyRef Name="homeid" />
+          </Key>
+          <Property Name="homeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descriptions" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <Property Name="unitget" Type="Int32" Nullable="false" />
+          <Property Name="departmanget" Type="Int32" Nullable="false" />
+          <Property Name="eventsstart" Type="DateTime" Nullable="false" />
+          <Property Name="eventsend" Type="DateTime" Nullable="false" />
+          <Property Name="processget" Type="Int32" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content4" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="company" Relationship="Self.FK_event_company" FromRole="home" ToRole="company" />
+          <NavigationProperty Name="departman" Relationship="Self.FK_event_departman" FromRole="home" ToRole="departman" />
+          <NavigationProperty Name="process" Relationship="Self.FK_event_process" FromRole="home" ToRole="process" />
+          <NavigationProperty Name="region" Relationship="Self.FK_event_region" FromRole="home" ToRole="region" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_event_unit" FromRole="home" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="invoiceid" />
+          </Key>
+          <Property Name="invoiceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <Property Name="unitget" Type="Int32" Nullable="false" />
+          <Property Name="authorizedget" Type="Int32" Nullable="false" />
+          <Property Name="personelget" Type="Int32" Nullable="false" />
+          <Property Name="referancenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="namesurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adres" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subtotal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="total" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="authorized" Relationship="Self.FK_invoice_authorized" FromRole="invoice" ToRole="authorized" />
+          <NavigationProperty Name="company" Relationship="Self.FK_invoice_company" FromRole="invoice" ToRole="company" />
+          <NavigationProperty Name="personel" Relationship="Self.FK_invoice_personel" FromRole="invoice" ToRole="personel" />
+          <NavigationProperty Name="region" Relationship="Self.FK_invoice_region" FromRole="invoice" ToRole="region" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_invoice_unit" FromRole="invoice" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="messagebox">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="messageid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namesurname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="youremail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="referancenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notice">
+          <Key>
+            <PropertyRef Name="noticeid" />
+          </Key>
+          <Property Name="noticeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="notice1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <Property Name="unitget" Type="Int32" Nullable="false" />
+          <Property Name="departmanget" Type="Int32" Nullable="false" />
+          <Property Name="noticestart" Type="DateTime" Nullable="false" />
+          <Property Name="noticeend" Type="DateTime" Nullable="false" />
+          <Property Name="processget" Type="Int32" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="company" Relationship="Self.FK_notice_company" FromRole="notice" ToRole="company" />
+          <NavigationProperty Name="departman" Relationship="Self.FK_notice_departman" FromRole="notice" ToRole="departman" />
+          <NavigationProperty Name="process" Relationship="Self.FK_notice_process" FromRole="notice" ToRole="process" />
+          <NavigationProperty Name="region" Relationship="Self.FK_notice_region" FromRole="notice" ToRole="region" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_notice_unit" FromRole="notice" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="personel">
+          <Key>
+            <PropertyRef Name="personelid" />
+          </Key>
+          <Property Name="personelid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <Property Name="unitget" Type="Int32" Nullable="false" />
+          <Property Name="departmanget" Type="Int32" Nullable="false" />
+          <Property Name="authorizedget" Type="Int32" Nullable="false" />
+          <Property Name="profilephoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="digitalcv" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="personel1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adres" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="civilstatusget" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="children" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="workingstart" Type="DateTime" Nullable="false" />
+          <Property Name="workingstop" Type="DateTime" Nullable="false" />
+          <Property Name="performance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pirim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mesai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mesaidays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="authorized" Relationship="Self.FK_personel_authorized" FromRole="personel" ToRole="authorized" />
+          <NavigationProperty Name="company" Relationship="Self.FK_personel_company" FromRole="personel" ToRole="company" />
+          <NavigationProperty Name="departman" Relationship="Self.FK_personel_departman" FromRole="personel" ToRole="departman" />
+          <NavigationProperty Name="invoice" Relationship="Self.FK_invoice_personel" FromRole="personel" ToRole="invoice" />
+          <NavigationProperty Name="region" Relationship="Self.FK_personel_region" FromRole="personel" ToRole="region" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_personel_unit" FromRole="personel" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="process">
+          <Key>
+            <PropertyRef Name="processid" />
+          </Key>
+          <Property Name="processid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="process1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="home" Relationship="Self.FK_event_process" FromRole="process" ToRole="home" />
+          <NavigationProperty Name="notice" Relationship="Self.FK_notice_process" FromRole="process" ToRole="notice" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="regionid" />
+          </Key>
+          <Property Name="regionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="region1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="companyget" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="authorized" Relationship="Self.FK_authorized_region" FromRole="region" ToRole="authorized" />
+          <NavigationProperty Name="check" Relationship="Self.FK_check_region" FromRole="region" ToRole="check" />
+          <NavigationProperty Name="comment" Relationship="Self.FK_comment_region" FromRole="region" ToRole="comment" />
+          <NavigationProperty Name="company" Relationship="Self.FK_region_company" FromRole="region" ToRole="company" />
+          <NavigationProperty Name="home" Relationship="Self.FK_event_region" FromRole="region" ToRole="home" />
+          <NavigationProperty Name="invoice" Relationship="Self.FK_invoice_region" FromRole="region" ToRole="invoice" />
+          <NavigationProperty Name="notice" Relationship="Self.FK_notice_region" FromRole="region" ToRole="notice" />
+          <NavigationProperty Name="personel" Relationship="Self.FK_personel_region" FromRole="region" ToRole="personel" />
+          <NavigationProperty Name="unit" Relationship="Self.FK_unit_region" FromRole="region" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="ucretbordro">
+          <Key>
+            <PropertyRef Name="ucretbordroid" />
+          </Key>
+          <Property Name="ucretbordroid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sgksabiti" Type="Double" Nullable="false" />
+          <Property Name="sgkisveren" Type="Double" Nullable="false" />
+          <Property Name="isverenissizsigfon" Type="Double" Nullable="false" />
+          <Property Name="isverenmaliyet" Type="Double" Nullable="false" />
+          <Property Name="nrkazanc" Type="Double" Nullable="false" />
+          <Property Name="iszsigiscipayi" Type="Double" Nullable="false" />
+          <Property Name="sgkiscipayi" Type="Double" Nullable="false" />
+          <Property Name="gvmahtari" Type="Double" Nullable="false" />
+          <Property Name="gelirvergisi" Type="Double" Nullable="false" />
+          <Property Name="agi" Type="Double" Nullable="false" />
+          <Property Name="kendiagiyuzdesi" Type="Double" Nullable="false" />
+          <Property Name="esagiyuzdesi" Type="Double" Nullable="false" />
+          <Property Name="birveikicocukagiyuzdesi" Type="Double" Nullable="false" />
+          <Property Name="uccocukyuzdesi" Type="Double" Nullable="false" />
+          <Property Name="dortveuzericocukyuzdesi" Type="Double" Nullable="false" />
+          <Property Name="damgavergi" Type="Double" Nullable="false" />
+          <Property Name="netkazanc" Type="Double" Nullable="false" />
+          <Property Name="gunlukkazanc" Type="Double" Nullable="false" />
+          <Property Name="pirimyuzdesi" Type="Double" Nullable="false" />
+          <Property Name="mesaiucreti" Type="Double" Nullable="false" />
+          <Property Name="yoneticifark" Type="Double" Nullable="false" />
+          <Property Name="yoneticipirimyuzdesi" Type="Double" Nullable="false" />
+          <Property Name="yoneticimesaiucreti" Type="Double" Nullable="false" />
+          <Property Name="pirimlimit" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="unitid" />
+          </Key>
+          <Property Name="unitid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="unit1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="regionget" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="authorized" Relationship="Self.FK_authorized_unit" FromRole="unit" ToRole="authorized" />
+          <NavigationProperty Name="check" Relationship="Self.FK_check_unit" FromRole="unit" ToRole="check" />
+          <NavigationProperty Name="comment" Relationship="Self.FK_comment_unit" FromRole="unit" ToRole="comment" />
+          <NavigationProperty Name="home" Relationship="Self.FK_event_unit" FromRole="unit" ToRole="home" />
+          <NavigationProperty Name="invoice" Relationship="Self.FK_invoice_unit" FromRole="unit" ToRole="invoice" />
+          <NavigationProperty Name="notice" Relationship="Self.FK_notice_unit" FromRole="unit" ToRole="notice" />
+          <NavigationProperty Name="personel" Relationship="Self.FK_personel_unit" FromRole="unit" ToRole="personel" />
+          <NavigationProperty Name="region" Relationship="Self.FK_unit_region" FromRole="unit" ToRole="region" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="profilephoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usrname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="securitykey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="yuklenenbelgeler">
+          <Key>
+            <PropertyRef Name="belgeid" />
+          </Key>
+          <Property Name="belgeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="belge" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_authorized_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_authorized_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_authorized_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_authorized_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="authorized" Type="Self.authorized" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="authorized">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_authorized">
+          <End Role="authorized" Type="Self.authorized" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="authorized">
+              <PropertyRef Name="authorizedid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="authorizedget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_authorized">
+          <End Role="authorized" Type="Self.authorized" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="authorized">
+              <PropertyRef Name="authorizedid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="authorizedget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_authorized">
+          <End Role="authorized" Type="Self.authorized" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="authorized">
+              <PropertyRef Name="authorizedid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="authorizedget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_check_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="check">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_region_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="region" Type="Self.region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="companyid" />
+            </Principal>
+            <Dependent Role="region">
+              <PropertyRef Name="companyget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_departman">
+          <End Role="departman" Type="Self.departman" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departman">
+              <PropertyRef Name="departmanid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="departmanget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_process">
+          <End Role="process" Type="Self.process" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="processid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="processget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="home" Type="Self.home" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="home">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_personel">
+          <End Role="personel" Type="Self.personel" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personel">
+              <PropertyRef Name="personelid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="personelget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_invoice_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_process">
+          <End Role="process" Type="Self.process" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="process">
+              <PropertyRef Name="processid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="processget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notice_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="notice" Type="Self.notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="notice">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personel_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="1" />
+          <End Role="personel" Type="Self.personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="unitid" />
+            </Principal>
+            <Dependent Role="personel">
+              <PropertyRef Name="unitget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_unit_region">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="unit" Type="Self.unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="regionid" />
+            </Principal>
+            <Dependent Role="unit">
+              <PropertyRef Name="regionget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="oasisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="authorized" EntityType="Self.authorized" />
+          <EntitySet Name="check" EntityType="Self.check" />
+          <EntitySet Name="comment" EntityType="Self.comment" />
+          <EntitySet Name="company" EntityType="Self.company" />
+          <EntitySet Name="departman" EntityType="Self.departman" />
+          <EntitySet Name="events" EntityType="Self.events" />
+          <EntitySet Name="home" EntityType="Self.home" />
+          <EntitySet Name="invoice" EntityType="Self.invoice" />
+          <EntitySet Name="messagebox" EntityType="Self.messagebox" />
+          <EntitySet Name="notice" EntityType="Self.notice" />
+          <EntitySet Name="personel" EntityType="Self.personel" />
+          <EntitySet Name="process" EntityType="Self.process" />
+          <EntitySet Name="region" EntityType="Self.region" />
+          <EntitySet Name="ucretbordro" EntityType="Self.ucretbordro" />
+          <EntitySet Name="unit" EntityType="Self.unit" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="yuklenenbelgeler" EntityType="Self.yuklenenbelgeler" />
+          <AssociationSet Name="FK_authorized_company" Association="Self.FK_authorized_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_authorized_departman" Association="Self.FK_authorized_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_authorized_region" Association="Self.FK_authorized_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_authorized_unit" Association="Self.FK_authorized_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="authorized" EntitySet="authorized" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_authorized" Association="Self.FK_check_authorized">
+            <End Role="authorized" EntitySet="authorized" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_authorized" Association="Self.FK_invoice_authorized">
+            <End Role="authorized" EntitySet="authorized" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_authorized" Association="Self.FK_personel_authorized">
+            <End Role="authorized" EntitySet="authorized" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_company" Association="Self.FK_check_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_departman" Association="Self.FK_check_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_region" Association="Self.FK_check_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_unit" Association="Self.FK_check_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_company" Association="Self.FK_comment_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_region" Association="Self.FK_comment_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_unit" Association="Self.FK_comment_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_company" Association="Self.FK_event_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_company" Association="Self.FK_invoice_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_company" Association="Self.FK_notice_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_company" Association="Self.FK_personel_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_region_company" Association="Self.FK_region_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="region" EntitySet="region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_departman" Association="Self.FK_event_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_departman" Association="Self.FK_notice_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_departman" Association="Self.FK_personel_departman">
+            <End Role="departman" EntitySet="departman" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_process" Association="Self.FK_event_process">
+            <End Role="process" EntitySet="process" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_region" Association="Self.FK_event_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_unit" Association="Self.FK_event_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="home" EntitySet="home" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_personel" Association="Self.FK_invoice_personel">
+            <End Role="personel" EntitySet="personel" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_region" Association="Self.FK_invoice_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_invoice_unit" Association="Self.FK_invoice_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_process" Association="Self.FK_notice_process">
+            <End Role="process" EntitySet="process" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_region" Association="Self.FK_notice_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notice_unit" Association="Self.FK_notice_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="notice" EntitySet="notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_region" Association="Self.FK_personel_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personel_unit" Association="Self.FK_personel_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="personel" EntitySet="personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_unit_region" Association="Self.FK_unit_region">
+            <End Role="region" EntitySet="region" />
+            <End Role="unit" EntitySet="unit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_a6811d_siscontModelStoreContainer" CdmEntityContainer="oasisEntities">
+          <EntitySetMapping Name="authorized">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.authorized">
+              <MappingFragment StoreEntitySet="authorized">
+                <ScalarProperty Name="authorizedid" ColumnName="authorizedid" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+                <ScalarProperty Name="unitget" ColumnName="unitget" />
+                <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+                <ScalarProperty Name="profilephoto" ColumnName="profilephoto" />
+                <ScalarProperty Name="digitalcv" ColumnName="digitalcv" />
+                <ScalarProperty Name="authorized1" ColumnName="authorized" />
+                <ScalarProperty Name="tc" ColumnName="tc" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="civilstatusget" ColumnName="civilstatusget" />
+                <ScalarProperty Name="children" ColumnName="children" />
+                <ScalarProperty Name="workingstart" ColumnName="workingstart" />
+                <ScalarProperty Name="workingstop" ColumnName="workingstop" />
+                <ScalarProperty Name="performance" ColumnName="performance" />
+                <ScalarProperty Name="pirim" ColumnName="pirim" />
+                <ScalarProperty Name="pay" ColumnName="pay" />
+                <ScalarProperty Name="mesai" ColumnName="mesai" />
+                <ScalarProperty Name="mesaidays" ColumnName="mesaidays" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="check">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.check">
+              <MappingFragment StoreEntitySet="check">
+                <ScalarProperty Name="checkid" ColumnName="checkid" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+                <ScalarProperty Name="unitget" ColumnName="unitget" />
+                <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+                <ScalarProperty Name="authorizedget" ColumnName="authorizedget" />
+                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+                <ScalarProperty Name="check1" ColumnName="check1" />
+                <ScalarProperty Name="check2" ColumnName="check2" />
+                <ScalarProperty Name="check3" ColumnName="check3" />
+                <ScalarProperty Name="check4" ColumnName="check4" />
+                <ScalarProperty Name="check5" ColumnName="check5" />
+                <ScalarProperty Name="check6" ColumnName="check6" />
+                <ScalarProperty Name="check7" ColumnName="check7" />
+                <ScalarProperty Name="check8" ColumnName="check8" />
+                <ScalarProperty Name="check9" ColumnName="check9" />
+                <ScalarProperty Name="check10" ColumnName="check10" />
+                <ScalarProperty Name="check11" ColumnName="check11" />
+                <ScalarProperty Name="check12" ColumnName="check12" />
+                <ScalarProperty Name="check13" ColumnName="check13" />
+                <ScalarProperty Name="check14" ColumnName="check14" />
+                <ScalarProperty Name="check15" ColumnName="check15" />
+                <ScalarProperty Name="content1" ColumnName="content1" />
+                <ScalarProperty Name="content2" ColumnName="content2" />
+                <ScalarProperty Name="content3" ColumnName="content3" />
+                <ScalarProperty Name="content4" ColumnName="content4" />
+                <ScalarProperty Name="suggestion" ColumnName="suggestion" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comment">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.comment">
+              <MappingFragment StoreEntitySet="comment">
+                <ScalarProperty Name="checkcommentid" ColumnName="checkcommentid" />
+                <ScalarProperty Name="referancenumber" ColumnName="referancenumber" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+                <ScalarProperty Name="unitget" ColumnName="unitget" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+                <ScalarProperty Name="tc" ColumnName="tc" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="comment1" ColumnName="comment" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="company">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.company">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="companyid" ColumnName="companyid" />
+                <ScalarProperty Name="company1" ColumnName="company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departman">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.departman">
+              <MappingFragment StoreEntitySet="departman">
+                <ScalarProperty Name="departmanid" ColumnName="departmanid" />
+                <ScalarProperty Name="departman1" ColumnName="departman" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="events">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.events">
+              <MappingFragment StoreEntitySet="events">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+                <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="home">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.home">
+              <MappingFragment StoreEntitySet="home">
+                <ScalarProperty Name="homeid" ColumnName="homeid" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="descriptions" ColumnName="descriptions" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+                <ScalarProperty Name="unitget" ColumnName="unitget" />
+                <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+                <ScalarProperty Name="eventsstart" ColumnName="eventsstart" />
+                <ScalarProperty Name="eventsend" ColumnName="eventsend" />
+                <ScalarProperty Name="processget" ColumnName="processget" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="content1" ColumnName="content1" />
+                <ScalarProperty Name="content2" ColumnName="content2" />
+                <ScalarProperty Name="content3" ColumnName="content3" />
+                <ScalarProperty Name="content4" ColumnName="content4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoice">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.invoice">
+              <MappingFragment StoreEntitySet="invoice">
+                <ScalarProperty Name="invoiceid" ColumnName="invoiceid" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+                <ScalarProperty Name="unitget" ColumnName="unitget" />
+                <ScalarProperty Name="authorizedget" ColumnName="authorizedget" />
+                <ScalarProperty Name="personelget" ColumnName="personelget" />
+                <ScalarProperty Name="referancenumber" ColumnName="referancenumber" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+                <ScalarProperty Name="tc" ColumnName="tc" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="pay" ColumnName="pay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messagebox">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.messagebox">
+              <MappingFragment StoreEntitySet="messagebox">
+                <ScalarProperty Name="messageid" ColumnName="messageid" />
+                <ScalarProperty Name="namesurname" ColumnName="namesurname" />
+                <ScalarProperty Name="youremail" ColumnName="youremail" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="referancenumber" ColumnName="referancenumber" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notice">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.notice">
+              <MappingFragment StoreEntitySet="notice">
+                <ScalarProperty Name="noticeid" ColumnName="noticeid" />
+                <ScalarProperty Name="notice1" ColumnName="notice" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+                <ScalarProperty Name="unitget" ColumnName="unitget" />
+                <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+                <ScalarProperty Name="noticestart" ColumnName="noticestart" />
+                <ScalarProperty Name="noticeend" ColumnName="noticeend" />
+                <ScalarProperty Name="processget" ColumnName="processget" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personel">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.personel">
+              <MappingFragment StoreEntitySet="personel">
+                <ScalarProperty Name="personelid" ColumnName="personelid" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+                <ScalarProperty Name="unitget" ColumnName="unitget" />
+                <ScalarProperty Name="departmanget" ColumnName="departmanget" />
+                <ScalarProperty Name="authorizedget" ColumnName="authorizedget" />
+                <ScalarProperty Name="profilephoto" ColumnName="profilephoto" />
+                <ScalarProperty Name="digitalcv" ColumnName="digitalcv" />
+                <ScalarProperty Name="personel1" ColumnName="personel" />
+                <ScalarProperty Name="tc" ColumnName="tc" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="civilstatusget" ColumnName="civilstatusget" />
+                <ScalarProperty Name="children" ColumnName="children" />
+                <ScalarProperty Name="workingstart" ColumnName="workingstart" />
+                <ScalarProperty Name="workingstop" ColumnName="workingstop" />
+                <ScalarProperty Name="performance" ColumnName="performance" />
+                <ScalarProperty Name="pirim" ColumnName="pirim" />
+                <ScalarProperty Name="pay" ColumnName="pay" />
+                <ScalarProperty Name="mesai" ColumnName="mesai" />
+                <ScalarProperty Name="mesaidays" ColumnName="mesaidays" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="process">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.process">
+              <MappingFragment StoreEntitySet="process">
+                <ScalarProperty Name="processid" ColumnName="processid" />
+                <ScalarProperty Name="process1" ColumnName="process" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="region">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.region">
+              <MappingFragment StoreEntitySet="region">
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="region1" ColumnName="region" />
+                <ScalarProperty Name="companyget" ColumnName="companyget" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ucretbordro">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.ucretbordro">
+              <MappingFragment StoreEntitySet="ucretbordro">
+                <ScalarProperty Name="ucretbordroid" ColumnName="ucretbordroid" />
+                <ScalarProperty Name="sgksabiti" ColumnName="sgksabiti" />
+                <ScalarProperty Name="sgkisveren" ColumnName="sgkisveren" />
+                <ScalarProperty Name="isverenissizsigfon" ColumnName="isverenissizsigfon" />
+                <ScalarProperty Name="isverenmaliyet" ColumnName="isverenmaliyet" />
+                <ScalarProperty Name="nrkazanc" ColumnName="nrkazanc" />
+                <ScalarProperty Name="iszsigiscipayi" ColumnName="iszsigiscipayi" />
+                <ScalarProperty Name="sgkiscipayi" ColumnName="sgkiscipayi" />
+                <ScalarProperty Name="gvmahtari" ColumnName="gvmahtari" />
+                <ScalarProperty Name="gelirvergisi" ColumnName="gelirvergisi" />
+                <ScalarProperty Name="agi" ColumnName="agi" />
+                <ScalarProperty Name="kendiagiyuzdesi" ColumnName="kendiagiyuzdesi" />
+                <ScalarProperty Name="esagiyuzdesi" ColumnName="esagiyuzdesi" />
+                <ScalarProperty Name="birveikicocukagiyuzdesi" ColumnName="birveikicocukagiyuzdesi" />
+                <ScalarProperty Name="uccocukyuzdesi" ColumnName="uccocukyuzdesi" />
+                <ScalarProperty Name="dortveuzericocukyuzdesi" ColumnName="dortveuzericocukyuzdesi" />
+                <ScalarProperty Name="damgavergi" ColumnName="damgavergi" />
+                <ScalarProperty Name="netkazanc" ColumnName="netkazanc" />
+                <ScalarProperty Name="gunlukkazanc" ColumnName="gunlukkazanc" />
+                <ScalarProperty Name="pirimyuzdesi" ColumnName="pirimyuzdesi" />
+                <ScalarProperty Name="mesaiucreti" ColumnName="mesaiucreti" />
+                <ScalarProperty Name="yoneticifark" ColumnName="yoneticifark" />
+                <ScalarProperty Name="yoneticipirimyuzdesi" ColumnName="yoneticipirimyuzdesi" />
+                <ScalarProperty Name="yoneticimesaiucreti" ColumnName="yoneticimesaiucreti" />
+                <ScalarProperty Name="pirimlimit" ColumnName="pirimlimit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unit">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.unit">
+              <MappingFragment StoreEntitySet="unit">
+                <ScalarProperty Name="unitid" ColumnName="unitid" />
+                <ScalarProperty Name="unit1" ColumnName="unit" />
+                <ScalarProperty Name="regionget" ColumnName="regionget" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="profilephoto" ColumnName="profilephoto" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="usrname" ColumnName="usrname" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="tc" ColumnName="tc" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="securitykey" ColumnName="securitykey" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yuklenenbelgeler">
+            <EntityTypeMapping TypeName="db_a6811d_siscontModel.yuklenenbelgeler">
+              <MappingFragment StoreEntitySet="yuklenenbelgeler">
+                <ScalarProperty Name="belgeid" ColumnName="belgeid" />
+                <ScalarProperty Name="belge" ColumnName="belge" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

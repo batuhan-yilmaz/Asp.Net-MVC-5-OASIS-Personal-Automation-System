@@ -1,0 +1,293 @@
+﻿@model  OASIS.Models.Entity.users
+
+@{
+    ViewBag.Title = "Kullanıcı Kayit";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "kullanicilar";
+    ViewBag.menuactive = "Ayarlar";
+}
+
+@if (TempData["usernamevar"] != null)
+{
+
+    <script>
+        Swal.fire('Kayıt Başarısız', 'Kullanıcı Adı Daha Önce Alınmış.', 'error');
+
+    </script>
+}
+
+@if (TempData["tcvar"] != null)
+{
+
+    <script>
+        Swal.fire('Kayıt Başarısız', 'Tc Numarası Başka Bir Kullanıcıya Ait.', 'warning');
+
+
+    </script>
+}
+
+@if (TempData["emailvar"] != null)
+{
+
+    <script>
+
+        Swal.fire('Kayıt Başarısız', 'E-Posta Adresi Daha Önce Alınmış.', 'error');
+
+    </script>
+}
+
+@if (TempData["kullaniciHata1"] != null)
+{
+
+    <script>
+        Swal.fire('Kayıt Başarısız', 'Kullanıcı Adı veya Tc veya E-Posta Başkası Tarafından Kullanılıyor.', 'error');
+
+
+   </script>
+}
+
+<div class="content-wrapper">
+    <div class="card-body">
+        <h2>Yeni Kullanıcı Ekle</h2>
+        @using (Html.BeginForm("kullanicikayit", "Settings", FormMethod.Post))
+        {
+            <table id="example1" class="table table-bordered table-striped">
+                <tr>
+                    <td>
+                        <p>Profil Resmi Ekle</p>
+                        <div class="btn btn-primary">
+                            @Html.TextBoxFor(m => m.profilephoto, new { type = "file", @Value = "default.jpg", id = "imageBrowes", onchange = "ValidateSingleInput(this);", @required = "required" })
+                        </div>
+                        <hr />
+                        <b><font color="orangered"><span id="errorfile"></span></font></b>
+                        <b><font color="orangered"><span id="errortype"></span></font></b>
+                        <div id="imgPreview" class="thumbnail" style="display:none;">
+                            <img class="img-responsive" id="targetImg" style="width:100px; height:100px;" />
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description"></span>
+                            </div>
+
+                        </div>
+                    </td>
+                    <td>
+                        <p>Aktiflik Durumu</p>
+                        @Html.HiddenFor(m => m.active, new { @class = "form-control", @Value = "fas fa-check text-primary", id = "colordbs", @required = "required" })
+                    <select id="colordb" class="form-control">
+                        <option value="fas fa-check text-primary">Aktif!</option>
+                        <option value="fas fa-times text-error">Aktif Değil!</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>İsim</p>
+                        @Html.TextBoxFor(m => m.name, new { @class = "form-control", oninput="text(this.id);", @required = "required" })
+                    </td>
+                    <td>
+                        <p>Soyisim</p>
+                        @Html.TextBoxFor(m => m.surname, new { @class = "form-control", oninput="text(this.id);", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Tc</p>
+                        @Html.TextBoxFor(m => m.tc, new { @class = "form-control", oninput="TcNumber(this.id);", maxlength="11", @required="required", placeholder="Lütfen 11 Haneli TC Kimlik Numaranızı Giriniz." })
+
+                    </td>
+                    <td>
+                        <p>Telefon</p>
+                        <div class="input-phone" id="phone"></div>                  
+                        @Html.HiddenFor(m => m.tel, new { @class = "form-control", id = "deger", oninput = "PhoneNumber(this.id);", maxlength = "17", @Value = "+90", @required = "required", placeholder = "Lütfen Başında 0 Olmadan 11 Haneli Telefon Numaranızı Giriniz." })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Kullanıcı Adı</p>
+                        @Html.TextBoxFor(m => m.usrname, new { @class = "form-control", oninput="usrname(this.id);", @required = "required" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Parola</p>
+                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @required = "required" })
+
+
+                        @Html.HiddenFor(m => m.securitykey, new { @Value = "", @class = "form-control", @required = "required", id = "hsecuritykey" })
+                    </td>
+                    <td>
+                        <p>E-Mail</p>
+                        @Html.TextBoxFor(m => m.email, new { @class = "form-control", id = "email", type = "email", @required = "required", placeholder = "Lütfen Kullanıcıya Ait Mail Adresini Doğru Girin." })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Yetki</p>
+                        @Html.HiddenFor(m => m.role, new { @class = "form-control", @Value = "Admin", id = "roledbs", @required = "required" })
+                        <select id="roledb" class="form-control">
+                            <option value="1">Admin</option>
+                            <option value="2">Yonetici</option>
+                            <option value="3">User</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p>Cinsiyet</p>
+                        @Html.HiddenFor(m => m.gender, new { @class = "form-control", @Value = "Erkek", id = "genderdbs", @required = "required" })
+                        <select id="genderdb" class="form-control">
+                            <option value="1">Erkek</option>
+                            <option value="2">Kadın</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit" onclick="Uploadimage()" class="fa fa-floppy-o btn btn-success" /> Kaydet</td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        dropdowncont();
+    });
+</script>
+
+<script>
+    var _validFileExtensions2 = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+
+    $(document).ready(function () {
+
+        $("#imageBrowes").change(function () {
+            var File = this.files;
+            var numb = $(this)[0].files[0].size / 1024 / 1024;
+            numb = numb.toFixed(2);
+            if (numb > 2) {
+                $("#errortype").text('');
+                $("#errorfile").text('Max dosya boyutu 2 MB! Dosyanız: ' + numb + ' MB');
+                $("#imageBrowes").val('');
+                $("#description").text('');
+                $("#imgPreview").hide();
+            }
+            else {
+                if (File && File[0]) {
+                    ReadImage(File[0]);
+                }
+                $("#errortype").text('');
+                $("#errorfile").text('');
+
+            }
+        })
+
+    })
+
+
+    var ReadImage = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 2048) + "KB";
+
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview").show();
+
+            }
+
+        }
+
+    }
+
+    var ClearPreview = function () {
+        $("#imageBrowes").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+
+    }
+
+    var Uploadimage = function () {
+
+        var file = $("#imageBrowes").get(0).files;
+
+        var data = new FormData;
+        data.append("profilephotoFile", file[0]);
+
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Home/uImageUpload",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                ClearPreview();
+
+
+
+            }
+
+        })
+
+
+        //
+    }
+    function ValidateSingleInput(oInput) {
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions2.length; j++) {
+                    var sCurExtension = _validFileExtensions2[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+
+                }
+
+
+
+                if (!blnValid) {
+                    $("#errortype").text('Seçilen dosya ".jpg", ".jpeg", ".bmp", ".gif", ".png" uzantılı olmak zorundadır.');
+                    oInput.value = "";
+                    $("#errorfile").text('');
+                    $("#imageBrowes").val('');
+                    $("#description").text('');
+                    $("#imgPreview").hide();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+<script>
+    function generatePassword() {
+        var length = 21,
+            charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*/#{[]}\|-,.<>|:.!",
+            retVal = "";
+        for (var i = 0, n = charset.length; i < length; ++i) {
+            retVal += charset.charAt(Math.floor(Math.random() * n));
+        }
+        return retVal;
+    }
+        document.getElementById("hsecuritykey").value = generatePassword();
+
+</script>

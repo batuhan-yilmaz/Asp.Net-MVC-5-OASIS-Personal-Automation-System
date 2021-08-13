@@ -1,0 +1,205 @@
+﻿@model OASIS.Models.Entity.authorized
+
+@{
+    ViewBag.Title = "Yönetici Güncelle";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="content-wrapper">
+        <div class="card-body">
+            <h2>Yönetici Güncelle</h2>
+            @using (Html.BeginForm("yguncelle", "Home", FormMethod.Post, new { @enctype = "multipart/from-data" }))
+            {
+                <table id="example1" class="table table-bordered table-striped">
+                    <tr>
+                        <td>
+                            <p>Firma</p>
+                            @Html.DropDownListFor(m => m.company.companyid, (List<SelectListItem>)ViewBag.CompanyList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                        <td>
+                            <p>Bölge</p>
+                            @Html.DropDownListFor(m => m.region.regionid, (List<SelectListItem>)ViewBag.RegionList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Birim</p>
+                            @Html.DropDownListFor(m => m.unit.unitid, (List<SelectListItem>)ViewBag.UnitList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                        <td>
+                            <p>Departman</p>
+                            @Html.DropDownListFor(m => m.departman.departmanid, (List<SelectListItem>)ViewBag.DepartmanList, new { @class = "form-control", @required = "required" })
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Yönetici</p>
+                            @Html.TextBoxFor(m => m.authorized1, new { oninput = "text(this.id);", @class = "form-control", @required = "required" })
+
+                        </td>
+                        <td>
+                            <p>Tc</p>
+                            @Html.TextBoxFor(m => m.tc, new { @class = "form-control", oninput = "TcNumber(this.id);", maxlength = "11", @required = "required", placeholder = "Lütfen 11 Haneli TC Kimlik Numaranızı Giriniz." })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Telefon</p>
+                            @Html.TextBoxFor(m => m.tel, new { @class = "form-control", id = "phoneNumber", oninput = "PhoneNumber(this.id);", maxlength = "17", @required = "required", placeholder = "Lütfen Başında 0 Olmadan 11 Haneli Telefon Numaranızı Giriniz." })
+
+                        </td>
+                        <td>
+                            <p>E-Posta</p>
+                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", id = "email", type = "email", @required = "required", placeholder = "Lütfen Yöneticiye Ait Mail Adresini Doğru Girin." })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Adres</p>
+                            @Html.TextBoxFor(m => m.adres, new { oninput = "customtext(this.id);", @class = "form-control", @required = "required" })
+                            @Html.HiddenFor(m => m.civilstatusget, new { @class = "form-control", @Value = "Bekar", @onkeydown = "javascript:NumberOnly(this,event)", id = "medenidurumdbs" })
+                            @Html.HiddenFor(m => m.children, new { @class = "form-control", @Value = "Çocuk yok", @onkeydown = "javascript:NumberOnly(this,event)", id = "cocuksayisidbs" })
+                        </td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>
+                            <p>Çalışma Günü Başlangıcı</p>
+                            @Html.EditorFor(m => m.workingstart, new { htmlAttributes = new { @class = "form-control", id = "tarih1", placeholder = "Lütfen Başlangıç Tarihi Giriniz.", @required = "required" } })
+
+                        </td>
+                        <td>
+                            <p>Çalışma Günü Bitişi</p>
+                            @Html.EditorFor(m => m.workingstop, new { htmlAttributes = new { @class = "form-control", id = "tarih2", placeholder = "Lütfen Bitiş Tarihi Giriniz.", @required = "required" } })
+
+                            <input type="hidden" id="calcbutton2" class="btn btn-info" data-toggle="modal" data-target="#calenderextra">
+                            <div class="modal fade" id="calenderextra">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Ücret Hesapla</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="checkboxgun" style="width:100%;">
+                                    <div id="selectdays" style="width:30%; float:left;">
+										<h6><font color="red">Standart Haftalık İzin</font></h6>
+										<div><input type="checkbox" checked="checked">Standart Haftalık İzin!</div>
+                                        <h6><font color="red">Ekstra Tatil İş Günleri için Seçiniz!</font></h6>
+                                        <div><input type="checkbox" value="1">Pazartesi</div>
+                                        <div><input type="checkbox" value="2">Salı</div>
+                                        <div><input type="checkbox" value="3">Çarşamba</div>
+                                        <div><input type="checkbox" value="4">Perşembe</div>
+                                        <div><input type="checkbox" value="5">Cuma</div>
+                                        <div><input type="checkbox" value="6">Cumartesi</div>
+                                        <div><input type="checkbox" value="0">Pazar</div>
+                                        <br />
+                                    </div>
+                                                <div id="ozeltarihler" style="width:70%; float:left;">
+                                                    <h5>Ulusal Bayram ve Genel Tatil Günleri</h5>
+                                                    <div><input type="checkbox" value="1">Yılbaşı</div>
+                                                    <div><input type="checkbox" value="2">23 Nisan Ulusal Egemenlik Ve Çocuk Bayramı</div>
+                                                    <div><input type="checkbox" value="3">01 Mayıs - Emek ve Dayanışma Günü</div>
+                                                    <div><input type="checkbox" value="4">19 Mayıs - Atatürk'ü Anma,Gençlik ve Spor Bayramı</div>
+                                                    <div><input type="checkbox" value="5">Ramazan Bayramı Arifesi (Yarım Gün)</div>
+                                                    <div><input type="checkbox" value="6">Ramazan Bayramı(3 Gün)</div>
+                                                    <div><input type="checkbox" value="7">15 Temmuz - Demokrasi ve Özgürlük Günü</div>
+                                                    <div><input type="checkbox" value="8">Kurban Bayramı Arifesi (Yarım Gün)</div>
+                                                    <div><input type="checkbox" value="9">Kurban Bayramı (4 Gün)</div>
+                                                    <div><input type="checkbox" value="10">30 Ağustos - Zafer Bayramı</div>
+                                                    <div><input type="checkbox" value="11">28 Ekim - Cumhuriyet Bayramı (Yarım Gün)</div>
+                                                    <div><input type="checkbox" value="12">29 Ekim - Cumhuriyet Bayramı</div>
+                                                </div>
+                                            </div>
+                                            <div id="civilstatus">
+                                                <p> Medeni Durum</p>
+                                                <select name="type" class="form-control" value="0" onclick="calfdiff()" onmousedown="this.value='';" onchange="esagi(this.value);" id="medenidurumdb" required>
+                                                    <option value='0'>Bekar</option>
+                                                    <option value='1'>Evli Eşi Çalışıyor</option>
+                                                    <option value='2'>Evli Eşi Çalışmıyor</option>
+                                                </select>
+                                                <p>Çocuk Sayisi</p>
+                                                <select name="type" class="form-control" value="0" onclick="calfdiff()" onkeydown="javascript:NumberOnly(this,event)" onmousedown="this.value='';" onchange="cocukagi(this.value);" id="cocuksayisidb" required>
+                                                    <option value='0'>Çocuk yok</option>
+                                                    <option value='1'>1 Çocuk</option>
+                                                    <option value='2'>2 Çocuk</option>
+                                                    <option value='3'>3 Çocuk</option>
+                                                    <option value='4'>4 Çocuk</option>
+                                                    <option value='5'>5 Çocuk</option>
+                                                </select>
+                                            </div>
+                                            <div id="mesai">
+                                                <p>Mesai Var ise Gün Sayısı</p>
+                                                @Html.TextBoxFor(m => m.mesaidays, new {oninput = "Number(this.id);", @class = "form-control", id = "mesaigunsayisi", @Value = "0", @required = "required" })
+                                                <p>Mesai Ücreti</p>
+                                                @Html.TextBoxFor(m => m.mesai, new {oninput = "Number(this.id);", @class = "form-control", id = "ymesairesult", @Value = "0", @readonly = "false", @onkeydown = "javascript:NumberOnly(this,event)" })
+                                            </div>
+                                            <div id="pirim">
+                                                <p>Aylık Performans "Avarage"</p>
+                                                @Html.TextBoxFor(m => m.performance, new {oninput = "Number(this.id);", @class = "form-control", id = "avarage", @Value = "0", @required = "required" })
+                                                <p>Pirim = "Aylık Performans Avarage+ => %</p>
+                                                @Html.TextBoxFor(m => m.pirim, new {oninput = "Number(this.id);", @class = "form-control", id = "resultyonetici", @Value = "0", @readonly = "false", @onkeydown = "javascript:NumberOnly(this,event)" })
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                            <button type="button" onclick="calfdiff()" class="btn btn-success" data-dismiss="modal">Kaydet</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Cinsiyet</p>
+                            @Html.HiddenFor(m => m.gender, new { @class = "form-control", @Value = "Erkek", id = "genderdbs", @required = "required" })
+                            <select id="genderdb" class="form-control">
+                                <option value="1">Erkek</option>
+                                <option value="2">Kadın</option>
+                            </select>
+                        </td>
+                        <td>
+                            <p>Ücret</p>
+                            @Html.TextBoxFor(m => m.pay, new { oninput = "Number(this.id);", @class = "form-control", id = "ymaas", @Value = "0", @readonly = "false", @onkeydown = "javascript:NumberOnly(this,event)" })
+                            @Html.HiddenFor(m => m.authorizedid, new { @class = "form-control" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" onclick="calfdiff()" class="fa fa-floppy-o btn btn-success" /> Kaydet</td>
+                    </tr>
+                </table>
+            }
+
+        </div>
+    </div>
+
+<div class="table"></div>
+<input type="hidden" class="form-control" placeholder="İki Tarih Arasındaki Gün Sayısı" id="calismagunusayisi">
+<input type="hidden" value="Hesapla" class="btn btn-info" onclick="calfdiff()" id="calcbutton2">
+
+<script src="~/Content/Admin/plugins/custom/jquery-ui.js"></script>
+<script src="~/Content/Admin/plugins/custom/oasiscustom.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        bordroveriler();
+        pirimcalc();
+        oasisdatepicker();
+        calfdiff();
+        mesai();
+        cocukagi();
+        esagi();
+        parseDate(input);
+    });
+</script>
+

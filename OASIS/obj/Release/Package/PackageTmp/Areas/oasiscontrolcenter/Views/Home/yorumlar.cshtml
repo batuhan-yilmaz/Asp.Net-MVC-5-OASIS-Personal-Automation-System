@@ -1,0 +1,190 @@
+﻿@model List<OASIS.Models.Entity.comment>
+
+@{
+    ViewBag.Title = "Yorumlar";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["yorumGuncelle"] != null)
+{
+
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+
+</script>
+}
+
+<div class="content-wrapper d-flex">
+    <section class="content">
+        <h4> Yorumlar </h4>
+
+        <!-- /.card-header -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header">
+                        @Html.ActionLink(" Akış ", "Index", null, new { @class = "fa fa-bullhorn btn btn-success" }) &nbsp;
+                        @Html.ActionLink(" Yeni Yorum Oluştur ", "yorumekle", null, new { @class = "fa fa-plus btn btn-primary" })
+                        <p style="float:right; color:#007bff"><i class="fas fa-info-circle text-danger"></i> İncelemede Olanlar <span class="badge bg-danger" id="commentdanger"></span></p>
+                        <p style="float:right; color:#007bff"><i class="fas fa-check text-primary"></i> Okunmuş Yorumlar <span class="badge bg-primary" id="commentchecked"></span> &nbsp; | &nbsp; </p>
+                        <p style="float:right; color:#007bff"><i class="fas fa-star text-warning"></i> Okunmamış Yorumlar <span class="badge bg-warning" id="commentwarning"></span> &nbsp; | &nbsp; </p>
+                    </div>
+                    <br />
+                    <table id="example" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Durum</th>
+                                <th>Referans Numarası</th>
+                                <th>Firma</th>
+                                <th>Bölge</th>
+                                <th>Birim</th>
+                                <th>Gönderen</th>
+                                <th>Tc</th>
+                                <th>Telefon</th>
+                                <th>E-Posta</th>
+                                <th>Konu</th>
+                                <th>Tarih</th>
+                                <th>İçerik</th>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <th>Sil</th>
+                                }
+                                </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @foreach (var comment in Model)
+                            {
+                            <tr>
+
+                                <td class="mailbox-star"><a href="#"><i class="@comment.color"></i></a></td>
+                                <td class="mailbox-name"><b> @comment.referancenumber</b></td>
+                                <td class="mailbox-name"><b><font color="#007bff"> @comment.company.company1</font></b></td>
+                                <td class="mailbox-name"><b><font color="#007bff"> @comment.region.region1</font></b></td>
+                                <td class="mailbox-name"><b><font color="#007bff"> @comment.unit.unit1</font></b></td>
+                                <td class="mailbox-name"><b><font color="orangered"> @comment.namesurname</font></b></td>
+                                <td class="mailbox-subject"><b>@comment.tc</b></td>
+                                <td class="mailbox-subject"><b>@comment.tel</b></td>
+                                <td class="mailbox-subject"><b>@comment.email</b></td>
+                                <td class="mailbox-subject"><b>@comment.subject</b></td>
+                                <td class="mailbox-date"><b>@Html.DisplayFor(m => comment.date)</b></td>
+                                <td>
+                                    <button type="button" class="fa fa-envelope-open btn btn-outline-primary" data-toggle="modal" data-target="#oku_@comment.checkcommentid">  Yorum İçeriğini Göster</button>
+                                    <div class="modal fade" id="oku_@comment.checkcommentid">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title"><font color="orangered"><b>Konu:</b></font> @comment.subject</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        <font color="orangered"><b>İçerik:</b></font>
+                                                        <br />
+                                                        @comment.comment1
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Vazgeç</button>
+                                                    @Html.ActionLink("Güncelle", "yorumguncelle", new { comment.checkcommentid }, new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                </td>
+
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <button type="button" class="fa fa-trash btn btn-warning" data-toggle="modal" data-target="#oku2_@comment.checkcommentid">  Sil</button>
+                                        <div class="modal fade" id="oku2_@comment.checkcommentid">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title"><font color="orangered"><b>Yorumu Sil!</b></font></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            <b> <font color="orangered">"@comment.subject" </font> İlgili Yorumu Silmek İstiyormusunuz?</b>
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Vazgeç</button>
+                                                        @Html.ActionLink(" Sil ", "yorumsil", new { comment.checkcommentid }, new { @class = "fa fa-trash btn btn-warning" })
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                    </td>
+                                }
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+    </section>
+</div>
+
+
+<script type="text/javascript">
+
+    var messagetypes = [];
+    var mchecked = "fas fa-check text-primary";
+    var mwarning = "fas fa-star text-warning";
+    var mdanger = "fas fa-info-circle text-danger";
+    var url = '/Home/cbox';
+    $.getJSON(url, function (data) {
+        var boxstar = 0;
+        var boxdanger = 0;
+        var boxchecked = 0;
+        for (var item in data.Result) {
+            var degerz = '' + data.Result[item].color + '';
+            $('tablez').append(degerz);
+            var messagetype = (data.Result[item].color);
+            messagetypes.push(messagetype);
+        };
+        mtypecontrol();
+        var boxstar = document.getElementById("commentwarning").textContent = ("" + boxstar.toString());;
+        var boxdanger = document.getElementById("commentdanger").textContent = ("" + boxdanger.toString());;
+        var boxchecked = document.getElementById("commentchecked").textContent = ("" + boxchecked.toString());;
+        function mtypecontrol() {
+            for (i = 0; i < messagetypes.length; i++) {
+                if (messagetypes[i] == mchecked) {
+                    boxchecked++;
+                }
+                else if (messagetypes[i] == mwarning) {
+                    boxstar++;
+                }
+                else if (messagetypes[i] == mdanger) {
+                    boxdanger++;
+                }
+                else {
+                    //do nothing.
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        $('#checkBoxAll').click(function () {
+            if ($(this).is(":checked"))
+                $('.chkCheckBoxId').prop('checked', true);
+            else
+                $('.chkCheckBoxId').prop('checked', false);
+        });
+    });
+
+</script>

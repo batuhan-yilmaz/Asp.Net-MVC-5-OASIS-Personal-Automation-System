@@ -1,0 +1,272 @@
+﻿@using OASIS.Models.Entity
+@model List<check>
+
+@{
+    ViewBag.Title = "Denetimler";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["denetimGuncelle"] != null)
+{
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+    </script>
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Denetimler</h1>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="row">
+                <!-- /.card -->
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Sisteminize kayıtlı denetimler</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Güncelle</th>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <th>Sil</th>
+                                    }
+                                    <th>Değerlendirme Puanları</th>
+                                    <th>Kanıt ve Görüş</th>
+                                    <th>Firma</th>
+                                    <th>Bölge</th>
+                                    <th>Birim</th>
+                                    <th>Departman</th>
+                                    <th>Yönetici</th>
+                                    <th>Denetim Tarihi</th>
+                                    <th>Konum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var denetim in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="fa fa-pencil-square-o btn btn-outline-primary" data-toggle="modal" data-target="#guncelle_@denetim.checkid">Güncelle</button>
+                                        <div class="modal fade" id="guncelle_@denetim.checkid">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Denetim Güncelle</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Denetimi Güncellemek İstiyormusunuz?</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                        @Html.ActionLink("Güncelle", "denetimguncelle", new { denetim.checkid }, new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
+                                    </td>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <td>
+                                            <button type="button" class="fa fa-trash btn btn-outline-danger" data-toggle="modal" data-target="#sil_@denetim.checkid">Sil</button>
+                                            <div class="modal fade" id="sil_@denetim.checkid">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Denetim Sil</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Denetimi Silmek İstiyormusunuz?</p>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                            @Html.ActionLink("Sil", "denetimsil", new { denetim.checkid }, new { @class = "fa fa-trash btn btn-outline-danger" })
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.modal-content -->
+                                                </div>
+                                                <!-- /.modal-dialog -->
+                                            </div>
+                                            <!-- /.modal -->
+                                        </td>
+                                    }
+                                    <td>
+                                        <button type="button" class="fa fa-pencil-square-o btn btn-outline-success" data-toggle="modal" data-target="#puanlama_@denetim.checkid">Detay!</button>
+                                        <div class="modal fade" id="puanlama_@denetim.checkid">
+                                            <div class="modal-dialog modal-dialog-scrollable">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Denetim Puanlaması 10/10</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Hijyen</th>
+                                                                    <th>Güleryüz</th>
+                                                                    <th>Hizmet</th>
+                                                                    <th>Kalite</th>
+                                                                    <th>Geri Bildirimler</th>
+                                                                    <th>Düzen ve Tertip</th>
+                                                                    <th>Destek</th>
+                                                                    <th>İletişim</th>
+                                                                    <th>Uyum</th>
+                                                                    <th>Oryantasyon Süreci</th>
+                                                                    <th>Disiplin</th>
+                                                                    <th>Kurallara Uygunluk</th>
+                                                                    <th>Yardımlaşma</th>
+                                                                    <th>Kendini Geliştirme</th>
+                                                                    <th>Performans</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>@denetim.check1</td>
+                                                                    <td>@denetim.check2</td>
+                                                                    <td>@denetim.check3</td>
+                                                                    <td>@denetim.check4</td>
+                                                                    <td>@denetim.check5</td>
+                                                                    <td>@denetim.check6</td>
+                                                                    <td>@denetim.check7</td>
+                                                                    <td>@denetim.check8</td>
+                                                                    <td>@denetim.check9</td>
+                                                                    <td>@denetim.check10</td>
+                                                                    <td>@denetim.check11</td>
+                                                                    <td>@denetim.check12</td>
+                                                                    <td>@denetim.check13</td>
+                                                                    <td>@denetim.check14</td>
+                                                                    <td>@denetim.check15</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Tamam</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
+                                    </td>
+                                    <td>
+                                        <button type="button" class="fa fa-pencil-square-o btn btn-outline-primary" data-toggle="modal" data-target="#gorus_@denetim.checkid">Detay!</button>
+                                        <div class="modal fade" id="gorus_@denetim.checkid">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Denetimcinin Görüşü</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <div id="fotolist" style="width:100%">
+                                                            <div id="fotolist1" style="width:25%; float:left;">
+                                                                <div class="timeline-footer">
+                                                                    <a href="~/Content/Admin/data/check/cimg/@denetim.content1" data-toggle="lightbox" data-gallery="gallery">
+                                                                        <img src="~/Content/Admin/data/check/cimg/@denetim.content1" style="width:100px; height:100px;" class="img-fluid mb-2" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="fotolist2" style="width:25%; float:left;">
+                                                                <div class="timeline-footer">
+                                                                    <a href="~/Content/Admin/data/check/cimg/@denetim.content2" data-toggle="lightbox" data-gallery="gallery">
+                                                                        <img src="~/Content/Admin/data/check/cimg/@denetim.content2" style="width:100px; height:100px;" class="img-fluid mb-2" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="fotolist3" style="width:25%; float:left;">
+                                                                <div class="timeline-footer">
+                                                                    <a href="~/Content/Admin/data/check/cimg/@denetim.content3" data-toggle="lightbox" data-gallery="gallery">
+                                                                        <img src="~/Content/Admin/data/check/cimg/@denetim.content3" style="width:100px; height:100px;" class="img-fluid mb-2" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="fotolist4" style="width:25%; float:left;">
+                                                                <div class="timeline-footer">
+                                                                    <a href="~/Content/Admin/data/check/cimg/@denetim.content4" data-toggle="lightbox" data-gallery="gallery">
+                                                                        <img src="~/Content/Admin/data/check/cimg/@denetim.content4" style="width:100px; height:100px;" class="img-fluid mb-2" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <p><font color="orangered"><b>Görüş:</b></font>@denetim.suggestion</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Tamam</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
+                                    </td>
+                                    <td>@denetim.company.company1</td>
+                                    <td>@denetim.region.region1</td>
+                                    <td>@denetim.unit.unit1</td>
+                                    <td>@denetim.departman.departman1</td>
+                                    <td><b>@denetim.authorized.authorized1</b></td>
+                                    <td>@Html.DisplayFor(m => denetim.checkdate)</td>
+                                    <td>@denetim.location</td>
+
+                                </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    $(function () {
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox({
+                alwaysShowClose: true
+            });
+        });
+
+    })
+</script>

@@ -1,0 +1,147 @@
+﻿@using OASIS.Models.Entity
+@model List<ucretbordro>
+
+@{
+    ViewBag.Title = "Bordro";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "Bordro";
+    ViewBag.menuactive = "Ayarlar";
+}
+
+@if (TempData["bordroGuncelle"] != null)
+{
+    <script>
+        Swal.fire('Başarılı', 'İşlem gerçekleşti', 'success');
+    </script>
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Bordro Bilgileri</h1>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="row">
+                <!-- /.card -->
+
+                <div class="card">
+                    <div class="card-header">
+
+                        <h3 class="card-title">Bordro Bilgileri</h3>
+
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>SGK Sabiti (Katsayı)</th>
+                                    <th>SGK Primi % 15,5 (İşveren Payı)</th>
+                                    <th>İşveren İşsizlik Sigorta Fonu</th>
+                                    <th>İşverene Toplam Maliyeti</th>
+                                    <th>Brüt Ücret</th>
+                                    <th>SSK Primi İşçi Hissesi</th>
+                                    <th>İşsizlik Sigortası Primi İşçi Hiss.</th>
+                                    <th>Gelir Vergisi Matrahı</th>
+                                    <th>Gelir Vergisi</th>
+                                    <th>Asgari Geçim İndirimi (Bekar)</th>
+                                    <th>Agi % (Kendi)</th>
+                                    <th>Agi % (Eş)</th>
+                                    <th>Agi % (1. ve 2.Çocuk)</th>
+                                    <th>Agi % (3.Çocuk)</th>
+                                    <th>Agi % (4. ve Üzeri Çocuk)</th>
+                                    <th>Damga Vergisi</th>
+                                    <th>Net Ücret</th>
+                                    <th>Günlük Ücret</th>
+                                    <th>Pirim % Oranı</th>
+                                    <th>Mesai Ücreti</th>
+                                    <th>Yönetici Kıdem Farkı</th>
+                                    <th>Yönetici Pirim % Oranı</th>
+                                    <th>Yönetici Mesai Ücreti</th>
+                                    <th>Pirim Limiti TL</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @foreach (var bordro in Model)
+                                {
+                                    <tr>
+                                        <td>@bordro.sgksabiti</td>
+                                        <td>@bordro.sgkisveren</td>
+                                        <td>@bordro.isverenissizsigfon</td>
+                                        <td>@bordro.isverenmaliyet</td>
+                                        <td>@bordro.nrkazanc</td>
+                                        <td>@bordro.sgkiscipayi</td>
+                                        <td>@bordro.iszsigiscipayi</td>
+                                        <td>@bordro.gvmahtari</td>
+                                        <td>@bordro.gelirvergisi</td>
+                                        <td>@bordro.agi</td>
+                                        <td>@bordro.kendiagiyuzdesi</td>
+                                        <td>@bordro.esagiyuzdesi</td>
+                                        <td>@bordro.birveikicocukagiyuzdesi</td>
+                                        <td>@bordro.uccocukyuzdesi</td>
+                                        <td>@bordro.dortveuzericocukyuzdesi</td>
+                                        <td>@bordro.damgavergi</td>
+                                        <td>@bordro.netkazanc</td>
+                                        <td>@bordro.gunlukkazanc</td>
+                                        <td>@bordro.pirimyuzdesi</td>
+                                        <td>@bordro.mesaiucreti</td>
+                                        <td>@bordro.yoneticifark</td>
+                                        <td>@bordro.yoneticipirimyuzdesi</td>
+                                        <td>@bordro.yoneticimesaiucreti</td>
+                                        <td>@bordro.pirimlimit</td>
+                                        <td>
+                                            <button type="button" class="fa fa-pencil-square-o btn btn-outline-primary" data-toggle="modal" data-target="#guncelle_@bordro.ucretbordroid">Güncelle</button>
+                                            <div class="modal fade" id="guncelle_@bordro.ucretbordroid">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Bordro ve Maaş Bilgilerini Güncelle</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Bordro ve Maaş Bilgilerini Güncelle Güncellemek İstiyormusunuz?</p>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                                            @Html.ActionLink("Güncelle", "bordroguncelle", new { bordro.ucretbordroid }, new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.modal-content -->
+                                                </div>
+                                                <!-- /.modal-dialog -->
+                                            </div>
+                                            <!-- /.modal -->
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

@@ -1,0 +1,127 @@
+﻿@model List<OASIS.Models.Entity.home>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="activity">
+            <!-- Post -->
+            @foreach (var home in Model)
+            {
+                <div class="post">
+                    <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="~/Content/Admin/dist/img/oasisLogo.png" alt="user image">
+                        <span class="username">
+                            <font style="color:#007bff;">
+                                <i class="fas fa-flag"></i><b>
+                                    @home.company.company1 - @home.region.region1 - @home.unit.unit1 - @home.departman.departman1
+                                </b>
+
+                            </font>
+                            <a class="float-right btn-tool"><font style="color:#007bff;"> @Html.DisplayFor(m => home.eventsstart)  <i class="fa fa-clock"></i></font></a>
+                        </span>
+                        <b><span class="description">Konu : &nbsp;<font style="color:orangered;">@home.subject </font>&nbsp;-&nbsp; <font style="color:limegreen;">@home.process.process1 </font> </span></b>
+                    </div>
+                    <!-- /.user-block -->
+                    <p>
+                        @home.descriptions
+                    </p>
+                    <!-- /.user-block -->
+                    <div class="row mb-3">
+                        &nbsp;
+                        <div class="timeline-footer">
+                            <a href="~/Content/Admin/data/home/himg/@home.content1" data-toggle="lightbox" data-gallery="gallery">
+                                <img src="~/Content/Admin/data/home/himg/@home.content1" style="width:200px; height:200px;" class="img-fluid mb-2" />
+                            </a>
+                        </div>
+                        &nbsp;
+                        <div class="timeline-footer">
+                            <a href="~/Content/Admin/data/home/himg/@home.content2" data-toggle="lightbox" data-gallery="gallery">
+                                <img src="~/Content/Admin/data/home/himg/@home.content2" style="width:200px; height:200px;" class="img-fluid mb-2" />
+                            </a>
+                        </div>
+                        &nbsp;
+                        <div class="timeline-footer">
+                            <a href="~/Content/Admin/data/home/himg/@home.content3" data-toggle="lightbox" data-gallery="gallery">
+                                <img src="~/Content/Admin/data/home/himg/@home.content3" style="width:200px; height:200px;" class="img-fluid mb-2" />
+                            </a>
+                        </div>
+                        &nbsp;
+                        <div class="timeline-footer">
+                            <a href="~/Content/Admin/data/home/himg/@home.content4" data-toggle="lightbox" data-gallery="gallery">
+                                <img src="~/Content/Admin/data/home/himg/@home.content4" style="width:200px; height:200px;" class="img-fluid mb-2" />
+                            </a>
+                        </div>
+
+                    </div>
+                    <p>
+                        <span class="float-right">
+                            <a class="float-right btn-tool"><b><font style="color:orangered;"> @Html.DisplayFor(m => home.eventsend) <i class="fa fa-hourglass-end"></i></font></b></a>
+                        </span>
+                    </p>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Yonetici"))
+                    {
+                        <button type="button" class="fa fa-pencil-square-o btn btn-outline-primary" data-toggle="modal" data-target="#guncelle_@home.homeid">Güncelle</button>
+                        <div class="modal fade" id="guncelle_@home.homeid">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Akışı Güncelle</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Akışı Güncellemek İstiyormusunuz?</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                        @Html.ActionLink("Güncelle", "homeguncelle", new { home.homeid }, new { @class = "fa fa-pencil-square-o btn btn-outline-primary" })
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <button type="button" class="fa fa-trash btn btn-outline-danger" data-toggle="modal" data-target="#sil_@home.homeid">Sil</button>
+                        <div class="modal fade" id="sil_@home.homeid">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Akışı Sil</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Akışı Silmek İstiyormusunuz?</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                        @Html.ActionLink("Sil", "homesil", new { home.homeid }, new { @class = "fa fa-trash btn btn-outline-danger" })
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+
+<script>
+    $(function () {
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox({
+                alwaysShowClose: true
+            });
+        });
+
+    })
+</script>

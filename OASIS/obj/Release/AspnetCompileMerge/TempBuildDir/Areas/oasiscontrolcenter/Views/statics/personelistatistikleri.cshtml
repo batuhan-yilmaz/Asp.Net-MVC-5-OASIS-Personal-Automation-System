@@ -1,0 +1,283 @@
+﻿
+@{
+    ViewBag.Title = "Personel İstatistikleri";
+    Layout = "~/Areas/oasiscontrolcenter/Views/Shared/_Layout.cshtml";
+    ViewBag.link = "pstatics";
+    ViewBag.menuactive = "İstatistikler";
+}
+
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="card-body">
+                <div class="row no-print">
+                    <div class="col-12">
+                        <button onclick="javascript:window.print()" class="btn-print btn btn-warning"><i class="fas fa-print"></i>  Yazdır</button>
+                    </div>
+                </div>
+                <h2> <br /> Personel İstatistik Verileri</h2>
+
+                <div class="chart">
+                    <div id="canvas2" style="width:100%" class="desc">
+                        <div>
+                            <div class="about-content" style="width:80%;">
+                                <b>Ortalama Maaş Grafiği</b>
+                                <canvas id="chart-personelbar"></canvas>
+                            </div>
+                            <div class="about-content" style="width:80%;">
+                                <b>Ortalama Mesai Ücreti Grafiği</b>
+                                <canvas id="chart-personelbar1"></canvas>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="about-content" style="width:80%;">
+                                <b>Ortalama Çocuk Sayısı Grafiği</b>
+
+                                <canvas id="chart-personelbar2"></canvas>
+                            </div>
+                            <br />
+                            <div class="about-content" style="width:80%;">
+                                <b>Medeni Durum Grafiği</b>
+                                <canvas id="chart-personelbar3"></canvas>
+                            </div>
+                        </div>
+                        <div class="about-content" style="width:80%;">
+                            <b>Çalışan Birey Grafiği</b>
+                            <canvas id="chart-personelbar4"></canvas>
+                        </div>
+                        <br />
+                        <div class="about-content" style="width:80%;">
+                            <b>Pirim Ortalaması Grafiği</b>
+                            <canvas id="chart-personelpirim"></canvas>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script language="javascript">
+        var a = 0,
+            b = 0,
+            c = 0,
+            d = 0,
+            e = 0,
+            f = 0,
+            g = 0,
+            h = 0,
+            i = 0,
+            k = 0,
+            l = 0,
+            m = 0,
+            n = 0,
+            r = 0,
+            x = 0,
+    url = '/statics/personelistatistik';
+    $.getJSON(url, function (data) {
+        for (var item in data.Result) {
+            g += parseFloat(data.Result[item].pirim);
+            h += parseFloat(data.Result[item].pay);
+            i += parseFloat(data.Result[item].mesai);   
+            if (data.Result[item].children == "Çocuk yok") {
+                a++;
+            }
+            if (data.Result[item].children == "1 Çocuk") {
+                b++;
+            }
+            if (data.Result[item].children == "2 Çocuk") {
+                c++;
+            }
+            if (data.Result[item].children == "3 Çocuk") {
+                d++;
+            }
+            if (data.Result[item].children == "4 Çocuk") {
+                e++;
+            }
+            if (data.Result[item].children == "5 Çocuk") {
+                f++;
+            }
+             if (data.Result[item].civilstatusget ==   "Evli Eşi Çalışıyor") {
+                k++;
+            }
+             if (data.Result[item].civilstatusget ==  "Evli Eşi Çalışmıyor") {
+                l++;
+            }
+             if (data.Result[item].civilstatusget ==  "Bekar") {
+                m++;
+            }
+             if (data.Result[item].gender ==  "Erkek") {
+                n++;
+            }
+             if (data.Result[item].gender ==  "Kadin") {
+                r++;
+            }
+            x++;
+        };
+                    loadcharts();
+
+    });
+    function loadcharts() {
+        var zconfig = {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [
+                        h/x
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                    ],
+                    label: 'Personel Maaş Ortalaması'
+                }],
+                labels: [
+                    'Maaş Ortalaması',
+
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var z1config = {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [
+                        i/x
+                    ],
+                    backgroundColor: [
+                        window.chartColors.blue,
+                    ],
+                    label: 'Personel Mesai Ücreti Ortalaması'
+                }],
+                labels: [
+                    'Mesai Ücreti Ortalaması'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var pirimconfig = {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [
+                        g/x,
+                    ],
+                    backgroundColor: [
+                        window.chartColors.yellow,
+                    ],
+                    label: 'Personel Pirim Ortalaması'
+                }],
+                labels: [
+                    'Pirim Ortalaması',
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var z2config = {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [
+                        a,
+                        b,
+                        c,
+                        d,
+                        e,
+                        f
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.yellow,
+                        window.chartColors.purple,
+                        window.chartColors.blue,
+                        window.chartColors.orange,
+                        window.chartColors.blue,
+                    ],
+                    label: 'Personel Çocuk Sayısı'
+                }],
+                labels: [
+                    'Çocuk yok',
+                    '1 Çocuk',
+                    '2 Çocuk',
+                    '3 Çocuk',
+                    '4 Çocuk',
+                    '5 Çocuk',
+
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var z3config = {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [
+                        m,
+                        l,
+                        k
+                    ],
+                    backgroundColor: [
+                        window.chartColors.purple,
+                    ],
+                    label: 'Personel Medeni Durum İstatistikleri'
+                }],
+                labels: [
+                    'Bekar',
+                    'Evli Eşi Çalışmıyor',
+                    'Evli Eşi Çalışıyor',
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var z4config = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        n,
+                        r
+                    ],
+                    backgroundColor: [
+                        window.chartColors.blue,
+                        window.chartColors.red,
+                    ],
+                    label: 'Çalışanların Cinsiyet İstatistiği'
+                }],
+                labels: [
+                    'Erkek Çalışan Sayısı:',
+                    'Kadın Çalışan Sayısı:',
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        window.onload = setTimeout(function () {
+            var zctx = document.getElementById('chart-personelbar').getContext('2d');
+            window.myBar = new Chart(zctx, zconfig);
+            var z1ctx = document.getElementById('chart-personelbar1').getContext('2d');
+            window.myBar = new Chart(z1ctx, z1config);
+            var pirimctx = document.getElementById('chart-personelpirim').getContext('2d');
+            window.myBar = new Chart(pirimctx, pirimconfig);
+            var z2ctx = document.getElementById('chart-personelbar2').getContext('2d');
+            window.myBar = new Chart(z2ctx, z2config);
+            var z3ctx = document.getElementById('chart-personelbar3').getContext('2d');
+            window.myBar = new Chart(z3ctx, z3config);
+            var z4ctx = document.getElementById('chart-personelbar4').getContext('2d');
+            window.myBar = new Chart(z4ctx, z4config);
+        }, 2000);
+    
+    }   
+</script>
